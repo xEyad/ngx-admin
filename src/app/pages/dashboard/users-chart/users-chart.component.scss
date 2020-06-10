@@ -1,0 +1,22 @@
+:host{
+  height: 400px;
+  display: block;
+  .container-fluid
+  {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .chart-wrapper{
+      flex-grow: 1;
+      .col-12{
+        // padding: 0;
+      }
+  }
+
+  .header{
+    padding: 10px;
+    padding-bottom: 0;
+  }
+}
