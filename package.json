@@ -81,7 +81,7 @@
     "@angular/compiler-cli": "^9.0.4",
     "@angular/language-service": "9.0.4",
     "@compodoc/compodoc": "1.0.1",
-    "@fortawesome/fontawesome-free": "^5.2.0",
+    "@fortawesome/fontawesome-free": "^5.13.0",
     "@types/d3-color": "1.0.5",
     "@types/jasmine": "2.5.54",
     "@types/jasminewd2": "2.0.3",
