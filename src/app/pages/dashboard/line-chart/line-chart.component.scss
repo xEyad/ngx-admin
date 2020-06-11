@@ -1,0 +1,25 @@
+.container-fluid{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0;
+  .graph-wrapper
+  {
+    flex-grow: 1;
+    width: 100%;
+    align-items: center;
+  }
+
+  .header-wrapper{
+    width: 100%;
+    .header{
+      padding: 10px;
+      padding-bottom: 0;
+      width: 100%;
+    }
+  }
+}
+
+
