@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+  .meter{
+    display: flex;
+    flex-direction: column;
+    .data{
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+  }
+}
