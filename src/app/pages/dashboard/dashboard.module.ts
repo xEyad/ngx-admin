@@ -8,6 +8,7 @@ import { SimpleCardComponent } from './simple-card/simple-card.component';
 import { UsersChartComponent } from './users-chart/users-chart.component';
 import { LineChartComponent } from './../dashboard/line-chart/line-chart.component';
 import { ChartjsModule } from '@ctrl/ngx-chartjs';
+import { SocialCardsComponent } from './social-cards/social-cards.component';
 @NgModule({
   imports: [
     NbCardModule,
@@ -19,7 +20,8 @@ import { ChartjsModule } from '@ctrl/ngx-chartjs';
     DashboardComponent,
     SimpleCardComponent,
     UsersChartComponent,
-    LineChartComponent
+    LineChartComponent,
+    SocialCardsComponent
   ],
 })
 export class DashboardModule { }

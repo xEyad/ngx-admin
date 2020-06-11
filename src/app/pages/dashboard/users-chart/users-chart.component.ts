@@ -16,6 +16,7 @@ export class UsersChartComponent implements OnInit {
   showLegend: boolean = false;
   showLabels: boolean = false;
   isDoughnut: boolean = false;
+  explodeSlices : boolean = true;
   legendPosition: string = 'below';
 
   colorScheme = {

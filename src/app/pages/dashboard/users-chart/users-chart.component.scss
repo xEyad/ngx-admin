@@ -1,31 +1,28 @@
-:host{
+:host {
   height: 100%;
-display: flex;
-  .container-fluid
-  {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  nb-card {
+    width: 100%;
   }
-  .chart-wrapper{
+  .chart-wrapper {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    ngx-charts-pie-chart{
+    ngx-charts-pie-chart {
       flex-grow: 1;
     }
   }
 
-  .stat-row{
+  .stat-row {
     margin-bottom: 10px;
-    .title{
-      i{
+    .title {
+      i {
         margin-inline-end: 10px;
       }
     }
-    .evaluation,.value{
+    .evaluation,
+    .value {
       display: flex;
       justify-content: end;
     }
