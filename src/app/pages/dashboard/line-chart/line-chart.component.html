@@ -1,14 +1,30 @@
 <nb-card class="shadow" size="medium">
   <nb-card-header>
-    <h6>Acquired Users</h6>
+    <h6>Website Analytics</h6>
   </nb-card-header>
   <nb-card-body>
-    <div class="container-fluid">
-    <div class="row graph-wrapper">
-      <div class="col-12 ">
-        <ngx-chartjs [data]="data" type="line"></ngx-chartjs>
+    <ngx-chartjs [data]="data" type="line"></ngx-chartjs>
+</nb-card-body>
+<nb-card-footer>
+  <div class="row">
+    <div class="col-4 p-0 border-right">
+      <div class="stat">
+        <div class="value">45.87M</div>
+        <div class="label">Total views <i class="fas fa-arrow-up"></i> 2.43%</div>
+      </div>
+    </div>
+    <div class="col-4 p-0 border-right">
+      <div class="stat">
+        <div class="value">15:48</div>
+        <div class="label">Session duration <i class="fas fa-arrow-down"></i> 56.43%</div>
+      </div>
+    </div>
+    <div class="col-4 p-0 ">
+      <div class="stat">
+        <div class="value">452</div>
+        <div class="label">Total Sessions <i class="fas fa-arrow-up"></i> 62.43%</div>
       </div>
     </div>
   </div>
-</nb-card-body>
+</nb-card-footer>
 </nb-card>

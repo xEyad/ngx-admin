@@ -13,14 +13,16 @@
     padding: 10px;
   }
 
-  .header-wrapper{
-    width: 100%;
-    .header{
-      padding: 10px;
-      padding-bottom: 0;
-      width: 100%;
-    }
-  }
 }
 
 
+.stat{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  .value{
+    font-weight: bold;
+    font-size: large;
+  }
+}
