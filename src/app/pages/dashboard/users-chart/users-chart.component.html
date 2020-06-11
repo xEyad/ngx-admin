@@ -1,11 +1,10 @@
-<nb-card class="shadow">
+<nb-card class="shadow" size="medium">
     <nb-card-header>
       <h6>Acquired Users</h6>
     </nb-card-header>
   <nb-card-body>
-    <div class="row chart-wrapper">
-    <div class="col-12 p-0">
-      <ngx-charts-pie-chart
+    <div class="chart-wrapper">
+    <ngx-charts-pie-chart
         [scheme]="colorScheme"
         [results]="single"
         [gradient]="gradient"
@@ -19,9 +18,16 @@
       >
       </ngx-charts-pie-chart>
     </div>
-  </div>
 </nb-card-body>
 <nb-card-footer>
-  statstics table
+  <div class="row stat-row " *ngFor="let stat of single; let i = index">
+    <div class="title col-4">
+      <i class="fas fa-circle" [ngStyle]="{'color': colorScheme.domain[i]}"></i>
+      <span>{{stat.name}}</span>
+    </div>
+    <div class="value col-4">{{stat.value}}</div>
+    <div class="evaluation col-4"> +90% </div>
+  </div>
+  <div class="divider"></div>
 </nb-card-footer>
 </nb-card>

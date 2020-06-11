@@ -1,8 +1,14 @@
-<nb-card class="shadow">
+<nb-card class="shadow" size="medium">
   <nb-card-header>
     <h6>Acquired Users</h6>
   </nb-card-header>
   <nb-card-body>
-    <ngx-chartjs [data]="data" type="line"></ngx-chartjs>
+    <div class="container-fluid">
+    <div class="row graph-wrapper">
+      <div class="col-12 ">
+        <ngx-chartjs [data]="data" type="line"></ngx-chartjs>
+      </div>
+    </div>
+  </div>
 </nb-card-body>
 </nb-card>
