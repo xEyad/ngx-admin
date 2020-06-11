@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LineChartComponent implements OnInit {
    data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    labels: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو'],
     datasets: [
       {
-        label: 'My First Dataset',
+        label: 'الزائرون الجدد',
         data: [65, 59, 80, 81, 56, 55, 40],
         maintainAspectRatio: false,
         fill: true,

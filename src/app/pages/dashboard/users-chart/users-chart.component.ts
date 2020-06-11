@@ -43,7 +43,7 @@ export class UsersChartComponent implements OnInit {
   }
 
 }
-var single = [
+let single = [
   {
     "name": "Facebook",
     "value": 8940000

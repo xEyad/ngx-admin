@@ -1,12 +1,9 @@
-<div class="container-fluid shadow">
-  <div class="row">
-    <div class="col-12 p-0">
-      <div class="header border-bottom">
-        <h6>Acquired Users</h6>
-      </div>
-    </div>
-  </div>
-  <div class="row chart-wrapper">
+<nb-card class="shadow">
+    <nb-card-header>
+      <h6>Acquired Users</h6>
+    </nb-card-header>
+  <nb-card-body>
+    <div class="row chart-wrapper">
     <div class="col-12 p-0">
       <ngx-charts-pie-chart
         [scheme]="colorScheme"
@@ -23,4 +20,8 @@
       </ngx-charts-pie-chart>
     </div>
   </div>
-</div>
+</nb-card-body>
+<nb-card-footer>
+  statstics table
+</nb-card-footer>
+</nb-card>
