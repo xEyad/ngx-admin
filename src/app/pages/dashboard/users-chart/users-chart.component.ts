@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 @Component({
@@ -16,7 +14,7 @@ export class UsersChartComponent implements OnInit {
   // options
   gradient: boolean = false;
   showLegend: boolean = false;
-  showLabels: boolean = true;
+  showLabels: boolean = false;
   isDoughnut: boolean = false;
   legendPosition: string = 'below';
 
