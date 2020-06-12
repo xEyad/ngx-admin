@@ -10,6 +10,7 @@ import { LineChartComponent } from './../dashboard/line-chart/line-chart.compone
 import { ChartjsModule } from '@ctrl/ngx-chartjs';
 import { SocialCardsComponent } from './social-cards/social-cards.component';
 import { ExpensesComponent } from './expenses/expenses.component';
+import { EmployeesComponent } from './employees/employees.component';
 @NgModule({
   imports: [
     NbCardModule,
@@ -24,7 +25,8 @@ import { ExpensesComponent } from './expenses/expenses.component';
     UsersChartComponent,
     LineChartComponent,
     SocialCardsComponent,
-    ExpensesComponent
+    ExpensesComponent,
+    EmployeesComponent
   ],
 })
 export class DashboardModule { }

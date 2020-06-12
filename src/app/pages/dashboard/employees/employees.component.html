@@ -1,0 +1,29 @@
+<nb-card class="shadow" size="medium">
+  <nb-card-body>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Employee</th>
+          <th scope="col">Work Rate</th>
+          <th scope="col">Evaluation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let emp of employees">
+          <td class="align-middle">
+            <div class="employee">
+              <img [src]="emp.img" alt="" class="rounded-circle">
+              <div class="text">
+                <strong>{{emp.name}}</strong>
+                <span class="label">{{emp.title}}</span>
+              </div>
+            </div>
+          </td>
+          <td class="align-middle">{{emp.workRate}} hr/week</td>
+          <td class="align-middle">{{emp.evaluation}}</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </nb-card-body>
+</nb-card>

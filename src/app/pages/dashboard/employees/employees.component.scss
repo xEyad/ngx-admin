@@ -1,0 +1,13 @@
+.employee{
+  display: flex;
+  img{
+    margin-right: 10px;
+    height: 50px;
+    width: 50px;
+  }
+  .text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
