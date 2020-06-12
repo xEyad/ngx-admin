@@ -21,13 +21,21 @@
 
 <div class="row ">
   <div class=" col-xxl-4 col-lg-5 col-md-6">
-    <ngx-social-cards></ngx-social-cards>
+    <ngx-social-cards [label]="'Followers'" [value]="'458,111'" [isIncreasing]="true" [lastEvaluationDate]="'last week'" [evaluation]="'34%'">
+      <i class="fab fa-facebook fa-3x" style="color:rgb(24, 119, 242)"></i>
+    </ngx-social-cards>
   </div>
   <div class=" col-xxl-4 col-lg-5 col-md-6">
-    <ngx-social-cards></ngx-social-cards>
+    <ngx-social-cards [label]="'Tweets'" [value]="'21,145'" [isIncreasing]="true" [lastEvaluationDate]="'last week'" [evaluation]="'3.4%'">
+      <i class="fab fa-twitter fa-3x" style="color:#1da1f2"></i>
+
+    </ngx-social-cards>
   </div>
   <div class=" col-xxl-4 col-lg-5 col-md-6">
-    <ngx-social-cards></ngx-social-cards>
+    <ngx-social-cards [label]="'Subscribers'" [value]="'3,422,111'" [isIncreasing]="false" [lastEvaluationDate]="'last week'" [evaluation]="'5%'">
+      <i class="fab fa-youtube fa-3x" style="color:#ff0000"></i>
+
+    </ngx-social-cards>
   </div>
 </div>
 

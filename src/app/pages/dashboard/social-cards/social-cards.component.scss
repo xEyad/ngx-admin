@@ -14,8 +14,13 @@
   .evaluation{
     .result{
       margin-inline-end: 10px;
-      color: #18c809;
     }
   }
 
+}
+.good{
+  color: #18c809;
+}
+.bad{
+  color: #c80929;
 }

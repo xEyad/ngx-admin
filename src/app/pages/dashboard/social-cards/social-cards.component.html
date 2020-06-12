@@ -3,18 +3,20 @@
     <div class="wrapper">
      <div class="top">
        <div class="data">
-        <div class="label">label</div>
-        <div class="value">valuye</div>
+        <div class="label">{{label}}</div>
+        <div class="value">{{value}}</div>
        </div>
-       <i class="fab fa-facebook fa-3x" style="color:rgb(24, 119, 242)"></i>
+       <ng-content select="i"></ng-content>
      </div>
      <span class="evaluation">
-       <span class="result">
-        <i class="fas fa-arrow-up"></i>
-        3.45%
+       <span class="result" [ngClass]="{'good': isIncreasing,'bad':!isIncreasing}">
+
+        <i class="fas fa-arrow-up"    *ngIf="isIncreasing"></i>
+        <i class="fas fa-arrow-down" *ngIf="!isIncreasing"></i>
+        {{evaluation}}
        </span>
 
-      <span>since B.C.</span>
+      <span>since {{lastEvaluationDate}}</span>
       </span>
     </div>
   </nb-card-body>
