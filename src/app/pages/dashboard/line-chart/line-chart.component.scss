@@ -20,7 +20,10 @@
   height: 100%;
   width: 100%;
 }
-
+.header{
+  display: flex;
+  justify-content: space-between;
+}
 
 .stat{
   display: flex;

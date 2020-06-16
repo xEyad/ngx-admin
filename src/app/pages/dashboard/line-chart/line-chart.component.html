@@ -1,6 +1,13 @@
-<nb-card class="shadow" size="medium">
+<nb-card class="shadow" size="large">
   <nb-card-header>
-    <h6>Website Analytics</h6>
+    <div class="header">
+      <h6>Website Analytics</h6>
+      <nb-select  (selectedChange)="changeDuration($event)" [placeholder]="'Range'" [size]="'small'" [selected]="'Daily'">
+        <nb-option value="Daily">Daily</nb-option>
+        <nb-option value="Weekly">Weekly</nb-option>
+        <nb-option value="Monthly">Monthly</nb-option>
+      </nb-select>
+    </div>
   </nb-card-header>
 
   <nb-card-body>

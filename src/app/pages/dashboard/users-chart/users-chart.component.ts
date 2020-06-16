@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersChartComponent implements OnInit {
 
+  selectedDuration:string = 'Daily';
   single: any[];
   view: any[] = [undefined, 400];
 
@@ -16,11 +17,11 @@ export class UsersChartComponent implements OnInit {
   showLegend: boolean = false;
   showLabels: boolean = false;
   isDoughnut: boolean = false;
-  explodeSlices : boolean = true;
+  explodeSlices : boolean = false;
   legendPosition: string = 'below';
 
   colorScheme = {
-    domain: ['#1877f2', '#1da1f2', '#ff0000', '#ff9900']
+    domain: ['#1877f2', '#ff0000', '#1da1f2','#833ab4',"#56E39F","#401F3E","#96897B", '#ff9900']
   };
 
   ngOnInit(){
@@ -42,23 +43,42 @@ export class UsersChartComponent implements OnInit {
   onDeactivate(data): void {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
-
+  changeDuration(selection:string)
+  {
+    this.selectedDuration = selection;
+  }
 }
 let single = [
   {
     "name": "Facebook",
-    "value": 8940000
-  },
-  {
-    "name": "Twitter",
-    "value": 5000000
+    "value": 8940
   },
   {
     "name": "Youtube",
-    "value": 7200000
+    "value": 12000
   },
-    {
+  {
+    "name": "Twitter",
+    "value": 5000
+  },
+  {
+    "name": "Instagram",
+    "value": 13520
+  },
+  {
+    "name": "Referable",
+    "value": 1785
+  },
+  {
+    "name": "Direct",
+    "value": 13520
+  },
+  {
+    "name":"Organic",
+    "value": 8954
+  },
+  {
     "name": "Other",
-    "value": 6200000
+    "value": 6200
   }
 ];
