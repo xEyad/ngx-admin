@@ -23,3 +23,15 @@
     text-align: center;
   }
 }
+
+.statstic{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  .info{
+    display: flex;
+    justify-content: space-between;
+    padding-inline-end: 10px;
+
+  }
+}

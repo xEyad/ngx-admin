@@ -1,6 +1,7 @@
+import { ClickStopPropagation } from './../../@theme/directives/stopPropagation.directive';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgModule } from '@angular/core';
-import { NbCardModule, NbProgressBarModule } from '@nebular/theme';
+import { NbCardModule, NbProgressBarModule, NbSelectModule } from '@nebular/theme';
 
 import { ThemeModule } from '../../@theme/theme.module';
 import { DashboardComponent } from './dashboard.component';
@@ -17,7 +18,8 @@ import { EmployeesComponent } from './employees/employees.component';
     ThemeModule,
     NgxChartsModule,
     ChartjsModule,
-    NbProgressBarModule
+    NbProgressBarModule,
+    NbSelectModule
   ],
   declarations: [
     DashboardComponent,
@@ -26,7 +28,8 @@ import { EmployeesComponent } from './employees/employees.component';
     LineChartComponent,
     SocialCardsComponent,
     ExpensesComponent,
-    EmployeesComponent
+    EmployeesComponent,
+    ClickStopPropagation
   ],
 })
 export class DashboardModule { }

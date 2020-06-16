@@ -1,48 +1,101 @@
-<nb-card class="shadow" size="tiny">
-  <nb-card-body>
-    <div class="container-fluid ">
-      <div class="row border-bottom">
-        <div class="col-6 d-flex justify-content-center p-0 border-right">
-          <div class="box  ">
-            <i class="fas fa-user-graduate fa-2x" style="color: #002e2c;"></i>
-            <div class="text">
-              <strong>5841</strong>
-              <span class="label">Students</span>
+<nb-flip-card [flipped]="flipped" [showToggleButton]='false' >
+  <nb-card-front  (click)="flipCard()" class="clickable">
+    <nb-card class="shadow" size="tiny">
+      <nb-card-body>
+        <div class="container-fluid ">
+          <div class="row border-bottom">
+            <div class="col-6 d-flex justify-content-center p-0 border-right">
+              <div class="box  ">
+                <i class="fas fa-user-graduate fa-2x" style="color: #002e2c;"></i>
+                <div class="text">
+                  <strong>5841</strong>
+                  <span class="label">Students</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 d-flex justify-content-center p-0">
+              <div class="box">
+                <i class="fas fa-chalkboard-teacher fa-2x" style="color: #664E4C;"></i>
+                <div class="text">
+                  <strong>421</strong>
+                  <span class="label">Teachers</span>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-6 d-flex justify-content-center p-0">
-          <div class="box">
-            <i class="fas fa-chalkboard-teacher fa-2x" style="color: #664E4C;"></i>
-            <div class="text">
-              <strong>421</strong>
-              <span class="label">Teachers</span>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="row ">
-        <div class="col-6 d-flex justify-content-center p-0 border-right">
-          <div class="box  ">
-            <i class="fas fa-school fa-2x" style="color: #ff9900;"></i>
-            <div class="text">
-              <strong>320</strong>
-              <span class="label">Camps</span>
+          <div class="row ">
+            <div class="col-6 d-flex justify-content-center p-0 border-right">
+              <div class="box  ">
+                <i class="fas fa-school fa-2x" style="color: #ff9900;"></i>
+                <div class="text">
+                  <strong>320</strong>
+                  <span class="label">Camps</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 d-flex justify-content-center p-0">
+              <div class="box">
+                <i class="far fa-eye fa-2x" style="color: #454372;"></i>
+                <div class="text">
+                  <strong>10000</strong>
+                  <span class="label">Visitors</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-6 d-flex justify-content-center p-0">
-          <div class="box">
-            <i class="far fa-eye fa-2x" style="color: #454372;"></i>
-            <div class="text">
-              <strong>10000</strong>
-              <span class="label">Visitors</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-  </nb-card-body>
-</nb-card>
+      </nb-card-body>
+    </nb-card>
+  </nb-card-front>
+
+
+  <nb-card-back>
+    <nb-card class="shadow" size="tiny">
+      <nb-card-body>
+        <div class="container-fluid ">
+          <div class="row border-bottom clickable" (click)="flipCard()">
+            <div class="col-6 d-flex  px-3 border-right">
+              <div class="statstic">
+                <h3 class="label">Students ({{selectedDuration}})</h3>
+                <p class="info">Registered <span>203</span></p>
+                <p class="info">Paid <span>33</span></p>
+              </div>
+            </div>
+
+            <div class="col-6 d-flex  px-3">
+              <div class="statstic">
+                <h3 class="label">Camps ({{selectedDuration}})</h3>
+                <p class="info">In review <span>203</span></p>
+                <p class="info">Published <span>33</span></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row ">
+            <div class="col-6 d-flex  px-3 pt-1 border-right clickable" (click)="flipCard()">
+              <div class="statstic">
+                <h3 class="label">Teachers ({{selectedDuration}})</h3>
+                <p class="info">Accepted  <span>203</span></p>
+                <p class="info">Rejected <span>33</span></p>
+              </div>
+            </div>
+            <div class="col-6 d-flex  px-3 pt-1">
+              <div class="statstic" >
+                <p>Selected Duration</p>
+                <nb-select  (selectedChange)="changeDuration($event)" [placeholder]="'Range'" [size]="'small'" [selected]="'Daily'">
+                  <nb-option value="Daily">Daily</nb-option>
+                  <nb-option value="Weekly">Weekly</nb-option>
+                  <nb-option value="Monthly">Monthly</nb-option>
+                </nb-select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </nb-card-body>
+    </nb-card>
+  </nb-card-back>
+</nb-flip-card>
+
