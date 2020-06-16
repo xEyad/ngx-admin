@@ -27,7 +27,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  @media(max-width: $mobileBP)
+  @media(max-width: $tabletBP)
   {
     padding: 10px 0;
   }
@@ -37,12 +37,10 @@
   }
 }
 .adaptive-border{
+
+  border-right: 1px solid #dee2e6 ;
+  border-bottom: 0 ;
   @media(max-width: $tabletBP)
-  {
-    border-right: 1px solid #dee2e6 ;
-    border-bottom: 0 ;
-  }
-  @media(max-width: $mobileBP)
   {
     border-bottom: 1px solid #dee2e6 ;
     border-right: 0 ;

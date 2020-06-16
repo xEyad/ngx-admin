@@ -39,11 +39,11 @@
   @include material-overrides();
 };
 
-.border-right:dir(rtl){
+.border-right:dir(rtl),.adaptive-border:dir(rtl){
   border-left: 1px solid #dee2e6 !important;
   border-right: 0 !important;
 }
-.border-left:dir(rtl){
+.border-left:dir(rtl),.adaptive-border:dir(rtl){
   border-right: 1px solid #dee2e6 !important;
   border-left: 0 !important;
 }
