@@ -1,3 +1,4 @@
+@import '../dashboard-variables.scss';
 :host {
   height: 100%;
   display: flex;
@@ -16,6 +17,13 @@
 
   .stat-row {
     margin-bottom: 10px;
+    @media(max-width:$mobileBP)
+    {
+      font-size: small;
+      .col-4{
+        padding: 0;
+      }
+    }
     .title {
       i {
         margin-inline-end: 10px;
