@@ -31,8 +31,10 @@
     <thead>
       <tr>
         <th scope="col">Employee</th>
-        <th scope="col">Work Rate</th>
-        <th scope="col">Evaluation</th>
+        <th scope="col" class="text-center">Daily Rate</th>
+        <th scope="col" class="text-center">Weekly Rate</th>
+        <th scope="col" class="text-center">Monthly Rate</th>
+        <th scope="col" class="text-center">Evaluation</th>
       </tr>
     </thead>
     <tbody>
@@ -46,8 +48,10 @@
             </div>
           </div>
         </td>
-        <td class="align-middle">{{emp.workRate}} hr/week</td>
-        <td class="align-middle">{{emp.evaluation}}</td>
+        <td class="align-middle text-center">{{emp.workRate}} hr</td>
+        <td class="align-middle text-center">{{emp.workRate}} hr</td>
+        <td class="align-middle text-center">{{emp.workRate}} hr</td>
+        <td class="align-middle text-center">{{emp.evaluation}}</td>
       </tr>
 
     </tbody>
