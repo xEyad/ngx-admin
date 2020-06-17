@@ -1,3 +1,4 @@
+@import '../dashboard-variables.scss';
 nb-card{
   height: 130px;
 }
@@ -32,5 +33,9 @@ nb-card{
   align-items: center;
   i,.name{
     margin-inline-end: 5px;
+  }
+  @media(max-width:$mobileBP)
+  {
+    font-size: smaller;
   }
 }

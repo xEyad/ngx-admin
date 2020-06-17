@@ -1,3 +1,13 @@
+@import '../dashboard-variables.scss';
+.back-wrapper{
+  @media(max-width: $mobileBP)
+  {
+    padding: 0;
+    .info,.statstic p{
+      font-size: small !important;
+    }
+  }
+}
 .container-fluid{
   display: flex;
   flex-direction: column;

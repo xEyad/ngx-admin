@@ -1,4 +1,14 @@
 <nb-card class="shadow" size="medium">
+  <nb-card-header class="tablet">
+    <div class="d-flex justify-content-between">
+      <span>Employees</span>
+      <nb-select  (selectedChange)="changeDuration($event)" [placeholder]="'Range'" [size]="'small'" [selected]="'Daily'">
+        <nb-option value="Daily">Daily</nb-option>
+        <nb-option value="Weekly">Weekly</nb-option>
+        <nb-option value="Monthly">Monthly</nb-option>
+      </nb-select>
+    </div>
+  </nb-card-header>
   <nb-card-body>
     <div  class="desktop">
       <ng-container *ngTemplateOutlet="table"></ng-container>
@@ -17,7 +27,7 @@
         <div class="text">
           <strong>{{emp.name}}</strong>
           <span class="label">{{emp.title}}</span>
-          <div>{{emp.workRate}} hr/week</div>
+          <div>{{emp.workRate}} hr/{{viewedDuration}}</div>
           <div>{{emp.evaluation}} </div>
         </div>
 
