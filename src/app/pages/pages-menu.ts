@@ -12,15 +12,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     group: true,
   },
   {
-    title: 'Auth',
+    title: 'Accounts',
     icon: 'lock-outline',
     children: [
       {
-        title: 'Login',
-        link: '/auth/login',
-      },
-      {
-        title: 'Register',
+        title: 'Create Account',
         link: '/auth/register',
       },
       {
@@ -32,5 +28,20 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/auth/reset-password',
       },
     ],
+  },
+  {
+    title:"Upload Finances",
+    icon: 'lock-outline',
+    link: '/auth/register',
+  },
+  {
+    title:"Upload Statstics",
+    icon: 'lock-outline',
+    link: '/auth/register',
+  },
+  {
+    title:"Add time",
+    icon: 'lock-outline',
+    link: '/auth/register',
   },
 ];

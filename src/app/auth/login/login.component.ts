@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  user:{email,password,rememberMe:boolean} = {email:"",password:"",rememberMe:false};
+  user:{email,password,rememberMe:boolean} = {email:null,password:null,rememberMe:false};
   rememberMe:boolean=false;
   submitted=false;
   constructor() { }

@@ -1,0 +1,61 @@
+nb-card {
+  margin: 0;
+  height: calc(100vh - 2 * 2.5rem);
+}
+
+nb-card-body {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+.containing-box {
+  display: block;
+  width: 100%;
+  max-width: 35rem;
+  margin: auto;
+}
+.form-control-group {
+  margin-bottom: 2rem;
+  .accept-group {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+  }
+  .label-with-link {
+    display: flex;
+    justify-content: space-between;
+  }
+  .error-message{
+    color: red;
+    margin: 10px 0;
+    font-size: small;
+  }
+}
+.title {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+.sub-title {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+form {
+  width: 100%;
+}
+.links {
+  text-align: center;
+  margin-top: 1.75rem;
+  .socials {
+    margin-top: 1.5rem;
+  }
+}
+.another-action {
+  margin-top: 2rem;
+  text-align: center;
+}
+.text-link {
+  color: #8f9bb3;
+}
