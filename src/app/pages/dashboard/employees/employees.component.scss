@@ -1,3 +1,4 @@
+@import '../dashboard-variables.scss';
 .employee{
   display: flex;
   img{
@@ -9,5 +10,30 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+}
+.employee-card{
+  display: flex;
+  img{
+    margin-inline-end: 10px;
+    height: 100px;
+    width: 100px;
+  }
+  .text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+.tablet{
+  @media(min-width:$laptopBP)
+  {
+    display: none;
+  }
+}
+.desktop{
+  @media(max-width:$laptopBP+1px) //equal or less than
+  {
+    display: none;
   }
 }

@@ -1,3 +1,4 @@
+@import '../dashboard-variables.scss';
 .container-fluid{
   display: flex;
   flex-direction: column;
@@ -19,15 +20,33 @@
   height: 100%;
   width: 100%;
 }
-
+.header{
+  display: flex;
+  justify-content: space-between;
+}
 
 .stat{
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  @media(max-width: $tabletBP)
+  {
+    padding: 10px 0;
+  }
   .value{
     font-weight: bold;
     font-size: large;
   }
+}
+.adaptive-border{
+
+  border-right: 1px solid #dee2e6 ;
+  border-bottom: 0 ;
+  @media(max-width: $tabletBP)
+  {
+    border-bottom: 1px solid #dee2e6 ;
+    border-right: 0 ;
+  }
+
 }

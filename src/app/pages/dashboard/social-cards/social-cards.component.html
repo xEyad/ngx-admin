@@ -1,23 +1,50 @@
-<nb-card class="shadow rounded">
-  <nb-card-body>
-    <div class="wrapper">
-     <div class="top">
-       <div class="data">
-        <div class="label">{{label}}</div>
-        <div class="value">{{value}}</div>
-       </div>
-       <ng-content select="i"></ng-content>
-     </div>
-     <span class="evaluation">
-       <span class="result" [ngClass]="{'good': isIncreasing,'bad':!isIncreasing}">
+<nb-flip-card [flipped]="flipped" [showToggleButton]='false' >
+  <nb-card-front >
+    <nb-card class="shadow rounded clickable"   (click)="flipCard()" >
+      <nb-card-body>
+        <div class="wrapper">
+         <div class="top">
+           <div class="data">
+            <div class="label">{{label}}</div>
+            <div class="value">{{value}}</div>
+           </div>
+           <ng-content select="i"></ng-content>
+         </div>
+         <span class="evaluation">
+           <span class="result" [ngClass]="{'good': isIncreasing,'bad':!isIncreasing}">
 
-        <i class="fas fa-arrow-up"    *ngIf="isIncreasing"></i>
-        <i class="fas fa-arrow-down" *ngIf="!isIncreasing"></i>
-        {{evaluation}}
-       </span>
+            <i class="fas fa-arrow-up"    *ngIf="isIncreasing"></i>
+            <i class="fas fa-arrow-down" *ngIf="!isIncreasing"></i>
+            {{evaluation}}
+           </span>
 
-      <span>since {{lastEvaluationDate}}</span>
-      </span>
-    </div>
-  </nb-card-body>
-</nb-card>
+          <span>since {{lastEvaluationDate}}</span>
+          </span>
+        </div>
+      </nb-card-body>
+    </nb-card>
+
+  </nb-card-front>
+
+  <nb-card-back>
+    <nb-card  class="shadow rounded clickable"   (click)="flipCard()">
+      <nb-card-body>
+        <div class="row">
+          <div class="col-6" *ngFor="let info of infos">
+            <p class="info">
+              <i [ngClass]="info.icon"></i>
+              <span class="name">{{info.name}}</span>
+              <span class="value">{{info.value}}</span>
+            </p>
+          </div>
+
+
+        </div>
+
+      </nb-card-body>
+    </nb-card>
+  </nb-card-back>
+
+
+</nb-flip-card>
+

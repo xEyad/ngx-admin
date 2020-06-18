@@ -12,9 +12,16 @@ export class SocialCardsComponent implements OnInit {
   @Input() evaluation:string = "not set";
   @Input() lastEvaluationDate:string = "not set";
   @Input() isIncreasing:boolean = false;
+  flipped:boolean = false;
+  @Input() infos:any[] = [];
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+  flipCard(): void
+  {
+    this.flipped = !this.flipped;
   }
 
 }

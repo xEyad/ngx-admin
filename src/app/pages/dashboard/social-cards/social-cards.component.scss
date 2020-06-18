@@ -1,3 +1,7 @@
+@import '../dashboard-variables.scss';
+nb-card{
+  height: 130px;
+}
 .wrapper{
   display: flex;
   justify-content: space-between;
@@ -23,4 +27,15 @@
 }
 .bad{
   color: #c80929;
+}
+.info{
+  display: flex;
+  align-items: center;
+  i,.name{
+    margin-inline-end: 5px;
+  }
+  @media(max-width:$mobileBP)
+  {
+    font-size: smaller;
+  }
 }

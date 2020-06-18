@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./line-chart.component.scss']
 })
 export class LineChartComponent implements OnInit {
+  selectedDuration:string = 'Daily';
   options={
     maintainAspectRatio: false,
     responsive: true,
@@ -40,4 +41,8 @@ export class LineChartComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  changeDuration(selection:string)
+  {
+    this.selectedDuration = selection;
+  }
 }
