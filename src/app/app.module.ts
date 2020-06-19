@@ -1,3 +1,4 @@
+import { DiskService } from './services/disk.service';
 
 /**
  * @license
@@ -24,7 +25,12 @@ import {
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+  ],
+  providers:[
+    DiskService
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -48,7 +54,8 @@ import { FormsModule } from '@angular/forms';
       messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
     }),
     CoreModule.forRoot(),
-    FormsModule
+    NbToastrModule.forRoot(),
+    FormsModule,
   ],
   bootstrap: [AppComponent],
 })

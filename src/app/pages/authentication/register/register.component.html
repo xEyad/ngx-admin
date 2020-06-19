@@ -39,7 +39,7 @@
 
             <div class="form-control-group">
               <span class="label-with-link">
-                <label class="label" for="input-password">Password:</label>
+                <label class="label" for="input-password">Password: (readonly)</label>
               </span>
               <input
                 nbInput
@@ -66,11 +66,11 @@
             </div>
             <div class="selection-input">
               <label class="label">Account type:</label>
-              <nb-select placeholder="type" [(selected)]="user.type">
-                <nb-option value="Admin">Admin</nb-option>
-                <nb-option value="Investor">Investor</nb-option>
-                <nb-option value="Employee">Employee</nb-option>
-                <nb-option value="DataEntry">Data entry</nb-option>
+              <nb-select placeholder="type" [(selected)]="user.type" required ngModel  #type="ngModel" name="type">
+                <nb-option value="admin">Admin</nb-option>
+                <nb-option value="investor">Investor</nb-option>
+                <nb-option value="employee">Employee</nb-option>
+                <nb-option value="dataEntry">Data entry</nb-option>
               </nb-select>
             </div>
             <button
