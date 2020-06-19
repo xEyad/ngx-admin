@@ -1,3 +1,5 @@
+import { NbToastrService } from '@nebular/theme';
+import { AuthenticationService } from './../../../services/authentication.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,11 +12,22 @@ export class ResetPasswordComponent implements OnInit
   currentPd:string="";
   newPd:string="";
 
-  constructor() { }
+  constructor(
+    private auth:AuthenticationService,
+    private toast:NbToastrService
+    ) { }
 
   ngOnInit(): void {
   }
-  reset(){
-
+  async reset()
+  {
+    try{
+      await this.auth.resetCurrentUserPassword(this.currentPd,this.newPd);
+      this.toast.success('password updated successfully',"Success");
+    }
+    catch(e)
+    {
+      this.toast.danger(e.error.error.message,"Failed");
+    }
   }
 }

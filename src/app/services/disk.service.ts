@@ -3,19 +3,41 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class DiskService {
+export class DiskService
+{
+  clearCurrentuserId()
+  {
+    localStorage.removeItem(this.currentUserIdKey);
+  }
+  clearCurrentuserToken()
+  {
+    localStorage.removeItem(this.currentUserTokenKey);
+  }
+
   get baseUrl()
   {
     return 'https://edugram-dashboard.herokuapp.com';
   }
+
+  get currentUserId()
+  {
+    return localStorage.getItem(this.currentUserIdKey);
+  }
+  set currentUserId(id)
+  {
+    localStorage.setItem(this.currentUserIdKey,id);
+  }
+  private currentUserIdKey = "id";
+
   get userToken()
   {
-    return localStorage.getItem('token');
+    return localStorage.getItem(this.currentUserTokenKey);
   }
   set userToken(token)
   {
-    localStorage.setItem('token',token);
+    localStorage.setItem(this.currentUserTokenKey,token);
   }
+  private currentUserTokenKey = "userToken";
 
   get currentUserType()
   {
