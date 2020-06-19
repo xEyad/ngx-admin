@@ -1,3 +1,4 @@
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -11,6 +12,10 @@ const routes: Routes = [{
       component: LoginComponent,
     },
     {
+      path: 'reset',
+      component: ResetPasswordComponent,
+    },
+    {
       path: '',
       redirectTo: 'login',
       pathMatch: 'full',
@@ -22,5 +27,5 @@ const routes: Routes = [{
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AuthRoutingModule {
+export class AuthenticationRoutingModule {
 }

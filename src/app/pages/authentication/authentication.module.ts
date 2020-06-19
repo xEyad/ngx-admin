@@ -1,6 +1,5 @@
-import { ThemeModule } from './../@theme/theme.module';
+import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { CommonModule } from '@angular/common';
-import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { NbInputModule, NbAlertModule, NbCheckboxModule, NbIconModule, NbCardModule, NbLayoutModule, NbButtonModule } from '@nebular/theme';
@@ -10,7 +9,7 @@ import { RequestPasswordComponent } from './request-password/request-password.co
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 @NgModule({
   imports: [
-    AuthRoutingModule,
+    AuthenticationRoutingModule,
     NbInputModule,
     NbAlertModule,
     FormsModule,
@@ -18,7 +17,6 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     NbCheckboxModule,
     NbIconModule,
     NbCardModule,
-    ThemeModule,
     NbLayoutModule,
     NbButtonModule,
   ],
@@ -29,4 +27,4 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     ResetPasswordComponent
   ],
 })
-export class AuthModule { }
+export class AuthenticationModule { }
