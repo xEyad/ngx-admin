@@ -8,7 +8,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
   {
-    title: 'FEATURES (coming soon)',
+    title: 'Actions',
     group: true,
   },
   {

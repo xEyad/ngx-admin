@@ -33,7 +33,7 @@ export class EmployeesComponent implements OnInit {
     }
   }
   openHistory() {
-  let empoloyeeHistory:{date,timeWorked,activity}[]=Array(10).fill({date:'asdas',timeWorked:1241,activity:"sadasdasdasdasdas"});
+  let empoloyeeHistory:{date,timeWorked,activity}[]=Array(10).fill({date:'12 apr 2020',timeWorked:12,activity:"created tests"});
     let ref = this.dialogService.open(EmployeeHistoryComponent,);
     ref.componentRef.instance.empoloyeeHistory = empoloyeeHistory;
     ref.componentRef.instance.employeeName = 'Magdy';

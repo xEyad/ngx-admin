@@ -23,7 +23,7 @@ import { EmployeesComponent } from './employees/employees.component';
     NbProgressBarModule,
     NbSelectModule,
     NbDialogModule.forChild(),
-    NbListModule
+    NbListModule,
   ],
   declarations: [
     DashboardComponent,
