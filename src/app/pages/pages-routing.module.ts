@@ -1,3 +1,4 @@
+import { LoginComponent } from './authentication/login/login.component';
 import { UploadFinancesComponent } from './upload-finances/upload-finances.component';
 import { UploadStatsticsComponent } from './upload-statstics/upload-statstics.component';
 import { AddTimeComponent } from './add-time/add-time.component';
@@ -21,6 +22,10 @@ const routes: Routes = [{
     {
       path: 'reset',
       component: ResetPasswordComponent,
+    },
+    {
+      path: 'login',
+      component: LoginComponent,
     },
     {
       path: 'update',

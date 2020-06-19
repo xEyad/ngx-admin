@@ -1,5 +1,8 @@
+import { DiskService } from './../../../services/disk.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../../../services/authentication.service';
+import { NbToastrService } from '@nebular/theme';
 
 @Component({
   selector: 'ngx-login',
@@ -10,12 +13,27 @@ export class LoginComponent implements OnInit {
   user:{email,password,rememberMe:boolean} = {email:null,password:null,rememberMe:false};
   rememberMe:boolean=false;
   submitted=false;
-  constructor(private router:Router) { }
+  constructor(
+    private router:Router,
+    private disk:DiskService,
+    private auth:AuthenticationService,
+    private toast:NbToastrService
+    ) { }
 
   ngOnInit(): void {
   }
-  login(){
-    this.submitted=true;
-    this.router.navigateByUrl('pages');
+  async login()
+  {
+    try{
+      await this.auth.loginUser(this.user.email,this.user.password);
+      this.submitted=true;
+      this.router.navigateByUrl('pages');
+    }
+    catch(e)
+    {
+      this.toast.danger(e.error.error.message,'Failed');
+      console.log(e);
+
+    }
   }
 }

@@ -21,4 +21,13 @@ export class AuthenticationService {
     }
     return this.http.post(`${this.disk.baseUrl}/users`,payload).toPromise();
   }
+
+  async loginUser(email:string,password:string) : Promise<any>
+  {
+    let payload = {
+      "email": email,
+      "password": password,
+    }
+    return this.http.post(`${this.disk.baseUrl}/users/login`,payload).toPromise();
+  }
 }

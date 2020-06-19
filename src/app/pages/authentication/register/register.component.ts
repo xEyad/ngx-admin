@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
     }
     catch(e)
     {
-      this.toast.danger(e.error,'Failed');
+      this.toast.danger(e.error.error.message,'Failed');
     }
   }
 
