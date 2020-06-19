@@ -1,3 +1,4 @@
+import { UploadStatsticsComponent } from './upload-statstics/upload-statstics.component';
 import { AddTimeComponent } from './add-time/add-time.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { UpdateUserPasswordComponent } from './authentication/update-user-password/update-user-password.component';
@@ -31,6 +32,10 @@ const routes: Routes = [{
     {
       path:"addTime",
       component:AddTimeComponent
+    },
+    {
+      path:"uploadStatstics",
+      component:UploadStatsticsComponent
     },
     {
       path: '',

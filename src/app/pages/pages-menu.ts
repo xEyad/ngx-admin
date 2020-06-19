@@ -32,12 +32,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title:"Upload Finances",
     icon: 'lock-outline',
-    link: '/auth/register',
+    link: '/pages/uploadFinances',
   },
   {
     title:"Upload Statstics",
     icon: 'lock-outline',
-    link: '/auth/register',
+    link: '/pages/uploadStatstics',
   },
   {
     title:"Add time",

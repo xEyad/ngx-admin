@@ -1,1 +1,25 @@
-<p>upload-statstics works!</p>
+<nb-layout>
+  <nb-layout-column>
+    <nb-card>
+      <nb-card-body>
+        <div class="containing-box">
+          <div class="heading">
+            <h1>Employee name</h1>
+            <p class="sub-title">Position</p>
+          </div>
+          <input type="file" id="myfile" name="myfile" nbInput placeholder="Excel file">
+          <button
+              nbButton
+              fullWidth
+              status="primary"
+              size="large"
+              [disabled]="false"
+              [class.btn-pulse]="false"
+            >
+              Upload
+            </button>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </nb-layout-column>
+</nb-layout>
