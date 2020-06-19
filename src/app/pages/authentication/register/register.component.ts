@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  user:{email,password,type} = {email:null,password:"123456",type:null};
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
+  }
+  register(){
+    this.router.navigateByUrl('pages');
   }
 
 }

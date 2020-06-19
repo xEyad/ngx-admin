@@ -15,6 +15,7 @@ import { AddTimeComponent } from './add-time/add-time.component';
     ThemeModule,
     NbMenuModule,
     DashboardModule,
+
   ],
   declarations: [
     PagesComponent,
