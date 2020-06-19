@@ -30,7 +30,13 @@ import {
     HttpClientModule,
     AppRoutingModule,
     ThemeModule.forRoot(),
-
+    NbDialogModule.forRoot({
+      autoFocus:true,
+      closeOnBackdropClick:true,
+      closeOnEsc:true,
+      hasBackdrop:true,
+      hasScroll:true,
+    }),
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
     NbDatepickerModule.forRoot(),

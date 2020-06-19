@@ -1,0 +1,16 @@
+:host {
+  display: flex;
+}
+
+nb-card {
+  flex: 1 1 45%;
+  margin: 0 2.5%;
+  .header{
+    display: flex;
+    justify-content: space-between;
+  }
+  &.own-scroll {
+    height: 90vh;
+    width: 70vw;
+  }
+}

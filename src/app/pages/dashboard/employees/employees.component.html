@@ -48,7 +48,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let emp of employees">
+      <tr *ngFor="let emp of employees" (click)="openHistory()">
         <td class="align-middle">
           <div class="employee">
             <img [src]="emp.img" alt="" class="rounded-circle">
