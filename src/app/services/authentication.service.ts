@@ -28,6 +28,17 @@ export class AuthenticationService {
       "email": email,
       "password": password,
     }
-    return this.http.post(`${this.disk.baseUrl}/users/login`,payload).toPromise();
+    let data = await this.http.post(`${this.disk.baseUrl}/users/login`,payload).toPromise<any>();
+    this.disk.userToken = data.token;
+    this.disk.currentUserType = data.responseUser.type;
+  }
+
+  async updateUserPassword(email:string,newPassword:string) : Promise<any>
+  {
+    let payload = {
+      "email": email,
+      "newPassword": newPassword,
+    };
+    return this.http.post(`${this.disk.baseUrl}/users/updatePassword`,payload).toPromise();
   }
 }

@@ -1,3 +1,5 @@
+import { NbToastrService } from '@nebular/theme';
+import { AuthenticationService } from './../../../services/authentication.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,10 +10,23 @@ import { Component, OnInit } from '@angular/core';
 export class UpdateUserPasswordComponent implements OnInit {
   theEmail;
   newPassword;
-  constructor() { }
+  constructor(
+    private auth:AuthenticationService,
+    private toast:NbToastrService
+  ) { }
 
   ngOnInit(): void {
   }
-  update(){
+  async update()
+  {
+    try{
+      await this.auth.updateUserPassword(this.theEmail,this.newPassword);
+      this.toast.success("Password updated","Success");
+    }
+    catch(e)
+    {
+      this.toast.danger(e.error.error.message,"Fail");
+    }
+
   }
 }

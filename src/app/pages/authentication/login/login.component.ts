@@ -15,7 +15,6 @@ export class LoginComponent implements OnInit {
   submitted=false;
   constructor(
     private router:Router,
-    private disk:DiskService,
     private auth:AuthenticationService,
     private toast:NbToastrService
     ) { }
@@ -32,8 +31,6 @@ export class LoginComponent implements OnInit {
     catch(e)
     {
       this.toast.danger(e.error.error.message,'Failed');
-      console.log(e);
-
     }
   }
 }
