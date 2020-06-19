@@ -1,1 +1,28 @@
-<p>add-time works!</p>
+<nb-layout>
+  <nb-layout-column>
+    <nb-card>
+      <nb-card-body>
+        <div class="containing-box">
+          <div class="heading">
+            <h1>Employee name</h1>
+            <p class="sub-title">Position</p>
+          </div>
+          <form action="" #form="ngForm">
+          <input type="text" nbInput fullWidth fieldSize="small" placeholder="Time worked">
+          <textarea nbInput fullWidth placeholder="Describe what you worked on during that time"></textarea>
+          <button
+              nbButton
+              fullWidth
+              status="primary"
+              size="large"
+              [disabled]="!form.valid"
+              [class.btn-pulse]="form.valid"
+            >
+              Add
+            </button>
+          </form>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </nb-layout-column>
+</nb-layout>

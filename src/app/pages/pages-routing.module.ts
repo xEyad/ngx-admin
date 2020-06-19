@@ -1,3 +1,4 @@
+import { AddTimeComponent } from './add-time/add-time.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { UpdateUserPasswordComponent } from './authentication/update-user-password/update-user-password.component';
 import { ResetPasswordComponent } from './authentication/reset-password/reset-password.component';
@@ -26,6 +27,10 @@ const routes: Routes = [{
     {
       path:"register",
       component:RegisterComponent
+    },
+    {
+      path:"addTime",
+      component:AddTimeComponent
     },
     {
       path: '',

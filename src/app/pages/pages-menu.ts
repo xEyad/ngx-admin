@@ -42,6 +42,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title:"Add time",
     icon: 'lock-outline',
-    link: '/auth/register',
+    link: '/pages/addTime',
   },
 ];
