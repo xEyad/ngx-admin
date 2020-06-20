@@ -1,10 +1,5 @@
-import { DiskService } from './services/disk.service';
-
-/**
- * @license
- * Copyright Akveo. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- */
+import { SharedModule } from './shared.module';
+import { LoginComponent } from './login/login.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -22,15 +17,13 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
-import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent
   ],
-  providers:[
-    DiskService
-  ],
+  providers: [],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -55,7 +48,7 @@ import { FormsModule } from '@angular/forms';
     }),
     CoreModule.forRoot(),
     NbToastrModule.forRoot(),
-    FormsModule,
+    SharedModule
   ],
   bootstrap: [AppComponent],
 })

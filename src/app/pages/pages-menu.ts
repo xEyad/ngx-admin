@@ -17,15 +17,15 @@ export const MENU_ITEMS: NbMenuItem[] = [
     children: [
       {
         title: 'Create Account',
-        link: '/auth/register',
+        link: '/pages/authentication/register',
       },
       {
         title: 'Request Password',
-        link: '/auth/request-password',
+        link: '/pages/authentication/update',
       },
       {
         title: 'Reset Password',
-        link: '/auth/reset-password',
+        link: '/pages/authentication/reset',
       },
     ],
   },

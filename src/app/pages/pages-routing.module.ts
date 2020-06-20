@@ -1,10 +1,9 @@
-import { LoginComponent } from './authentication/login/login.component';
 import { UploadFinancesComponent } from './upload-finances/upload-finances.component';
 import { UploadStatsticsComponent } from './upload-statstics/upload-statstics.component';
 import { AddTimeComponent } from './add-time/add-time.component';
-import { RegisterComponent } from './authentication/register/register.component';
-import { UpdateUserPasswordComponent } from './authentication/update-user-password/update-user-password.component';
-import { ResetPasswordComponent } from './authentication/reset-password/reset-password.component';
+import { RegisterComponent } from './register/register.component';
+import { UpdateUserPasswordComponent } from './update-user-password/update-user-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
@@ -20,24 +19,20 @@ const routes: Routes = [{
       component: DashboardComponent,
     },
     {
+      path:"addTime",
+      component:AddTimeComponent
+    },
+    {
       path: 'reset',
       component: ResetPasswordComponent,
     },
     {
-      path: 'login',
-      component: LoginComponent,
-    },
-    {
-      path: 'update',
-      component: UpdateUserPasswordComponent,
+      path:"update",
+      component:UpdateUserPasswordComponent
     },
     {
       path:"register",
       component:RegisterComponent
-    },
-    {
-      path:"addTime",
-      component:AddTimeComponent
     },
     {
       path:"uploadStatstics",

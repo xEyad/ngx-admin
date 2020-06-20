@@ -1,3 +1,4 @@
+import { LoginComponent } from './login/login.component';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 export const routes: Routes = [
@@ -6,14 +7,13 @@ export const routes: Routes = [
     loadChildren: () => import('./pages/pages.module')
       .then(m => m.PagesModule),
   },
-  // {
-  //   path: 'authentication',
-  //   loadChildren: () => import('./authentication/authentication.module')
-  //     .then(m => m.AuthenticationModule),
+  {
+    path:'login',
+    component:LoginComponent
+  },
 
-  // },
-  { path: '', redirectTo: 'pages', pathMatch: 'full' },
-  { path: '**', redirectTo: 'pages' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '**', redirectTo: 'login' },
 ];
 
 const config: ExtraOptions = {

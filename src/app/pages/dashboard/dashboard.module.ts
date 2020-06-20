@@ -1,9 +1,9 @@
-import { NgxSmartModalModule } from 'ngx-smart-modal';
+import { CommonModule } from '@angular/common';
+import { SharedModule } from './../../shared.module';
 import { EmployeeHistoryComponent } from './employee-history/employee-history.component';
 import { ClickStopPropagation } from './../../@theme/directives/stopPropagation.directive';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgModule } from '@angular/core';
-import { NbCardModule, NbProgressBarModule, NbSelectModule, NbDialogModule, NbListModule } from '@nebular/theme';
 
 import { ThemeModule } from '../../@theme/theme.module';
 import { DashboardComponent } from './dashboard.component';
@@ -16,14 +16,9 @@ import { ExpensesComponent } from './expenses/expenses.component';
 import { EmployeesComponent } from './employees/employees.component';
 @NgModule({
   imports: [
-    NbCardModule,
-    ThemeModule,
-    NgxChartsModule,
+    SharedModule,
     ChartjsModule,
-    NbProgressBarModule,
-    NbSelectModule,
-    NbDialogModule.forChild(),
-    NbListModule,
+    CommonModule,
   ],
   declarations: [
     DashboardComponent,
