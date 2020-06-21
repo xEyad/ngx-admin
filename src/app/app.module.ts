@@ -1,3 +1,4 @@
+import { SkipLoginGuard } from './gaurds/skipLoginGuard.guard';
 import { SharedModule } from './shared.module';
 import { LoginComponent } from './login/login.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,13 +18,16 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
-
+import {OnlyLoggedInUsersGuard}from'./gaurds/onlyLoggedInUsersGuard.guard';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent
   ],
-  providers: [],
+  providers: [
+    OnlyLoggedInUsersGuard,
+    SkipLoginGuard
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
