@@ -15,7 +15,8 @@ import {
   NbDialogModule,
   NbListModule,
   NbAlertModule,
-  NbMenuModule
+  NbMenuModule,
+  NbPopoverModule
 } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
 
@@ -37,6 +38,7 @@ import { FormsModule } from '@angular/forms';
     NbListModule,
     NbAlertModule,
     NbCheckboxModule,
+    NbPopoverModule,
     NbIconModule,
     NbMenuModule,
     ThemeModule,
@@ -50,6 +52,7 @@ import { FormsModule } from '@angular/forms';
     NbCardModule,
     NbInputModule,
     NbCheckboxModule,
+    NbPopoverModule,
     NbButtonModule,
     NbProgressBarModule,
     NbSelectModule,
