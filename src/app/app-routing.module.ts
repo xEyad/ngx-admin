@@ -14,7 +14,7 @@ export const routes: Routes = [
   {
     path:'login',
     component:LoginComponent,
-    canActivate:[SkipLoginGuard]
+    // canActivate:[SkipLoginGuard]
   },
 
   { path: '', redirectTo: 'login', pathMatch: 'full' },
