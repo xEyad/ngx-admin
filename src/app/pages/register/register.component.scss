@@ -1,4 +1,5 @@
 nb-card {
+  height: calc(100vh - 2 * 2.5rem);
   margin: 0;
 }
 
@@ -9,12 +10,14 @@ nb-card-body {
   align-content: center;
   align-items: center;
 }
+
 .containing-box {
   display: block;
   width: 100%;
   max-width: 35rem;
   margin: auto;
 }
+
 .form-control-group {
   margin-bottom: 2rem;
   .accept-group {
@@ -32,6 +35,7 @@ nb-card-body {
     font-size: small;
   }
 }
+
 .title {
   margin-top: 0;
   margin-bottom: 0.75rem;
