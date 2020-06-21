@@ -59,7 +59,9 @@
       [matRippleCentered]="true">
       <nb-user [nbContextMenu]="userMenu"
                [onlyPicture]="userPictureOnly"
-               [name]="user?.email">
+               [name]="user?.email"
+               nbContextMenuTag="user-context-menu"
+               >
       </nb-user>
     </nb-action>
   </nb-actions>
