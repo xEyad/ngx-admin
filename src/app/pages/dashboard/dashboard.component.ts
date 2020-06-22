@@ -7,32 +7,32 @@ import { Component } from '@angular/core';
 export class DashboardComponent {
   facebokInfo:{name,value,icon}[] =  [
     {
-      name:'Engagment',
+      name:'تفاعل',
       value:this.getRandomIntInclusive(100,100000),
       icon:"fas fa-users"
     },
     {
-      name:'Likes',
+      name:'أعجاب',
       value:this.getRandomIntInclusive(100,100000),
       icon:"fas fa-thumbs-up"
     },
     {
-      name:'Reach',
+      name:'نفوذ',
       value:this.getRandomIntInclusive(100,100000),
       icon:"fas fa-project-diagram"
     },
     {
-      name:'Messages',
+      name:'رسالة',
       value:this.getRandomIntInclusive(100,100000),
       icon:"fas fa-comments"
     },
     {
-      name:'Clicks',
+      name:'نقرة',
       value:this.getRandomIntInclusive(100,100000),
       icon:"fas fa-mouse-pointer"
     },
     {
-      name:'Posts',
+      name:'منشور',
       value:this.getRandomIntInclusive(100,100000),
       icon:"fas fa-pager"
     },
@@ -41,32 +41,32 @@ export class DashboardComponent {
 
   twitterInfo:{name,value,icon}[] =  [
     {
-      name:'Retweets',
+      name:'أعادة تغريد',
       value:this.getRandomIntInclusive(100,100000),
       icon:"fas fa-retweet"
     },
     {
-      name:'Engagment',
+      name:'تفاعل',
       value:this.getRandomIntInclusive(100,100000),
       icon:"fas fa-users"
     },
     {
-      name:'Likes',
+      name:'أعجاب',
       value:this.getRandomIntInclusive(100,100000),
       icon:"fas fa-thumbs-up"
     },
     {
-      name:'Impressions',
+      name:'أنطباع',
       value:this.getRandomIntInclusive(100,100000),
       icon:"fas fa-project-diagram"
     },
     {
-      name:'Clicks',
+      name:'نقرة',
       value:this.getRandomIntInclusive(100,100000),
       icon:"fas fa-mouse-pointer"
     },
     {
-      name:'Posts',
+      name:'منشور',
       value:this.getRandomIntInclusive(100,100000),
       icon:"fas fa-pager"
     },
@@ -75,22 +75,22 @@ export class DashboardComponent {
 
   youtubeInfo:{name,value,icon}[] =  [
     {
-      name:'Subscribers',
+      name:'متابعين',
       value:this.getRandomIntInclusive(100,100000),
       icon:"fas fa-users"
     },
     {
-      name:'Likes',
+      name:'أعجاب',
       value:this.getRandomIntInclusive(100,100000),
       icon:"fas fa-thumbs-up"
     },
     {
-      name:'Views',
+      name:'مشاهدات',
       value:this.getRandomIntInclusive(100,100000),
       icon:"fas fa-eye"
     },
     {
-      name:'Videos',
+      name:'مقطع فيديو',
       value:this.getRandomIntInclusive(100,100000),
       icon:"fas fa-video"
     },

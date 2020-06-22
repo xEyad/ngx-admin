@@ -1,4 +1,10 @@
 @import '../dashboard-variables.scss';
+:host:dir(rtl)
+{
+  .label{
+    font-size: 1.05rem;
+  }
+}
 .back-wrapper{
   @media(max-width: $mobileBP)
   {

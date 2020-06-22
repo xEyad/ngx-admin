@@ -3,12 +3,12 @@
     <nb-card>
       <nb-card-body>
         <div class="containing-box">
-          <h1 id="title" class="title">Register</h1>
-          <p class="sub-title">Create new account</p>
+          <h1 id="title" class="title">تسجيل</h1>
+          <p class="sub-title">اصنع حساب جديد</p>
 
           <form (ngSubmit)="register()" #form="ngForm" aria-labelledby="title">
             <div class="form-control-group">
-              <label class="label" for="input-email">Email address:</label>
+              <label class="label" for="input-email">البريد الألكتروني:</label>
 
               <input
                 nbInput
@@ -18,7 +18,7 @@
                 name="email"
                 id="input-email"
                 pattern=".+@.+\..+"
-                placeholder="Email address"
+                placeholder="البريد الألكتروني"
                 fieldSize="large"
                 autofocus
                 [status]="
@@ -31,15 +31,15 @@
               />
               <p
                 class="error-message"
-                *ngIf="email.invalid && password.touched"
+                *ngIf="email.invalid && email.touched"
               >
-                {{ email.value }} {{ email.invalid }}
+                البريد غير صحيح
               </p>
             </div>
 
             <div class="form-control-group">
               <span class="label-with-link">
-                <label class="label" for="input-password">Password: (readonly)</label>
+                <label class="label" for="input-password">كلمة المرور: (قراءة فقط)</label>
               </span>
               <input
                 nbInput
@@ -49,7 +49,7 @@
                 name="password"
                 type="text"
                 id="input-password"
-                placeholder="Password"
+                placeholder="كلمة المرور"
                 fieldSize="large"
                 readonly="true"
                 [status]="
@@ -64,13 +64,17 @@
               />
             </div>
             <div class="selection-input">
-              <label class="label">Account type:</label>
-              <nb-select placeholder="type" [(selected)]="user.type" required ngModel  #type="ngModel" name="type">
-                <nb-option value="admin">Admin</nb-option>
-                <nb-option value="investor">Investor</nb-option>
-                <nb-option value="employee">Employee</nb-option>
-                <nb-option value="dataEntry">Data entry</nb-option>
+              <label class="label">نوع الحساب:</label>
+              <nb-select placeholder="النوع" [(selected)]="user.type" required ngModel  #type="ngModel" name="type">
+                <nb-option value="admin">مشرف</nb-option>
+                <nb-option value="investor">مستثمر</nb-option>
+                <nb-option value="employee">موظف</nb-option>
+                <nb-option value="dataEntry">مدخل بيانات</nb-option>
               </nb-select>
+            </div>
+            <div class="selection-input" *ngIf="user.type=='employee'">
+              <label class="label">الوظيفة:</label>
+              <input type="text" nbInput fullWidth fieldSize="small" placeholder="الوظيفة">
             </div>
             <button
               nbButton
@@ -80,7 +84,7 @@
               [disabled]="!form.valid"
               [class.btn-pulse]="form.valid"
             >
-              Register
+              تسجيل
             </button>
           </form>
         </div>

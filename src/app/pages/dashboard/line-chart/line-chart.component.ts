@@ -15,11 +15,11 @@ export class LineChartComponent implements OnInit {
 
   }
    data = {
-    labels: ['January', 'February', 'Mars', 'April', 'May', 'June', 'July'],
-    // labels: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو'],
+    // labels: ['January', 'February', 'Mars', 'April', 'May', 'June', 'July'],
+    labels: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو'],
     datasets: [
       {
-        label: 'New visitors',
+        label: 'الزئرون الجدد',
         data: [65, 59, 80, 81, 56, 55, 40],
         fill: true,
         backgroundColor:'rgba(69, 67, 114, 0.5)',
@@ -27,7 +27,7 @@ export class LineChartComponent implements OnInit {
         borderWidth: 1,
       },
       {
-        label: 'Old visitors',
+        label: 'الزائروم القدامى',
         data: [15, 232, 3, 666, 22, 42, 61],
         fill: true,
         backgroundColor:'rgba(102, 78, 76, 0.2)',

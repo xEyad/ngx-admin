@@ -3,12 +3,12 @@
     <nb-card>
       <nb-card-body>
         <div class="containing-box">
-          <h1 id="title" class="title">Login</h1>
-          <p class="sub-title">Welcome to the system</p>
+          <h1 id="title" class="title">دخول</h1>
+          <p class="sub-title">مرحباً بك</p>
 
           <form (ngSubmit)="login()" #form="ngForm" aria-labelledby="title">
             <div class="form-control-group">
-              <label class="label" for="input-email">Email address:</label>
+              <label class="label" for="input-email">البريد الألكتروني:</label>
 
               <input
                 nbInput
@@ -18,7 +18,7 @@
                 name="email"
                 id="input-email"
                 pattern=".+@.+\..+"
-                placeholder="Email address"
+                placeholder="البريد الألكتروني"
                 fieldSize="large"
                 autofocus
                 [status]="
@@ -29,8 +29,8 @@
                   email.invalid && email.touched ? true : null
                 "
               />
-            <p class="error-message" *ngIf="email.invalid && password.touched ">
-              {{email.value}} {{email.invalid}}
+            <p class="error-message" *ngIf="email.invalid && email.touched ">
+              البريد الألكتروني غير صحيح
             </p>
               <!-- <input nbInput
            fullWidth
@@ -57,14 +57,14 @@
 
             <div class="form-control-group">
               <span class="label-with-link">
-                <label class="label" for="input-password">Password:</label>
+                <label class="label" for="input-password">كلمة المرور:</label>
                 <a
                   class="forgot-password caption-2"
                   routerLink="#"
-                  nbPopover="Ask your admin for a new password"
+                  nbPopover="أطلب من المشرف أعطائك كلمة جديدة"
                   nbPopoverTrigger="hover"
                   nbPopoverPlacement="right"
-                  >Forgot Password?</a
+                  >نسيت كلمة المرور?</a
                 >
               </span>
               <input
@@ -75,7 +75,7 @@
                 name="password"
                 type="password"
                 id="input-password"
-                placeholder="Password"
+                placeholder="كلمة المرور"
                 fieldSize="large"
                 [status]="
                   password.dirty
@@ -92,7 +92,7 @@
                 "
               />
               <p class="error-message" *ngIf="password.invalid && password.touched">
-                password must be more than 6 characters
+                كلمة المرور أقل من 6 علامات
               </p>
               <!-- <input nbInput
            fullWidth
@@ -122,14 +122,14 @@
     </ng-container> -->
             </div>
 
-            <div class="form-control-group accept-group">
+            <!-- <div class="form-control-group accept-group">
               <nb-checkbox
                 name="rememberMe"
                 [(ngModel)]="user.rememberMe"
                 *ngIf="rememberMe"
-                >Remember me</nb-checkbox
+                >تذكرني</nb-checkbox
               >
-            </div>
+            </div> -->
 
             <button
               nbButton
@@ -139,7 +139,7 @@
               [disabled]="submitted || !form.valid"
               [class.btn-pulse]="submitted"
             >
-              Log In
+              دخول
             </button>
           </form>
 

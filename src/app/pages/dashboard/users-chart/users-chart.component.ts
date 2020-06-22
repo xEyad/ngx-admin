@@ -50,19 +50,19 @@ export class UsersChartComponent implements OnInit {
 }
 let single = [
   {
-    "name": "Facebook",
+    "name": "فيسبوك",
     "value": 8940
   },
   {
-    "name": "Youtube",
+    "name": "يوتيوب",
     "value": 12000
   },
   {
-    "name": "Twitter",
+    "name": "تويتر",
     "value": 5000
   },
   {
-    "name": "Instagram",
+    "name": "أنستاجرام",
     "value": 13520
   },
   {
@@ -70,15 +70,15 @@ let single = [
     "value": 1785
   },
   {
-    "name": "Direct",
+    "name": "مباشر",
     "value": 13520
   },
   {
-    "name":"Organic",
+    "name":"طبيعي",
     "value": 8954
   },
   {
-    "name": "Other",
+    "name": "أخر",
     "value": 6200
   }
 ];

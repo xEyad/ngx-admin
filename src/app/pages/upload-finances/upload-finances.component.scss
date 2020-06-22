@@ -2,7 +2,12 @@ nb-card {
   margin: 0;
   height: calc(100vh - 2 * 2.5rem);
 }
-
+:host:dir(rtl)
+{
+  .label{
+    font-size: 1.05rem;
+  }
+}
 nb-card-body {
   display: flex;
   width: 100%;

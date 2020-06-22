@@ -9,7 +9,7 @@
                 <i class="fas fa-user-graduate fa-2x" style="color: #002e2c;"></i>
                 <div class="text">
                   <strong>5841</strong>
-                  <span class="label">Students</span>
+                  <span class="label">طالب</span>
                 </div>
               </div>
             </div>
@@ -18,7 +18,7 @@
                 <i class="fas fa-chalkboard-teacher fa-2x" style="color: #664E4C;"></i>
                 <div class="text">
                   <strong>421</strong>
-                  <span class="label">Teachers</span>
+                  <span class="label">مدرس</span>
                 </div>
               </div>
             </div>
@@ -30,7 +30,7 @@
                 <i class="fas fa-school fa-2x" style="color: #ff9900;"></i>
                 <div class="text">
                   <strong>320</strong>
-                  <span class="label">Camps</span>
+                  <span class="label">معسكر</span>
                 </div>
               </div>
             </div>
@@ -39,7 +39,7 @@
                 <i class="far fa-eye fa-2x" style="color: #454372;"></i>
                 <div class="text">
                   <strong>10000</strong>
-                  <span class="label">Visitors</span>
+                  <span class="label">زائر</span>
                 </div>
               </div>
             </div>
@@ -58,17 +58,17 @@
           <div class="row border-bottom clickable" (click)="flipCard()">
             <div class="col-6 d-flex  px-3 border-right">
               <div class="statstic">
-                <h3 class="label">Students ({{selectedDuration}})</h3>
-                <p class="info">Registered <span>203</span></p>
-                <p class="info">Paid <span>33</span></p>
+                <h3 class="label">طالب ({{selectedDuration}})</h3>
+                <p class="info">مسجل <span>203</span></p>
+                <p class="info">مدفوع <span>33</span></p>
               </div>
             </div>
 
             <div class="col-6 d-flex  px-3">
               <div class="statstic">
-                <h3 class="label">Camps ({{selectedDuration}})</h3>
-                <p class="info">In review <span>203</span></p>
-                <p class="info">Published <span>33</span></p>
+                <h3 class="label">معسكر ({{selectedDuration}})</h3>
+                <p class="info">تحت المراجعة <span>203</span></p>
+                <p class="info">تم نشرة <span>33</span></p>
               </div>
             </div>
           </div>
@@ -76,18 +76,18 @@
           <div class="row ">
             <div class="col-6 d-flex  px-3 pt-1 border-right clickable" (click)="flipCard()">
               <div class="statstic">
-                <h3 class="label">Teachers ({{selectedDuration}})</h3>
-                <p class="info">Accepted  <span>203</span></p>
-                <p class="info">Rejected <span>33</span></p>
+                <h3 class="label">مدرس ({{selectedDuration}})</h3>
+                <p class="info">مقبول  <span>203</span></p>
+                <p class="info">مرفوض <span>33</span></p>
               </div>
             </div>
             <div class="col-6 d-flex  px-3 pt-1">
               <div class="statstic" >
                 <p>Selected Duration</p>
                 <nb-select  (selectedChange)="changeDuration($event)" [placeholder]="'Range'" [size]="'small'" [selected]="'Daily'">
-                  <nb-option value="Daily">Daily</nb-option>
-                  <nb-option value="Weekly">Weekly</nb-option>
-                  <nb-option value="Monthly">Monthly</nb-option>
+                  <nb-option value="Daily">يومي</nb-option>
+                  <nb-option value="Weekly">أسبوعي</nb-option>
+                  <nb-option value="Monthly">شهري</nb-option>
                 </nb-select>
               </div>
             </div>

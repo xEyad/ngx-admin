@@ -8,7 +8,7 @@ import { EmployeeHistoryComponent } from '../employee-history/employee-history.c
   styleUrls: ['./employees.component.scss']
 })
 export class EmployeesComponent implements OnInit {
-  employees= Array(8).fill({name:"lizea foda",title:"english supervisor",img:"https://loremflickr.com/50/50/girl/all",workRate:"15",evaluation:"+8"});
+  employees= Array(8).fill({name:"أميرة محمود",title:"مدرس أنجليزي",img:"https://loremflickr.com/50/50/girl/all",workRate:"15"});
   selectedDuration:string = 'Daily';
   viewedDuration:string = 'day';
   constructor(private dialogService: NbDialogService) { }
@@ -33,10 +33,10 @@ export class EmployeesComponent implements OnInit {
     }
   }
   openHistory() {
-  let empoloyeeHistory:{date,timeWorked,activity}[]=Array(10).fill({date:'12 apr 2020',timeWorked:12,activity:"created tests"});
+  let empoloyeeHistory:{date,timeWorked,activity}[]=Array(10).fill({date:'12 أبريل 2020',timeWorked:12,activity:"أعددت الأختبارات للطلاب"});
     let ref = this.dialogService.open(EmployeeHistoryComponent,);
     ref.componentRef.instance.empoloyeeHistory = empoloyeeHistory;
-    ref.componentRef.instance.employeeName = 'Magdy';
+    ref.componentRef.instance.employeeName = 'مجدي';
     ref.componentRef.changeDetectorRef.detectChanges();
   }
 }
