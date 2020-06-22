@@ -39,6 +39,16 @@ export class DiskService
   }
   private currentUserTokenKey = "userToken";
 
+  get userName()
+  {
+    return localStorage.getItem(this.currentUserNameKey);
+  }
+  set userName(name)
+  {
+    localStorage.setItem(this.currentUserNameKey,name);
+  }
+  private currentUserNameKey = "userName";
+
   get currentUserType()
   {
     return localStorage.getItem('type');

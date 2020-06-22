@@ -32,6 +32,7 @@ export class AuthenticationService {
     this.disk.userToken = data.token;
     this.disk.currentUserType = data.responseUser.type;
     this.disk.currentUserId = data.responseUser._id;
+    this.disk.userName = data.responseUser.username;
   }
 
   //NEEDS API UPDATE

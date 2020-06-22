@@ -1,3 +1,4 @@
+import { DiskService } from './../../../services/disk.service';
 import { AuthenticationService } from './../../../services/authentication.service';
 import { UsersService } from './../../../services/users.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
@@ -19,7 +20,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private destroy$: Subject<void> = new Subject<void>();
   public readonly materialTheme$: Observable<boolean>;
   userPictureOnly: boolean = false;
-  user: any;
+  username: any;
 
   themes = [
     {
@@ -59,7 +60,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private sidebarService: NbSidebarService,
     private menuService: NbMenuService,
     private themeService: NbThemeService,
-    private userService:UsersService,
+    private disk:DiskService,
     private nbMenuService: NbMenuService,
     private authService:AuthenticationService,
     private directionService:NbLayoutDirectionService,
@@ -76,7 +77,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.directionService.setDirection(NbLayoutDirection.RTL);
     this.currentTheme = this.themeService.currentTheme;
 
-    this.user = await this.userService.getCurrentUser();
+    this.username = this.disk.userName;
 
     this.nbMenuService.onItemClick()
       .pipe(
