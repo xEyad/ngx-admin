@@ -51,7 +51,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   currentTheme = 'default';
 
-  userMenu = [ { title: 'Log out' } ];
+  userMenu = [ { title: 'خروج' } ];
 
   public constructor(
     private layoutService: LayoutService,
@@ -85,7 +85,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
         map(({ item: { title } }) => title),
       )
       .subscribe(title =>{
-        if(title=='Log out')
+        if(title=='خروج')
         {
           this.authService.logout();
           this.router.navigateByUrl('/login');
