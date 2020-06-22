@@ -49,6 +49,16 @@ export class DiskService
   }
   private currentUserNameKey = "userName";
 
+  get job()
+  {
+    return localStorage.getItem(this.currentJobKey);
+  }
+  set job(job)
+  {
+    localStorage.setItem(this.currentJobKey,job);
+  }
+  private currentJobKey = "job";
+
   get currentUserType()
   {
     return localStorage.getItem('type');

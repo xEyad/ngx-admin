@@ -35,6 +35,7 @@ export class AuthenticationService {
     this.disk.currentUserType = data.responseUser.type;
     this.disk.currentUserId = data.responseUser._id;
     this.disk.userName = data.responseUser.username;
+    this.disk.job = data.responseUser.job;
   }
 
   async updateUserPassword(email:string,newPassword:string) : Promise<any>

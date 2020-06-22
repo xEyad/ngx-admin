@@ -4,14 +4,36 @@
       <nb-card-body>
         <div class="containing-box">
           <div class="heading">
-            <h1>أسم الموظف</h1>
-            <p class="sub-title">مركزة</p>
+            <h1>{{ disk.userName }}</h1>
+            <p class="sub-title">{{ disk.job }}</p>
           </div>
-          <form action="" #form="ngForm">
-          <input type="text" nbInput fullWidth fieldSize="small" placeholder="مدة العمل">
-          <textarea nbInput fullWidth placeholder="أوصف ماذا فعلت في هذة المدة"></textarea>
-          <button
+          <form (submit)="add()" #form="ngForm">
+            <input
+              type="number"
+              (change)="validateNumber()"
+              nbInput
+              fullWidth
+              fieldSize="small"
+              placeholder="مدة العمل"
+              #time="ngModel"
+              ngModel
+              [(ngModel)]="duration"
+              required
+              name="time"
+            />
+            <textarea
+              #theActivity="ngModel"
+              ngModel
+              [(ngModel)]="activity"
+              required
+              name="theActivity"
+              nbInput
+              fullWidth
+              placeholder="أوصف ماذا فعلت في هذة المدة"
+            ></textarea>
+            <button
               nbButton
+              type="submit"
               fullWidth
               status="primary"
               size="large"
