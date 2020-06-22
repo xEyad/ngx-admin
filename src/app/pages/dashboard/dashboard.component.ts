@@ -1,10 +1,20 @@
-import { Component } from '@angular/core';
+import { DiskService } from './../../services/disk.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'ngx-dashboard',
   templateUrl: './dashboard.component.html',
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit{
+  userRole="";
+  constructor(private disk:DiskService)
+  {
+    this.userRole = disk.currentUserType.toLocaleLowerCase();
+  }
+  ngOnInit()
+  {
+
+  }
   facebokInfo:{name,value,icon}[] =  [
     {
       name:'تفاعل',
