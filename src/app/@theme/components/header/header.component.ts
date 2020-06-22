@@ -1,7 +1,7 @@
 import { AuthenticationService } from './../../../services/authentication.service';
 import { UsersService } from './../../../services/users.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
+import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService, NbLayoutDirectionService, NbLayoutDirection } from '@nebular/theme';
 
 import { LayoutService } from '../../../@core/utils';
 import { map, takeUntil, filter } from 'rxjs/operators';
@@ -62,6 +62,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private userService:UsersService,
     private nbMenuService: NbMenuService,
     private authService:AuthenticationService,
+    private directionService:NbLayoutDirectionService,
     private router:Router
   ) {
     this.materialTheme$ = this.themeService.onThemeChange()
@@ -72,6 +73,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   async ngOnInit() {
+    this.directionService.setDirection(NbLayoutDirection.RTL);
     this.currentTheme = this.themeService.currentTheme;
 
     this.user = await this.userService.getCurrentUser();

@@ -7,18 +7,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SimpleCardComponent implements OnInit {
 
-  flipped:boolean = false;
-  selectedDuration:string = 'Daily';
+  flipped: boolean = false;
+  selectedDuration: string = 'Daily';
   constructor() { }
 
   ngOnInit(): void {
   }
-  flipCard(): void
-  {
+  flipCard(): void {
     this.flipped = !this.flipped;
   }
-  changeDuration(selection:string)
-  {
+  changeDuration(selection: string) {
     this.selectedDuration = selection;
   }
+  viewedDuration(): string {
+    switch (this.selectedDuration.toLowerCase()) {
+      case 'daily':
+      return 'يومي'
+      case 'monthly':
+        return 'شهري'
+      case 'weekly':
+        return 'أسبوعي'
+      default:
+        break;
+    }
+  }
+
 }

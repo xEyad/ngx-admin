@@ -58,7 +58,7 @@
           <div class="row border-bottom clickable" (click)="flipCard()">
             <div class="col-6 d-flex  px-3 border-right">
               <div class="statstic">
-                <h3 class="label">طالب ({{selectedDuration}})</h3>
+                <h3 class="label">طالب ({{viewedDuration()}})</h3>
                 <p class="info">مسجل <span>203</span></p>
                 <p class="info">مدفوع <span>33</span></p>
               </div>
@@ -66,7 +66,7 @@
 
             <div class="col-6 d-flex  px-3">
               <div class="statstic">
-                <h3 class="label">معسكر ({{selectedDuration}})</h3>
+                <h3 class="label">معسكر ({{viewedDuration()}})</h3>
                 <p class="info">تحت المراجعة <span>203</span></p>
                 <p class="info">تم نشرة <span>33</span></p>
               </div>
@@ -76,7 +76,7 @@
           <div class="row ">
             <div class="col-6 d-flex  px-3 pt-1 border-right clickable" (click)="flipCard()">
               <div class="statstic">
-                <h3 class="label">مدرس ({{selectedDuration}})</h3>
+                <h3 class="label">مدرس ({{viewedDuration()}})</h3>
                 <p class="info">مقبول  <span>203</span></p>
                 <p class="info">مرفوض <span>33</span></p>
               </div>
