@@ -12,12 +12,14 @@ export class AuthenticationService {
     private disk:DiskService
     ) { }
 
-  async createUser(email:string,role:string,password:string) : Promise<any>
+  async createUser(email:string,role:string,password:string,username:string,job="") : Promise<any>
   {
     let payload = {
       "email": email,
       "password": password,
-      "type": role
+      "type": role,
+      "job": job,
+      "username":username
     }
     return this.http.post(`${this.disk.baseUrl}/users`,payload).toPromise();
   }
@@ -35,14 +37,13 @@ export class AuthenticationService {
     this.disk.userName = data.responseUser.username;
   }
 
-  //NEEDS API UPDATE
   async updateUserPassword(email:string,newPassword:string) : Promise<any>
   {
     let payload = {
       "email": email,
       "newPassword": newPassword,
     };
-    return this.http.post(`${this.disk.baseUrl}/users/updatePassword`,payload,this.header).toPromise();
+    return this.http.post(`${this.disk.baseUrl}/users/${this.disk.currentUserId}/updatePassword`,payload,this.header).toPromise();
   }
 
   async resetCurrentUserPassword(oldPassword:string,newPassword:string):Promise<any>

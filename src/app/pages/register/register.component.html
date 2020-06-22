@@ -38,6 +38,33 @@
             </div>
 
             <div class="form-control-group">
+              <label class="label" >أسم المستخدم:</label>
+
+              <input
+                nbInput
+                fullWidth
+                [(ngModel)]="user.username"
+                #username="ngModel"
+                name="username"
+                placeholder="أسم المشتخدم"
+                fieldSize="large"
+                autofocus
+                [status]="
+                  username.dirty ? (username.invalid ? 'danger' : 'success') : 'basic'
+                "
+                [required]="true"
+                [attr.aria-invalid]="
+                  username.invalid && username.touched ? true : null
+                "
+              />
+              <p
+                class="error-message"
+                *ngIf="username.invalid && username.touched"
+              >
+أسم المستخدم مطلوب              </p>
+            </div>
+
+            <div class="form-control-group">
               <span class="label-with-link">
                 <label class="label" for="input-password">كلمة المرور: (قراءة فقط)</label>
               </span>
@@ -74,7 +101,15 @@
             </div>
             <div class="selection-input" *ngIf="user.type=='employee'">
               <label class="label">الوظيفة:</label>
-              <input type="text" nbInput fullWidth fieldSize="small" placeholder="الوظيفة">
+              <input type="text" nbInput fullWidth fieldSize="small"
+              [status]="
+                  job.dirty ? (job.invalid ? 'danger' : 'success') : 'basic'
+                "
+                [required]="true"
+                [attr.aria-invalid]="
+                  job.invalid && job.touched ? true : null
+                "
+              placeholder="الوظيفة" required [(ngModel)]="user.job" #job="ngModel" name="job">
             </div>
             <button
               nbButton

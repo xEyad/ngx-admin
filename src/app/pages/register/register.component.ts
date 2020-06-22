@@ -10,7 +10,7 @@ import { NbToastrService } from '@nebular/theme';
 })
 export class RegisterComponent implements OnInit {
 
-  user:{email,password,type} = {email:null,password:"123456",type:null};
+  user:{email,password,type,username,job} = {email:null,password:"123456",type:null,username:null,job:""};
   constructor(
     private router:Router,
     private auth:AuthenticationService,
@@ -22,12 +22,16 @@ export class RegisterComponent implements OnInit {
   async register()
   {
     try{
-      await this.auth.createUser(this.user.email,this.user.type,this.user.password);
-      this.toast.success("Account created",'Success');
+      if(this.user.type=="dataEntry")
+        this.user.job = 'مدخل بيانات';
+      else if(this.user.type=="admin")
+        this.user.job = 'مشرف';
+      await this.auth.createUser(this.user.email,this.user.type,this.user.password,this.user.username,this.user.job);
+      this.toast.success("تم التسجيل بنجاح",'نجاح');
     }
     catch(e)
     {
-      this.toast.danger(e.error.error.message,'Failed');
+      this.toast.danger(e.error.error,'فشل');
     }
   }
 
