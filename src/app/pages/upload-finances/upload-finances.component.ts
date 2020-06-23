@@ -1,5 +1,6 @@
+import { NbToastrService } from '@nebular/theme';
+import { ItemsService } from './../../services/items.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'ngx-upload-finances',
@@ -7,19 +8,41 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./upload-finances.component.scss']
 })
 export class UploadFinancesComponent implements OnInit {
-  finances:any[]=Array(0).fill({item:'asd',price:123});
+  finances:any[];
   theAddRecord={item:"",price:"",editMode:false};
 
-  constructor() { }
+  constructor(
+    private itemsService:ItemsService,
+    private toast:NbToastrService
+  )
+  {
+
+  }
   ngOnInit(): void {
     this.updateFinances();
   }
-  updateFinances(){
-    this.finances = this.finances.map((f)=>{return {item:f.item,price:f.price,editMode:false}});
-  }
-  addRecord(record)
+  async updateFinances()
   {
-    this.finances.unshift(record);
+    try{
+      let items = await this.itemsService.getItems();
+      this.finances = items.map((f)=>{return {item:f.item,price:f.price,editMode:false}});
+    }
+    catch(e)
+    {
+      this.toast.danger('فشل في أحضار المعلومات','فشل');
+    }
+  }
+  async addRecord(record)
+  {
+    try{
+      await this.itemsService.addItem(this.theAddRecord.item,this.theAddRecord.price.toString());
+      this.finances.reverse;
+      this.theAddRecord={item:"",price:"",editMode:false};
+      this.toast.success('تم الأضافة بنجاح',"نجاح");
+    }catch(e)
+    {
+      this.toast.danger('فشلت العلمية',"فشل");
+    }
   }
   enterEditMode(record)
   {

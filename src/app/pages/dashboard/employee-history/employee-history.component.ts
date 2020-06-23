@@ -1,3 +1,4 @@
+import { EmployeeService } from './../../../services/employee.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { NgxSmartModalService } from 'ngx-smart-modal';
 import { NbDialogRef } from '@nebular/theme';
@@ -9,10 +10,17 @@ import { NbDialogRef } from '@nebular/theme';
 })
 export class EmployeeHistoryComponent implements OnInit {
 
-  constructor(protected dialogRef: NbDialogRef<any>) { }
+  constructor(
+    protected dialogRef: NbDialogRef<any>,
+    private employeeService:EmployeeService
+    ) {
+
+    }
   empoloyeeHistory:{date,timeWorked,activity}[]=[];
   employeeName:string="";
-  ngOnInit(): void {
+  async ngOnInit()
+  {
+    // this.empoloyeeHistory = await this.employeeService.getActivities();
   }
 
   close() {

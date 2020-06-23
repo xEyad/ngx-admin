@@ -1,3 +1,4 @@
+
 import { DiskService } from './../../services/disk.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit{
   userRole="";
-  constructor(private disk:DiskService)
+  constructor(
+    private disk:DiskService,
+    )
   {
     this.userRole = disk.currentUserType.toLocaleLowerCase();
   }

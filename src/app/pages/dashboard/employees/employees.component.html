@@ -22,14 +22,11 @@
 <ng-template #cards>
   <nb-card *ngFor="let emp of employees">
     <nb-card-body >
-      <div class="employee-card " >
-        <img [src]="emp.img" alt="" class="shadow">
+      <div class="employee-card">
+        <nb-user [name]="emp.username" [title]="emp.job"></nb-user>
         <div class="text">
-          <strong>{{emp.name}}</strong>
-          <span class="label">{{emp.title}}</span>
           <div>{{emp.workRate}} ساعة/{{viewedDuration}}</div>
         </div>
-
       </div>
     </nb-card-body>
   </nb-card>
@@ -48,13 +45,7 @@
     <tbody>
       <tr *ngFor="let emp of employees" (click)="openHistory()" class="clickable">
         <td class="align-middle">
-          <div class="employee">
-            <img [src]="emp.img" alt="" class="rounded-circle">
-            <div class="text">
-              <strong>{{emp.name}}</strong>
-              <span class="label">{{emp.title}}</span>
-            </div>
-          </div>
+      <nb-user [name]="emp.username" [title]="emp.job"></nb-user>
         </td>
         <td class="align-middle text-center">{{emp.workRate}} ساعة</td>
         <td class="align-middle text-center">{{emp.workRate}} ساعة</td>

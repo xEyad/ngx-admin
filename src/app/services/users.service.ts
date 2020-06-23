@@ -8,18 +8,27 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class UsersService {
 
   constructor(
-    private disk:DiskService,
-    private http:HttpClient
-    ) { }
-  async getCurrentUser() : Promise<any>
-  {
-    return this.http.get(`${this.disk.baseUrl}/users/${this.disk.currentUserId}`,this.header).toPromise();
+    private disk: DiskService,
+    private http: HttpClient
+  ) { }
+  async getCurrentUser(): Promise<any> {
+    return this.http.get(`${this.disk.baseUrl}/users/${this.disk.currentUserId}`, this.header).toPromise();
   }
 
-  private get header():{'headers':HttpHeaders}{
-    let h =  new HttpHeaders({
-      'Authorization':this.disk.userToken
+  async getUsers(): Promise<{
+    joinDate: Date,
+    _id: string,
+    email: string,
+    password: string,
+    type: string,
+  }[]> {
+    return this.http.get<any>(`${this.disk.baseUrl}/users`, this.header).toPromise();
+  }
+
+  private get header(): { 'headers': HttpHeaders } {
+    let h = new HttpHeaders({
+      'Authorization': this.disk.userToken
     });
-    return {'headers':h};
+    return { 'headers': h };
   }
 }

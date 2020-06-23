@@ -16,7 +16,8 @@ import {
   NbListModule,
   NbAlertModule,
   NbMenuModule,
-  NbPopoverModule
+  NbPopoverModule,
+  NbUserModule
 } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
 
@@ -43,6 +44,7 @@ import { FormsModule } from '@angular/forms';
     NbMenuModule,
     ThemeModule,
     NgxChartsModule,
+    NbUserModule,
   ],
   exports:[
     HttpClientModule,
@@ -64,6 +66,7 @@ import { FormsModule } from '@angular/forms';
     NbMenuModule,
     ThemeModule,
     NgxChartsModule,
+    NbUserModule,
   ]
 })
 export class SharedModule {

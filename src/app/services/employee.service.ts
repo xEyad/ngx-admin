@@ -12,9 +12,14 @@ export class EmployeeService {
     private http:HttpClient
     ) { }
 
+  //should be employees based
+  async getActivities(userID) : Promise<{date,activity}[]>
+  {
+    return await this.http.get<{date,activity}[]>(`${this.disk.baseUrl}/activities/${userID}`,this.header).toPromise();
+  }
   addActivity(duration:string,activity:string) : Promise<any>
   {
-    const payload ={
+    const payload = {
       duration:duration,
       activity:activity
     }
