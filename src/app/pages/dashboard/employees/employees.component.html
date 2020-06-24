@@ -43,13 +43,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let emp of employees" (click)="openHistory()" class="clickable">
+      <tr *ngFor="let emp of employees" (click)="openHistory(emp)" class="clickable">
         <td class="align-middle">
       <nb-user [name]="emp.username" [title]="emp.job"></nb-user>
         </td>
-        <td class="align-middle text-center">{{emp.workRate}} ساعة</td>
-        <td class="align-middle text-center">{{emp.workRate}} ساعة</td>
-        <td class="align-middle text-center">{{emp.workRate}} ساعة</td>
+        <td class="align-middle text-center">{{emp.dailyRate}} ساعة</td>
+        <td class="align-middle text-center">{{emp.weeklyRate}} ساعة</td>
+        <td class="align-middle text-center">{{emp.monthlyRate}} ساعة</td>
       </tr>
 
     </tbody>

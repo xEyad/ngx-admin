@@ -16,11 +16,10 @@ export class EmployeeHistoryComponent implements OnInit {
     ) {
 
     }
-  empoloyeeHistory:{date,timeWorked,activity}[]=[];
+  empoloyeeHistory=[];
   employeeName:string="";
   async ngOnInit()
   {
-    // this.empoloyeeHistory = await this.employeeService.getActivities();
   }
 
   close() {

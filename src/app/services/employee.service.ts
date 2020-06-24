@@ -15,7 +15,8 @@ export class EmployeeService {
   //should be employees based
   async getActivities(userID) : Promise<{date,activity}[]>
   {
-    return await this.http.get<{date,activity}[]>(`${this.disk.baseUrl}/activities/${userID}`,this.header).toPromise();
+    let res = await this.http.get<any>(`${this.disk.baseUrl}/users/${userID}/activity`,this.header).toPromise();
+    return res.activities;
   }
   addActivity(duration:string,activity:string) : Promise<any>
   {
@@ -23,7 +24,8 @@ export class EmployeeService {
       duration:duration,
       activity:activity
     }
-    return this.http.post(`${this.disk.baseUrl}/activities`,payload,this.header).toPromise();
+    let userID = this.disk.currentUserId;
+    return this.http.post(`${this.disk.baseUrl}/users/${userID}/activity`,payload,this.header).toPromise();
   }
 
   private get header():{'headers':HttpHeaders}{

@@ -9,7 +9,7 @@ import { EmployeeHistoryComponent } from '../employee-history/employee-history.c
   styleUrls: ['./employees.component.scss']
 })
 export class EmployeesComponent implements OnInit {
-  employees= Array(8).fill({name:"أميرة محمود",title:"مدرس أنجليزي",img:"https://loremflickr.com/50/50/girl/all",workRate:"15"});
+  employees:any[];
   selectedDuration:string = 'Daily';
   viewedDuration:string = 'day';
   constructor(
@@ -20,6 +20,17 @@ export class EmployeesComponent implements OnInit {
   async ngOnInit()
   {
     this.employees = await this.usersService.getUsers();
+    this.employees = this.employees.filter((e)=>e.type=="dataEntry" || e.type=="employee");
+    // this.employees = this.employees.map((e)=>{
+    //   return {
+    //     //array of {date,durations}
+    //     dailyRate:this.calculateDailyRate(),
+    //     weeklyRate:this.calculateWeeklyRate(),
+    //     monthlyRate:this.calculatMonthklyRate(),
+    //     username:e.username,
+    //     title:e.job
+    //   };
+    // });
   }
   changeDuration(selection:string)
   {
@@ -38,11 +49,11 @@ export class EmployeesComponent implements OnInit {
         break;
     }
   }
-  openHistory() {
-  let empoloyeeHistory:{date,timeWorked,activity}[]=Array(10).fill({date:'12 أبريل 2020',timeWorked:12,activity:"أعددت الأختبارات للطلاب"});
+  openHistory(emp) {
+    let empoloyeeHistory=emp.activities;
     let ref = this.dialogService.open(EmployeeHistoryComponent,);
     ref.componentRef.instance.empoloyeeHistory = empoloyeeHistory;
-    ref.componentRef.instance.employeeName = 'مجدي';
+    ref.componentRef.instance.employeeName = emp.username;
     ref.componentRef.changeDetectorRef.detectChanges();
   }
 }
