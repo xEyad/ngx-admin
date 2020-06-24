@@ -1,6 +1,5 @@
 import { EmployeeService } from './../../../services/employee.service';
 import { Component, OnInit, Input } from '@angular/core';
-import { NgxSmartModalService } from 'ngx-smart-modal';
 import { NbDialogRef } from '@nebular/theme';
 
 @Component({
