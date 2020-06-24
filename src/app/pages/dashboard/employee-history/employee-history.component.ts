@@ -20,8 +20,14 @@ export class EmployeeHistoryComponent implements OnInit {
   employeeName:string="";
   async ngOnInit()
   {
-  }
 
+  }
+  parseDate(string)
+  {
+    let d = new Date(string);
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    return d.toLocaleDateString('ar-EG', options);
+  }
   close() {
     this.dialogRef.close();
   }

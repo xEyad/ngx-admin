@@ -2,6 +2,7 @@ import { UsersService } from './../../../services/users.service';
 import { Component, OnInit } from '@angular/core';
 import { NbDialogService, NbDialogRef } from '@nebular/theme';
 import { EmployeeHistoryComponent } from '../employee-history/employee-history.component';
+import { NumberSymbol } from '@angular/common';
 
 @Component({
   selector: 'ngx-employees',
@@ -21,16 +22,50 @@ export class EmployeesComponent implements OnInit {
   {
     this.employees = await this.usersService.getUsers();
     this.employees = this.employees.filter((e)=>e.type=="dataEntry" || e.type=="employee");
-    // this.employees = this.employees.map((e)=>{
-    //   return {
-    //     //array of {date,durations}
-    //     dailyRate:this.calculateDailyRate(),
-    //     weeklyRate:this.calculateWeeklyRate(),
-    //     monthlyRate:this.calculatMonthklyRate(),
-    //     username:e.username,
-    //     title:e.job
-    //   };
-    // });
+    this.employees = this.employees.map((e)=>{
+      return {
+        //array of {date,durations}
+        dailyRate:this.calculateDailyRate(<any>e.activities),
+        weeklyRate:this.calculateWeeklyRate(<any>e.activities),
+        monthlyRate:this.calculatMonthklyRate(<any>e.activities),
+        username:e.username,
+        title:e.job,
+        activities:e.activities
+      };
+    });
+  }
+  calculateDailyRate(data:{date,duration}[])
+  {
+    let avg = this.average(data.map((e)=>parseInt(e.duration)))
+    return Math.floor(avg);
+  }
+  calculateWeeklyRate(data:{date,duration}[])
+  {
+    let nums = data.map((e)=>e.duration);
+    let weeks = Math.floor(nums.length/7);
+    if(weeks==0)
+      return 0;
+    let weeklyAvg = (this.calculateDailyRate(data)*7) / weeks;
+    return Math.floor(weeklyAvg);
+  }
+  calculatMonthklyRate(data:{date,duration}[])
+  {
+    let nums = data.map((e)=>e.duration);
+    let months = Math.floor(nums.length/30);
+    if(months==0)
+      return 0;
+    let monthlyAvg = (this.calculateDailyRate(data)*30) / months;
+    return Math.floor(monthlyAvg);
+  }
+
+  average(data:any[])
+  {
+    let total = 0;
+    for(let i = 0; i < data.length; i++) {
+        total += data[i];
+    }
+    let avg = total / data.length;
+    return avg;
   }
   changeDuration(selection:string)
   {
