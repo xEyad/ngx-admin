@@ -89,9 +89,11 @@
 
           <div class="selection-input">
             <label for="" class="label">الوارد</label>
-            <input nbInput type="number" placeholder="رقم" />
+            <input nbInput type="number" placeholder="رقم"
+            [(ngModel)]="income" />
           </div>
           <button
+          (click)="updateIncome()"
             class="save-btn"
             nbButton
             fullWidth

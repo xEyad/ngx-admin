@@ -10,16 +10,16 @@ import { Component, OnInit } from '@angular/core';
 export class UploadFinancesComponent implements OnInit {
   finances:any[];
   theAddRecord={item:"",price:"",editMode:false};
-
+  income;
   constructor(
     private itemsService:ItemsService,
     private toast:NbToastrService
   )
   {
-
   }
-  ngOnInit(): void {
+  async ngOnInit() {
     this.updateFinances();
+    this.income = await this.itemsService.getIncome();
   }
   async updateFinances()
   {
@@ -59,6 +59,16 @@ export class UploadFinancesComponent implements OnInit {
       !this.isEmpty(record.item) &&
       !isNaN(parseFloat(record.price))
     );
+  }
+  async updateIncome()
+  {
+    try{
+      await this.itemsService.addIncome(this.income);
+      this.toast.success('تم الأضافة بنجاح',"نجاح");
+    }catch(e)
+    {
+      this.toast.danger('فشلت العلمية',"فشل");
+    }
   }
   private isEmpty(string)
   {

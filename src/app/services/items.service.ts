@@ -27,7 +27,18 @@ export class ItemsService {
     };
     return this.http.post(`${this.disk.baseUrl}/items`,payload,this.header).toPromise();
   }
-
+  async getIncome() : Promise<number>
+  {
+    let res=  await this.http.get<any>(`${this.disk.baseUrl}/income`,this.header).toPromise();
+    return res.totalIncome;
+  }
+  async addIncome(income)
+  {
+    const payload = {
+      "income": income,
+    };
+    return this.http.post(`${this.disk.baseUrl}/income`,payload,this.header).toPromise();
+  }
   private get header(): { 'headers': HttpHeaders } {
     let h = new HttpHeaders({
       'Authorization': this.disk.userToken
