@@ -30,7 +30,9 @@ export class UploadStatsticsComponent implements OnInit {
       this.toast.success('تمت العملية بنجاح','نجاح');
     }catch(e)
     {
-      this.toast.danger('فشلت العملية','فشل');
+      console.log(e);
+
+      this.toast.danger(e.error.message,'فشل');
     }
   }
 }

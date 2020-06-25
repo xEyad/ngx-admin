@@ -1,3 +1,4 @@
+import { NoHomeGuard } from './../gaurds/no-home.guard';
 import { UploadFinancesComponent } from './upload-finances/upload-finances.component';
 import { UploadStatsticsComponent } from './upload-statstics/upload-statstics.component';
 import { AddTimeComponent } from './add-time/add-time.component';
@@ -17,6 +18,7 @@ const routes: Routes = [{
     {
       path: 'dashboard',
       component: DashboardComponent,
+      canActivate:[NoHomeGuard]
     },
     {
       path:"addTime",

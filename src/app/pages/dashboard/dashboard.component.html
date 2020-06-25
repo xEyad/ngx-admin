@@ -1,3 +1,4 @@
+<ng-container *ngIf="stats!=undefined">
 <div class="row justify-content-center">
   <div
     class="col-xxl-8 col-xl-8 col-lg-12 col-md-12 col-sm-12"
@@ -12,10 +13,10 @@
 
 <div class="row">
   <div class="col-xxl-8 col-xl-8 col-lg-12 col-md-12 col-sm-12">
-    <ngx-line-chart></ngx-line-chart>
+    <ngx-line-chart [siteData]="stats"></ngx-line-chart>
   </div>
   <div class="col-xxl-4 col-xl-4 col-lg-12 col-md-12 col-sm-12">
-    <ngx-users-chart></ngx-users-chart>
+    <ngx-users-chart [data]="stats"></ngx-users-chart>
   </div>
 </div>
 
@@ -63,3 +64,4 @@
     <ngx-employees></ngx-employees>
   </div>
 </div>
+</ng-container>

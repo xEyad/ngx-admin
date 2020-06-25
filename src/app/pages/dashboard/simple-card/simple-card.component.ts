@@ -53,16 +53,15 @@ export class SimpleCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.registeredStudentsNumber = Utility.getTotalOfKey(this.data,'registeredStudentsNumber');
-    this.registeredPaidStudentsNumber = Utility.getTotalOfKey(this.data,'registeredPaidStudentsNumber');
-    this.campsUnderReviewNumber = Utility.getTotalOfKey(this.data,'campsUnderReviewNumber');
-    this.campsPostedNumber = Utility.getTotalOfKey(this.data,'campsPostedNumber');
-    this.acceptedTeachersNumber = Utility.getTotalOfKey(this.data,'acceptedTeachersNumber');
-    this.rejectedTeachersNumber = Utility.getTotalOfKey(this.data,'rejectedTeachersNumber');
+    this.registeredStudentsNumber = Utility.getAllOfKey(this.data,'Registered Students')[Utility.getAllOfKey(this.data,'Registered Students').length-1];
+    this.registeredPaidStudentsNumber = Utility.getAllOfKey(this.data,'Premium Registered Students')[Utility.getAllOfKey(this.data,'Premium Registered Students').length-1];
+    this.campsUnderReviewNumber = Utility.getAllOfKey(this.data,'Camps Under Review')[Utility.getAllOfKey(this.data,'Camps Under Review').length-1];
+    this.campsPostedNumber = Utility.getAllOfKey(this.data,'Posted Camps')[Utility.getAllOfKey(this.data,'Posted Camps').length-1];
+    this.acceptedTeachersNumber = Utility.getAllOfKey(this.data,'Accepted Teachers')[Utility.getAllOfKey(this.data,'Accepted Teachers').length-1];
+    this.rejectedTeachersNumber = Utility.getAllOfKey(this.data,'Rejected Teachers')[Utility.getAllOfKey(this.data,'Rejected Teachers').length-1];
 
-    this.websiteVisitorsNumber = Utility.getTotalOfKey(this.data,'websiteVisitorsNumber');
+    this.websiteVisitorsNumber = Utility.getAllOfKey(this.data,'Total Number Of Views')[Utility.getAllOfKey(this.data,'Total Number Of Views').length-1];
     this.calculateRates();
-
   }
   flipCard(): void {
     this.flipped = !this.flipped;
@@ -106,26 +105,26 @@ export class SimpleCardComponent implements OnInit {
 
   async calculateRates()
   {
-    this.dailyRegisteredStudentsNumber = Utility.calculateDailyRate(Utility.getAllOfKey(this.data,'registeredStudentsNumber'));
-    this.dailyRegisteredPaidStudentsNumber = Utility.calculateDailyRate(Utility.getAllOfKey(this.data,'registeredStudentsNumber'));
-    this.dailyCampsUnderReviewNumber = Utility.calculateDailyRate(Utility.getAllOfKey(this.data,'registeredStudentsNumber'));
-    this.dailyCampsPostedNumber = Utility.calculateDailyRate(Utility.getAllOfKey(this.data,'registeredStudentsNumber'));
-    this.dailyAcceptedTeachersNumber = Utility.calculateDailyRate(Utility.getAllOfKey(this.data,'registeredStudentsNumber'));
-    this.dailyRejectedTeachersNumber = Utility.calculateDailyRate(Utility.getAllOfKey(this.data,'registeredStudentsNumber'));
+    this.dailyRegisteredStudentsNumber = Utility.calculateDailyRate(Utility.getAllOfKey(this.data,'Registered Students'));
+    this.dailyRegisteredPaidStudentsNumber = Utility.calculateDailyRate(Utility.getAllOfKey(this.data,'Registered Students'));
+    this.dailyCampsUnderReviewNumber = Utility.calculateDailyRate(Utility.getAllOfKey(this.data,'Registered Students'));
+    this.dailyCampsPostedNumber = Utility.calculateDailyRate(Utility.getAllOfKey(this.data,'Registered Students'));
+    this.dailyAcceptedTeachersNumber = Utility.calculateDailyRate(Utility.getAllOfKey(this.data,'Registered Students'));
+    this.dailyRejectedTeachersNumber = Utility.calculateDailyRate(Utility.getAllOfKey(this.data,'Registered Students'));
 
-    this.weeklyRegisteredStudentsNumber = Utility.calculateWeeklyRate(Utility.getAllOfKey(this.data,'registeredStudentsNumber'));
-    this.weeklyRegisteredPaidStudentsNumber = Utility.calculateWeeklyRate(Utility.getAllOfKey(this.data,'registeredStudentsNumber'));
-    this.weeklyCampsUnderReviewNumber = Utility.calculateWeeklyRate(Utility.getAllOfKey(this.data,'registeredStudentsNumber'));
-    this.weeklyCampsPostedNumber = Utility.calculateWeeklyRate(Utility.getAllOfKey(this.data,'registeredStudentsNumber'));
-    this.weeklyAcceptedTeachersNumber = Utility.calculateWeeklyRate(Utility.getAllOfKey(this.data,'registeredStudentsNumber'));
-    this.weeklyRejectedTeachersNumber = Utility.calculateWeeklyRate(Utility.getAllOfKey(this.data,'registeredStudentsNumber'));
+    this.weeklyRegisteredStudentsNumber = Utility.calculateWeeklyRate(Utility.getAllOfKey(this.data,'Registered Students'));
+    this.weeklyRegisteredPaidStudentsNumber = Utility.calculateWeeklyRate(Utility.getAllOfKey(this.data,'Registered Students'));
+    this.weeklyCampsUnderReviewNumber = Utility.calculateWeeklyRate(Utility.getAllOfKey(this.data,'Registered Students'));
+    this.weeklyCampsPostedNumber = Utility.calculateWeeklyRate(Utility.getAllOfKey(this.data,'Registered Students'));
+    this.weeklyAcceptedTeachersNumber = Utility.calculateWeeklyRate(Utility.getAllOfKey(this.data,'Registered Students'));
+    this.weeklyRejectedTeachersNumber = Utility.calculateWeeklyRate(Utility.getAllOfKey(this.data,'Registered Students'));
 
-    this.monthlyRegisteredStudentsNumber = Utility.calculateMonthlyRate(Utility.getAllOfKey(this.data,'registeredStudentsNumber'));
-    this.monthlyRegisteredPaidStudentsNumber = Utility.calculateMonthlyRate(Utility.getAllOfKey(this.data,'registeredStudentsNumber'));
-    this.monthlyCampsUnderReviewNumber = Utility.calculateMonthlyRate(Utility.getAllOfKey(this.data,'registeredStudentsNumber'));
-    this.monthlyCampsPostedNumber = Utility.calculateMonthlyRate(Utility.getAllOfKey(this.data,'registeredStudentsNumber'));
-    this.monthlyAcceptedTeachersNumber = Utility.calculateMonthlyRate(Utility.getAllOfKey(this.data,'registeredStudentsNumber'));
-    this.monthlyRejectedTeachersNumber = Utility.calculateMonthlyRate(Utility.getAllOfKey(this.data,'registeredStudentsNumber'));
+    this.monthlyRegisteredStudentsNumber = Utility.calculateMonthlyRate(Utility.getAllOfKey(this.data,'Registered Students'));
+    this.monthlyRegisteredPaidStudentsNumber = Utility.calculateMonthlyRate(Utility.getAllOfKey(this.data,'Registered Students'));
+    this.monthlyCampsUnderReviewNumber = Utility.calculateMonthlyRate(Utility.getAllOfKey(this.data,'Registered Students'));
+    this.monthlyCampsPostedNumber = Utility.calculateMonthlyRate(Utility.getAllOfKey(this.data,'Registered Students'));
+    this.monthlyAcceptedTeachersNumber = Utility.calculateMonthlyRate(Utility.getAllOfKey(this.data,'Registered Students'));
+    this.monthlyRejectedTeachersNumber = Utility.calculateMonthlyRate(Utility.getAllOfKey(this.data,'Registered Students'));
   }
 
 }

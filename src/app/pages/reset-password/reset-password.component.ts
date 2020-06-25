@@ -23,11 +23,13 @@ export class ResetPasswordComponent implements OnInit
   {
     try{
       await this.auth.resetCurrentUserPassword(this.currentPd,this.newPd);
-      this.toast.success('password updated successfully',"Success");
+      this.toast.success('تمت العملية بنجاح',"نجاح");
     }
     catch(e)
     {
-      this.toast.danger(e.error.error.message,"Failed");
+      console.log(e);
+
+      this.toast.danger(e.error.message,"فشل");
     }
   }
 }

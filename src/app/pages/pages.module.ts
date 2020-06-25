@@ -1,3 +1,4 @@
+import { NoHomeGuard } from './../gaurds/no-home.guard';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { UpdateUserPasswordComponent } from './update-user-password/update-user-password.component';
 import { RegisterComponent } from './register/register.component';
@@ -16,7 +17,9 @@ import { AddTimeComponent } from './add-time/add-time.component';
     CommonModule,
     PagesRoutingModule,
     SharedModule,
-
+  ],
+  providers:[
+    NoHomeGuard
   ],
   declarations: [
     PagesComponent,

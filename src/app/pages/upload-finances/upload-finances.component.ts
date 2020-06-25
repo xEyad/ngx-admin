@@ -27,6 +27,7 @@ export class UploadFinancesComponent implements OnInit {
     try{
       let items = await this.itemsService.getItems();
       this.finances = items.map((f)=>{return {item:f.item,price:f.price,editMode:false}});
+      this.finances = this.finances.reverse();
     }
     catch(e)
     {
@@ -39,6 +40,7 @@ export class UploadFinancesComponent implements OnInit {
       await this.itemsService.addItem(this.theAddRecord.item,this.theAddRecord.price.toString());
       this.finances.reverse;
       this.theAddRecord={item:"",price:"",editMode:false};
+      await this.updateFinances();
       this.toast.success('تم الأضافة بنجاح',"نجاح");
     }catch(e)
     {

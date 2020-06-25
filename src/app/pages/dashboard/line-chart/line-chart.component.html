@@ -4,8 +4,7 @@
       <h6>مؤشرات الموقع</h6>
       <nb-select  (selectedChange)="changeDuration($event)" [placeholder]="'Range'" [size]="'small'" [selected]="'Daily'">
         <nb-option value="Daily">يومي</nb-option>
-        <nb-option value="Weekly">أسبوعي</nb-option>
-        <nb-option value="Monthly">شهري</nb-option>
+        <nb-option value="Monthly" [disabled]="dates.length<60">شهري</nb-option>
       </nb-select>
     </div>
   </nb-card-header>
@@ -23,27 +22,27 @@
     <div class="row">
       <div class="col-md-4 col-sm-12 p-0 ">
         <div class="stat">
-          <div class="value">45.87 مليون</div>
+          <div class="value">{{views}}</div>
           <div class="label">
-            <i class="fas fa-arrow-up"></i> 2.43%
+            <i [ngClass]="{'fas fa-arrow-up': viewsEval>0,'fas fa-arrow-down': viewsEval<=0}"></i> {{viewsEval}}%
             أجمالي المشاهدات
           </div>
         </div>
       </div>
       <div class="col-md-4 col-sm-12 p-0 adaptive-border">
         <div class="stat">
-          <div class="value">15:48</div>
+          <div class="value">{{sessionDurations}}</div>
           <div class="label">
-            <i class="fas fa-arrow-down"></i> 56.43%
+            <i [ngClass]="{'fas fa-arrow-up': viewsEval>0,'fas fa-arrow-down': sessionDurationsEval<=0}"></i>  {{sessionDurationsEval}}%
             مدة الزيارة
           </div>
         </div>
       </div>
       <div class="col-md-4 col-sm-12 p-0 adaptive-border">
         <div class="stat">
-          <div class="value">452</div>
+          <div class="value">{{sessions}}</div>
           <div class="label">
-            <i class="fas fa-arrow-up"></i> 62.43%
+            <i [ngClass]="{'fas fa-arrow-up': viewsEval>0,'fas fa-arrow-down': sessionsEval<=0}"></i> {{sessionsEval}}%
             أجمالي الزيارات
           </div>
         </div>

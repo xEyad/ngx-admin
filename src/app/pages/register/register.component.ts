@@ -26,6 +26,8 @@ export class RegisterComponent implements OnInit {
         this.user.job = 'مدخل بيانات';
       else if(this.user.type=="admin")
         this.user.job = 'مشرف';
+      else if(this.user.type=="investor")
+        this.user.job = 'مستثمر';
       await this.auth.createUser(this.user.email,this.user.type,this.user.password,this.user.username,this.user.job);
       this.toast.success("تم التسجيل بنجاح",'نجاح');
     }

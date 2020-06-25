@@ -39,7 +39,7 @@
                 <i class="far fa-eye fa-2x" style="color: #454372;"></i>
                 <div class="text">
                   <strong>{{websiteVisitorsNumber}}</strong>
-                  <span class="label">زائر</span>
+                  <span class="label">مشاهدة</span>
                 </div>
               </div>
             </div>
@@ -86,8 +86,8 @@
                 <p>المدة الزمنية</p>
                 <nb-select  (selectedChange)="changeDuration($event)" [placeholder]="'Range'" [size]="'small'" [selected]="'Daily'">
                   <nb-option value="Daily">يومي</nb-option>
-                  <nb-option value="Weekly">أسبوعي</nb-option>
-                  <nb-option value="Monthly">شهري</nb-option>
+                  <nb-option value="Weekly" [disabled]="data.length<14">أسبوعي</nb-option>
+                  <nb-option value="Monthly" [disabled]="data.length<61">شهري</nb-option>
                 </nb-select>
               </div>
             </div>

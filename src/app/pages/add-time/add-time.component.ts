@@ -31,7 +31,7 @@ export class AddTimeComponent implements OnInit {
   async add()
   {
     try{
-      await this.employeeService.addActivity(this.duration,this.activity);
+      await this.employeeService.addActivity(this.duration.toString(),this.activity);
       this.toast.success('تم الأضافة بنجاح',"نجاح");
     }catch(e)
     {

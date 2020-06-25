@@ -21,13 +21,13 @@ export class PagesComponent {
     const type = this.disk.currentUserType.toLocaleLowerCase();
     switch (type) {
       case "dataentry":
-        this.RemoveGroupsFromMenu(["أضف ماليات",'أصنع حساب','تعيين كلمة مرور']);
+        this.RemoveGroupsFromMenu(["الرئيسية","أضف ماليات",'أصنع حساب','تعيين كلمة مرور']);
         break;
       case "investor":
         this.RemoveGroupsFromMenu(["أضف ماليات",'أصنع حساب','تعيين كلمة مرور',"أضف أحصائيات","أضف وقت"]);
         break;
       case "employee":
-        this.RemoveGroupsFromMenu(["أضف ماليات",'أصنع حساب','تعيين كلمة مرور',"أضف أحصائيات"]);
+        this.RemoveGroupsFromMenu(["أضف ماليات",'أصنع حساب','تعيين كلمة مرور',"أضف أحصائيات", "الرئيسية"]);
         break;
       default:
         break;
