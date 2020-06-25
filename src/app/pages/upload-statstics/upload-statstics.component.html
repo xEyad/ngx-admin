@@ -4,10 +4,10 @@
       <nb-card-body>
         <div class="containing-box">
           <div class="heading">
-            <h1>أسم الموظف</h1>
-            <p class="sub-title">المركز</p>
+            <h1>{{ disk.userName }}</h1>
+            <p class="sub-title">{{ disk.job }}</p>
           </div>
-          <input type="file" id="myfile" name="myfile" nbInput placeholder="ملف الأكسل">
+          <input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".xlsx" >
           <button
               nbButton
               fullWidth
@@ -15,6 +15,7 @@
               size="large"
               [disabled]="false"
               [class.btn-pulse]="false"
+              (click)="upload()"
             >
               رفع
             </button>

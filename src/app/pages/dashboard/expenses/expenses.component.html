@@ -7,17 +7,17 @@
     <div class="meter">
       <div class="data">
         <span>الوارد</span>
-        <span>350جم</span>
+        <span>{{income}}جم</span>
       </div>
-      <nb-progress-bar [value]="50" status="info"></nb-progress-bar>
+      <nb-progress-bar [value]="getPercentageOfTotal(income)" status="info"></nb-progress-bar>
     </div>
 
     <div class="meter">
       <div class="data">
         <span>المدفوعات</span>
-        <span>150جم</span>
+        <span>{{expenses}}جم</span>
       </div>
-      <nb-progress-bar [value]="30"  status="warning"></nb-progress-bar>
+      <nb-progress-bar [value]="getPercentageOfTotal(expenses)"  status="warning"></nb-progress-bar>
     </div>
   </div>
   </nb-card-body>

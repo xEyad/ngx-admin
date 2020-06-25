@@ -1,3 +1,4 @@
+import { StatsticsService } from './../../services/statstics.service';
 import { NbToastrService } from '@nebular/theme';
 import { ItemsService } from './../../services/items.service';
 import { Component, OnInit } from '@angular/core';
@@ -13,7 +14,7 @@ export class UploadFinancesComponent implements OnInit {
   income;
   constructor(
     private itemsService:ItemsService,
-    private toast:NbToastrService
+    private toast:NbToastrService,
   )
   {
   }

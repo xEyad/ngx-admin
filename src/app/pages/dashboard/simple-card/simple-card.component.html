@@ -8,7 +8,7 @@
               <div class="box">
                 <i class="fas fa-user-graduate fa-2x" style="color: #002e2c;"></i>
                 <div class="text">
-                  <strong>5841</strong>
+                  <strong>{{registeredStudentsNumber}}</strong>
                   <span class="label">طالب</span>
                 </div>
               </div>
@@ -17,7 +17,7 @@
               <div class="box">
                 <i class="fas fa-chalkboard-teacher fa-2x" style="color: #664E4C;"></i>
                 <div class="text">
-                  <strong>421</strong>
+                  <strong>{{acceptedTeachersNumber}}</strong>
                   <span class="label">مدرس</span>
                 </div>
               </div>
@@ -29,7 +29,7 @@
               <div class="box  ">
                 <i class="fas fa-school fa-2x" style="color: #ff9900;"></i>
                 <div class="text">
-                  <strong>320</strong>
+                  <strong>{{campsPostedNumber}}</strong>
                   <span class="label">معسكر</span>
                 </div>
               </div>
@@ -38,7 +38,7 @@
               <div class="box">
                 <i class="far fa-eye fa-2x" style="color: #454372;"></i>
                 <div class="text">
-                  <strong>10000</strong>
+                  <strong>{{websiteVisitorsNumber}}</strong>
                   <span class="label">زائر</span>
                 </div>
               </div>
@@ -59,16 +59,16 @@
             <div class="col-6 d-flex  px-3 border-right">
               <div class="statstic">
                 <h3 class="label">طالب ({{viewedDuration()}})</h3>
-                <p class="info">مسجل <span>203</span></p>
-                <p class="info">مدفوع <span>33</span></p>
+                <p class="info">مسجل <span>{{viewedRegisteredStudentsNumber}}</span></p>
+                <p class="info">مدفوع <span>{{viewedRegisteredPaidStudentsNumber}}</span></p>
               </div>
             </div>
 
             <div class="col-6 d-flex  px-3">
               <div class="statstic">
                 <h3 class="label">معسكر ({{viewedDuration()}})</h3>
-                <p class="info">تحت المراجعة <span>203</span></p>
-                <p class="info">تم نشرة <span>33</span></p>
+                <p class="info">تحت المراجعة <span>{{viewedCampsUnderReviewNumber}}</span></p>
+                <p class="info">تم نشرة <span>{{viewedCampsPostedNumber}}</span></p>
               </div>
             </div>
           </div>
@@ -77,8 +77,8 @@
             <div class="col-6 d-flex  px-3 pt-1 border-right clickable" (click)="flipCard()">
               <div class="statstic">
                 <h3 class="label">مدرس ({{viewedDuration()}})</h3>
-                <p class="info">مقبول  <span>203</span></p>
-                <p class="info">مرفوض <span>33</span></p>
+                <p class="info">مقبول  <span>{{viewedAcceptedTeachersNumber}}</span></p>
+                <p class="info">مرفوض <span>{{viewedRejectedTeachersNumber}}</span></p>
               </div>
             </div>
             <div class="col-6 d-flex  px-3 pt-1">

@@ -10,9 +10,8 @@ export class ItemsService {
   constructor(
     private disk:DiskService,
     private http:HttpClient)
-  {
+  {}
 
-  }
   async getItems() : Promise<{ _id: string,
     item: string,
     price: string,}[]>

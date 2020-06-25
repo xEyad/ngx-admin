@@ -1,3 +1,4 @@
+import { Utility } from './../../../models/utility';
 import { UsersService } from './../../../services/users.service';
 import { Component, OnInit } from '@angular/core';
 import { NbDialogService, NbDialogRef } from '@nebular/theme';
@@ -36,7 +37,7 @@ export class EmployeesComponent implements OnInit {
   }
   calculateDailyRate(data:{date,duration}[])
   {
-    let avg = this.average(data.map((e)=>parseInt(e.duration)))
+    let avg = Utility.average(data.map((e)=>parseInt(e.duration)))
     return Math.floor(avg);
   }
   calculateWeeklyRate(data:{date,duration}[])
@@ -58,15 +59,7 @@ export class EmployeesComponent implements OnInit {
     return Math.floor(monthlyAvg);
   }
 
-  average(data:any[])
-  {
-    let total = 0;
-    for(let i = 0; i < data.length; i++) {
-        total += data[i];
-    }
-    let avg = total / data.length;
-    return avg;
-  }
+
   changeDuration(selection:string)
   {
     this.selectedDuration = selection;
