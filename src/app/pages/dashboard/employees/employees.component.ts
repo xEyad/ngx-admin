@@ -1,4 +1,9 @@
+import { Utility } from './../../../models/utility';
+import { UsersService } from './../../../services/users.service';
 import { Component, OnInit } from '@angular/core';
+import { NbDialogService, NbDialogRef } from '@nebular/theme';
+import { EmployeeHistoryComponent } from '../employee-history/employee-history.component';
+import { NumberSymbol } from '@angular/common';
 
 @Component({
   selector: 'ngx-employees',
@@ -6,28 +11,77 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employees.component.scss']
 })
 export class EmployeesComponent implements OnInit {
-  employees= Array(8).fill({name:"lizea foda",title:"english supervisor",img:"https://loremflickr.com/50/50/girl/all",workRate:"15",evaluation:"+8"});
+  employees:any[];
   selectedDuration:string = 'Daily';
   viewedDuration:string = 'day';
-  constructor() { }
+  constructor(
+    private dialogService: NbDialogService,
+    private usersService:UsersService
+    ) { }
 
-  ngOnInit(): void {
+  async ngOnInit()
+  {
+    this.employees = await this.usersService.getUsers();
+    this.employees = this.employees.filter((e)=>e.type=="dataEntry" || e.type=="employee");
+    this.employees = this.employees.map((e)=>{
+      return {
+        //array of {date,durations}
+        dailyRate:this.calculateDailyRate(<any>e.activities),
+        weeklyRate:this.calculateWeeklyRate(<any>e.activities),
+        monthlyRate:this.calculatMonthklyRate(<any>e.activities),
+        username:e.username,
+        title:e.job,
+        activities:e.activities
+      };
+    });
   }
+  calculateDailyRate(data:{date,duration}[])
+  {
+    let avg = Utility.average(data.map((e)=>parseInt(e.duration)))
+    return Math.floor(avg);
+  }
+  calculateWeeklyRate(data:{date,duration}[])
+  {
+    let nums = data.map((e)=>e.duration);
+    let weeks = Math.floor(nums.length/7);
+    if(weeks==0)
+      return 0;
+    let weeklyAvg = (this.calculateDailyRate(data)*7) / weeks;
+    return Math.floor(weeklyAvg);
+  }
+  calculatMonthklyRate(data:{date,duration}[])
+  {
+    let nums = data.map((e)=>e.duration);
+    let months = Math.floor(nums.length/30);
+    if(months==0)
+      return 0;
+    let monthlyAvg = (this.calculateDailyRate(data)*30) / months;
+    return Math.floor(monthlyAvg);
+  }
+
+
   changeDuration(selection:string)
   {
     this.selectedDuration = selection;
     switch (selection.toLowerCase()) {
       case 'daily':
-        this.viewedDuration = 'day';
+        this.viewedDuration = 'يوم';
         break;
       case 'weekly':
-        this.viewedDuration = 'week';
+        this.viewedDuration = 'أسبوع';
         break;
       case 'monthly':
-        this.viewedDuration = 'month';
+        this.viewedDuration = 'شهر';
         break;
       default:
         break;
     }
+  }
+  openHistory(emp) {
+    let empoloyeeHistory=emp.activities;
+    let ref = this.dialogService.open(EmployeeHistoryComponent,);
+    ref.componentRef.instance.empoloyeeHistory = empoloyeeHistory;
+    ref.componentRef.instance.employeeName = emp.username;
+    ref.componentRef.changeDetectorRef.detectChanges();
   }
 }

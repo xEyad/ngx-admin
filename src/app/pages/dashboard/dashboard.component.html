@@ -1,46 +1,67 @@
-<div class="row">
-  <div class=" col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12">
-    <ngx-simple-card></ngx-simple-card>
-  </div>
-  <div class=" col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12">
-    <ngx-simple-card></ngx-simple-card>
-  </div>
-  <div class=" col-xxl-4 col-xl-4 col-lg-12 col-md-12 col-sm-12">
+<ng-container *ngIf="stats!=undefined">
+<div class="row justify-content-center">
+  <div
+    class="col-xxl-8 col-xl-8 col-lg-12 col-md-12 col-sm-12"
+    *ngIf="userRole == 'admin'"
+  >
     <ngx-expenses></ngx-expenses>
   </div>
-</div>
-
-<div class="row ">
-  <div class=" col-xxl-8 col-xl-8 col-lg-12 col-md-12 col-sm-12">
-    <ngx-line-chart></ngx-line-chart>
-  </div>
-  <div class=" col-xxl-4 col-xl-4 col-lg-12 col-md-12 col-sm-12">
-    <ngx-users-chart></ngx-users-chart>
+  <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12">
+    <ngx-simple-card [data]="stats"></ngx-simple-card>
   </div>
 </div>
 
-<div class="row ">
-  <div class=" col-xxl-4 col-xl-4 col-lg-12 col-md-12 col-sm-12">
-    <ngx-social-cards [infos]="facebokInfo" [label]="'Followers'" [value]="'458,111'" [isIncreasing]="true" [lastEvaluationDate]="'last week'" [evaluation]="'34%'">
-      <i class="fab fa-facebook fa-3x" style="color:rgb(24, 119, 242)"></i>
+<div class="row">
+  <div class="col-xxl-8 col-xl-8 col-lg-12 col-md-12 col-sm-12">
+    <ngx-line-chart [siteData]="stats"></ngx-line-chart>
+  </div>
+  <div class="col-xxl-4 col-xl-4 col-lg-12 col-md-12 col-sm-12">
+    <ngx-users-chart [data]="stats"></ngx-users-chart>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xxl-4 col-xl-4 col-lg-12 col-md-12 col-sm-12">
+    <ngx-social-cards
+      [infos]="facebokInfo"
+      [label]="'أعجاب'"
+      [value]="fbLikes"
+      [isIncreasing]="isIncreasing(fbDifference)"
+      [lastEvaluationDate]="'الأسبوع الماضي'"
+      [evaluation]="abs(fbDifference) + '%'"
+    >
+      <i class="fab fa-facebook fa-3x" style="color: rgb(24, 119, 242);"></i>
     </ngx-social-cards>
   </div>
-  <div class=" col-xxl-4 col-xl-4 col-lg-12 col-md-12 col-sm-12">
-    <ngx-social-cards [infos]="twitterInfo" [label]="'Tweets'" [value]="'21,145'" [isIncreasing]="true" [lastEvaluationDate]="'last week'" [evaluation]="'3.4%'">
-      <i class="fab fa-twitter fa-3x" style="color:#1da1f2"></i>
-
+  <div class="col-xxl-4 col-xl-4 col-lg-12 col-md-12 col-sm-12">
+    <ngx-social-cards
+      [infos]="twitterInfo"
+      [label]="'أعادة تغريد'"
+      [value]="twitterRetweets"
+      [isIncreasing]="isIncreasing(twitterDifference)"
+      [lastEvaluationDate]="'الأسبوع الماضي'"
+      [evaluation]="abs(twitterDifference) + '%'"
+    >
+      <i class="fab fa-twitter fa-3x" style="color: #1da1f2;"></i>
     </ngx-social-cards>
   </div>
-  <div class=" col-xxl-4 col-xl-4 col-lg-12 col-md-12 col-sm-12">
-    <ngx-social-cards [infos]="youtubeInfo" [label]="'Subscribers'" [value]="'3,422,111'" [isIncreasing]="false" [lastEvaluationDate]="'last week'" [evaluation]="'5%'">
-      <i class="fab fa-youtube fa-3x" style="color:#ff0000"></i>
-
+  <div class="col-xxl-4 col-xl-4 col-lg-12 col-md-12 col-sm-12">
+    <ngx-social-cards
+      [infos]="youtubeInfo"
+      [label]="'متابع'"
+      [value]="youtubeFollowers"
+      [isIncreasing]="isIncreasing(youtubeDifference)"
+      [lastEvaluationDate]="'الأسبوع الماضي'"
+      [evaluation]="abs(youtubeDifference) + '%'"
+    >
+      <i class="fab fa-youtube fa-3x" style="color: #ff0000;"></i>
     </ngx-social-cards>
   </div>
 </div>
 
-<div class="row ">
-  <div class=" col-xxl-12 col-lg-12 col-md-12 col-sm-12">
+<div class="row">
+  <div class="col-xxl-12 col-lg-12 col-md-12 col-sm-12">
     <ngx-employees></ngx-employees>
   </div>
 </div>
+</ng-container>

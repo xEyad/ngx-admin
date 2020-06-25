@@ -1,11 +1,11 @@
 <nb-card class="shadow" size="medium">
   <nb-card-header class="tablet">
     <div class="d-flex justify-content-between">
-      <span>Employees</span>
+      <span>الموظفين</span>
       <nb-select  (selectedChange)="changeDuration($event)" [placeholder]="'Range'" [size]="'small'" [selected]="'Daily'">
-        <nb-option value="Daily">Daily</nb-option>
-        <nb-option value="Weekly">Weekly</nb-option>
-        <nb-option value="Monthly">Monthly</nb-option>
+        <nb-option value="Daily">يومي</nb-option>
+        <nb-option value="Weekly">أسبوعي</nb-option>
+        <nb-option value="Monthly">شهري</nb-option>
       </nb-select>
     </div>
   </nb-card-header>
@@ -22,15 +22,11 @@
 <ng-template #cards>
   <nb-card *ngFor="let emp of employees">
     <nb-card-body >
-      <div class="employee-card " >
-        <img [src]="emp.img" alt="" class="shadow">
+      <div class="employee-card">
+        <nb-user [name]="emp.username" [title]="emp.job"></nb-user>
         <div class="text">
-          <strong>{{emp.name}}</strong>
-          <span class="label">{{emp.title}}</span>
-          <div>{{emp.workRate}} hr/{{viewedDuration}}</div>
-          <div>{{emp.evaluation}} </div>
+          <div>{{emp.workRate}} ساعة/{{viewedDuration}}</div>
         </div>
-
       </div>
     </nb-card-body>
   </nb-card>
@@ -40,28 +36,20 @@
   <table class="table table-hover">
     <thead>
       <tr>
-        <th scope="col">Employee</th>
-        <th scope="col" class="text-center">Daily Rate</th>
-        <th scope="col" class="text-center">Weekly Rate</th>
-        <th scope="col" class="text-center">Monthly Rate</th>
-        <th scope="col" class="text-center">Evaluation</th>
+        <th scope="col">الموظف</th>
+        <th scope="col" class="text-center">المعدل اليومي</th>
+        <th scope="col" class="text-center">المعدل الأسبوعي</th>
+        <th scope="col" class="text-center">المعدل الشهري</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let emp of employees">
+      <tr *ngFor="let emp of employees" (click)="openHistory(emp)" class="clickable">
         <td class="align-middle">
-          <div class="employee">
-            <img [src]="emp.img" alt="" class="rounded-circle">
-            <div class="text">
-              <strong>{{emp.name}}</strong>
-              <span class="label">{{emp.title}}</span>
-            </div>
-          </div>
+      <nb-user [name]="emp.username" [title]="emp.job"></nb-user>
         </td>
-        <td class="align-middle text-center">{{emp.workRate}} hr</td>
-        <td class="align-middle text-center">{{emp.workRate}} hr</td>
-        <td class="align-middle text-center">{{emp.workRate}} hr</td>
-        <td class="align-middle text-center">{{emp.evaluation}}</td>
+        <td class="align-middle text-center">{{emp.dailyRate}} ساعة</td>
+        <td class="align-middle text-center">{{emp.weeklyRate}} ساعة</td>
+        <td class="align-middle text-center">{{emp.monthlyRate}} ساعة</td>
       </tr>
 
     </tbody>

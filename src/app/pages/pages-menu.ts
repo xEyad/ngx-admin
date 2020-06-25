@@ -2,35 +2,46 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
-    title: 'Dashboard',
+    title: 'الرئيسية',
     icon: 'home-outline',
     link: '/pages/dashboard',
     home: true,
   },
   {
-    title: 'FEATURES (coming soon)',
+    title: 'أجرائات',
     group: true,
   },
   {
-    title: 'Auth',
-    icon: 'lock-outline',
+    title: 'الحسابات',
+    icon: 'people-outline',
     children: [
       {
-        title: 'Login',
-        link: '/auth/login',
+        title: 'أصنع حساب',
+        link: '/pages/register',
       },
       {
-        title: 'Register',
-        link: '/auth/register',
+        title: 'تحديث كلمة المرور',
+        link: '/pages/update',
       },
       {
-        title: 'Request Password',
-        link: '/auth/request-password',
-      },
-      {
-        title: 'Reset Password',
-        link: '/auth/reset-password',
+        title: 'تعيين كلمة مرور',
+        link: '/pages/reset',
       },
     ],
+  },
+  {
+    title:"أضف ماليات",
+    icon: 'trending-up-outline',
+    link: '/pages/uploadFinances',
+  },
+  {
+    title:"أضف أحصائيات",
+    icon: 'percent-outline',
+    link: '/pages/uploadStatstics',
+  },
+  {
+    title:"أضف وقت",
+    icon: 'clock-outline',
+    link: '/pages/addTime',
   },
 ];

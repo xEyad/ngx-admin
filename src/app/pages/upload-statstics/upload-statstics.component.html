@@ -1,0 +1,27 @@
+<nb-layout>
+  <nb-layout-column>
+    <nb-card>
+      <nb-card-body>
+        <div class="containing-box">
+          <div class="heading">
+            <h1>{{ disk.userName }}</h1>
+            <p class="sub-title">{{ disk.job }}</p>
+          </div>
+          <input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".xlsx" >
+          <button
+              nbButton
+              fullWidth
+              status="primary"
+              size="large"
+              [disabled]="false"
+              [class.btn-pulse]="false"
+              (click)="upload()"
+              [disabled]="file==undefined"
+            >
+              رفع
+            </button>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </nb-layout-column>
+</nb-layout>

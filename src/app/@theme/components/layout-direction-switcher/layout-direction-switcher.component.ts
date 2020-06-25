@@ -27,6 +27,7 @@ export class LayoutDirectionSwitcherComponent implements OnDestroy {
   @Input() vertical: boolean = false;
 
   constructor(private directionService: NbLayoutDirectionService) {
+    this.directionService.setDirection(NbLayoutDirection.RTL);
     this.currentDirection = this.directionService.getDirection();
 
     this.directionService.onDirectionChange()

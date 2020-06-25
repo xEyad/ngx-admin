@@ -1,0 +1,20 @@
+
+  <nb-card class="own-scroll">
+    <nb-card-header>
+      {{employeeName}}
+    </nb-card-header>
+    <nb-list>
+      <nb-list-item *ngFor="let entry of empoloyeeHistory">
+        <nb-card >
+          <nb-card-header>
+            <div class="header">
+              <span> {{parseDate(entry.date)}} </span>
+              <span> {{entry.duration}} ساعة </span>
+            </div>
+          </nb-card-header>
+          <nb-card-body>{{entry.activity}}</nb-card-body>
+        </nb-card>
+      </nb-list-item>
+    </nb-list>
+
+  </nb-card>

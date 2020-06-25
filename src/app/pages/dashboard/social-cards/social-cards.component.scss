@@ -1,4 +1,10 @@
 @import '../dashboard-variables.scss';
+:host:dir(rtl)
+{
+  .label{
+    font-size: 1.05rem;
+  }
+}
 nb-card{
   height: 130px;
 }

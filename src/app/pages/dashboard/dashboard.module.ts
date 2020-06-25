@@ -1,7 +1,9 @@
+import { CommonModule } from '@angular/common';
+import { SharedModule } from './../../shared.module';
+import { EmployeeHistoryComponent } from './employee-history/employee-history.component';
 import { ClickStopPropagation } from './../../@theme/directives/stopPropagation.directive';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgModule } from '@angular/core';
-import { NbCardModule, NbProgressBarModule, NbSelectModule } from '@nebular/theme';
 
 import { ThemeModule } from '../../@theme/theme.module';
 import { DashboardComponent } from './dashboard.component';
@@ -14,13 +16,11 @@ import { ExpensesComponent } from './expenses/expenses.component';
 import { EmployeesComponent } from './employees/employees.component';
 @NgModule({
   imports: [
-    NbCardModule,
-    ThemeModule,
-    NgxChartsModule,
+    SharedModule,
     ChartjsModule,
-    NbProgressBarModule,
-    NbSelectModule
+    CommonModule,
   ],
+  entryComponents:[EmployeeHistoryComponent],
   declarations: [
     DashboardComponent,
     SimpleCardComponent,
@@ -29,7 +29,8 @@ import { EmployeesComponent } from './employees/employees.component';
     SocialCardsComponent,
     ExpensesComponent,
     EmployeesComponent,
-    ClickStopPropagation
+    ClickStopPropagation,
+    EmployeeHistoryComponent
   ],
 })
 export class DashboardModule { }

@@ -1,8 +1,6 @@
-/**
- * @license
- * Copyright Akveo. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- */
+import { SkipLoginGuard } from './gaurds/skipLoginGuard.guard';
+import { SharedModule } from './shared.module';
+import { LoginComponent } from './login/login.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -20,17 +18,29 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
-
+import {OnlyLoggedInUsersGuard}from'./gaurds/onlyLoggedInUsersGuard.guard';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent
+  ],
+  providers: [
+    OnlyLoggedInUsersGuard,
+    SkipLoginGuard
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-
     ThemeModule.forRoot(),
-
+    NbDialogModule.forRoot({
+      autoFocus:true,
+      closeOnBackdropClick:true,
+      closeOnEsc:true,
+      hasBackdrop:true,
+      hasScroll:true,
+    }),
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
     NbDatepickerModule.forRoot(),
@@ -41,6 +51,8 @@ import {
       messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
     }),
     CoreModule.forRoot(),
+    NbToastrModule.forRoot(),
+    SharedModule
   ],
   bootstrap: [AppComponent],
 })

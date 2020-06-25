@@ -8,8 +8,8 @@
               <div class="box">
                 <i class="fas fa-user-graduate fa-2x" style="color: #002e2c;"></i>
                 <div class="text">
-                  <strong>5841</strong>
-                  <span class="label">Students</span>
+                  <strong>{{registeredStudentsNumber}}</strong>
+                  <span class="label">طالب</span>
                 </div>
               </div>
             </div>
@@ -17,8 +17,8 @@
               <div class="box">
                 <i class="fas fa-chalkboard-teacher fa-2x" style="color: #664E4C;"></i>
                 <div class="text">
-                  <strong>421</strong>
-                  <span class="label">Teachers</span>
+                  <strong>{{acceptedTeachersNumber}}</strong>
+                  <span class="label">مدرس</span>
                 </div>
               </div>
             </div>
@@ -29,8 +29,8 @@
               <div class="box  ">
                 <i class="fas fa-school fa-2x" style="color: #ff9900;"></i>
                 <div class="text">
-                  <strong>320</strong>
-                  <span class="label">Camps</span>
+                  <strong>{{campsPostedNumber}}</strong>
+                  <span class="label">معسكر</span>
                 </div>
               </div>
             </div>
@@ -38,8 +38,8 @@
               <div class="box">
                 <i class="far fa-eye fa-2x" style="color: #454372;"></i>
                 <div class="text">
-                  <strong>10000</strong>
-                  <span class="label">Visitors</span>
+                  <strong>{{websiteVisitorsNumber}}</strong>
+                  <span class="label">مشاهدة</span>
                 </div>
               </div>
             </div>
@@ -58,17 +58,17 @@
           <div class="row border-bottom clickable" (click)="flipCard()">
             <div class="col-6 d-flex  px-3 border-right">
               <div class="statstic">
-                <h3 class="label">Students ({{selectedDuration}})</h3>
-                <p class="info">Registered <span>203</span></p>
-                <p class="info">Paid <span>33</span></p>
+                <h3 class="label">طالب ({{viewedDuration()}})</h3>
+                <p class="info">مسجل <span>{{viewedRegisteredStudentsNumber}}</span></p>
+                <p class="info">مدفوع <span>{{viewedRegisteredPaidStudentsNumber}}</span></p>
               </div>
             </div>
 
             <div class="col-6 d-flex  px-3">
               <div class="statstic">
-                <h3 class="label">Camps ({{selectedDuration}})</h3>
-                <p class="info">In review <span>203</span></p>
-                <p class="info">Published <span>33</span></p>
+                <h3 class="label">معسكر ({{viewedDuration()}})</h3>
+                <p class="info">تحت المراجعة <span>{{viewedCampsUnderReviewNumber}}</span></p>
+                <p class="info">تم نشرة <span>{{viewedCampsPostedNumber}}</span></p>
               </div>
             </div>
           </div>
@@ -76,18 +76,18 @@
           <div class="row ">
             <div class="col-6 d-flex  px-3 pt-1 border-right clickable" (click)="flipCard()">
               <div class="statstic">
-                <h3 class="label">Teachers ({{selectedDuration}})</h3>
-                <p class="info">Accepted  <span>203</span></p>
-                <p class="info">Rejected <span>33</span></p>
+                <h3 class="label">مدرس ({{viewedDuration()}})</h3>
+                <p class="info">مقبول  <span>{{viewedAcceptedTeachersNumber}}</span></p>
+                <p class="info">مرفوض <span>{{viewedRejectedTeachersNumber}}</span></p>
               </div>
             </div>
             <div class="col-6 d-flex  px-3 pt-1">
               <div class="statstic" >
-                <p>Selected Duration</p>
+                <p>المدة الزمنية</p>
                 <nb-select  (selectedChange)="changeDuration($event)" [placeholder]="'Range'" [size]="'small'" [selected]="'Daily'">
-                  <nb-option value="Daily">Daily</nb-option>
-                  <nb-option value="Weekly">Weekly</nb-option>
-                  <nb-option value="Monthly">Monthly</nb-option>
+                  <nb-option value="Daily">يومي</nb-option>
+                  <nb-option value="Weekly" [disabled]="data.length<14">أسبوعي</nb-option>
+                  <nb-option value="Monthly" [disabled]="data.length<61">شهري</nb-option>
                 </nb-select>
               </div>
             </div>

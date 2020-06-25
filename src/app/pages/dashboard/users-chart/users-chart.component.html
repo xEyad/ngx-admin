@@ -1,11 +1,11 @@
 <nb-card class="shadow" size="large">
     <nb-card-header>
       <div class="header">
-        <h6>Acquired Users</h6>
+        <h6>المستخدمون الجدد</h6>
         <nb-select  (selectedChange)="changeDuration($event)" [placeholder]="'Range'" [size]="'small'" [selected]="'Daily'">
-          <nb-option value="Daily">Daily</nb-option>
-          <nb-option value="Weekly">Weekly</nb-option>
-          <nb-option value="Monthly">Monthly</nb-option>
+          <nb-option value="Daily">يومي</nb-option>
+          <nb-option value="Weekly"  [disabled]="data.length<14">أسبوعي</nb-option>
+          <nb-option value="Monthly" [disabled]="data.length<61">شهري</nb-option>
         </nb-select>
       </div>
     </nb-card-header>
@@ -34,7 +34,7 @@
       <span>{{stat.name}}</span>
     </div>
     <div class="value col-4">{{stat.value}}</div>
-    <div class="evaluation col-4"> +90% </div>
+    <div class="evaluation col-4">{{stat.evaluation}}% </div>
   </div>
   <div class="divider"></div>
 </nb-card-footer>

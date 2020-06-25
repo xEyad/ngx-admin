@@ -1,3 +1,4 @@
+import { ItemsService } from './../../../services/items.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExpensesComponent implements OnInit {
 
-  constructor() { }
+  income=0;
+  expenses = 0;
+  constructor(private items:ItemsService) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    this.income = await this.items.getIncome() || 0;
+    let items = await this.items.getItems();
+
+    for (const item of items) {
+      this.expenses += Number(item.price);
+    }
   }
-
+  getPercentageOfTotal(value)
+  {
+    let total = this.income+this.expenses;
+    return (value * 100) / total;
+  }
 }
