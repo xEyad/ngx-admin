@@ -26,6 +26,18 @@ export class ItemsService {
     };
     return this.http.post(`${this.disk.baseUrl}/items`,payload,this.header).toPromise();
   }
+  async updateItem(itemId,name,price)
+  {
+    const payload = {
+      "item": name,
+      "price": price
+    };
+    return this.http.put(`${this.disk.baseUrl}/items/${itemId}`,payload,this.header).toPromise();
+  }
+  async deleteItem(itemId)
+  {
+    return this.http.delete(`${this.disk.baseUrl}/items/${itemId}`,this.header).toPromise();
+  }
   async getIncome() : Promise<number>
   {
     let res=  await this.http.get<any>(`${this.disk.baseUrl}/income`,this.header).toPromise();
