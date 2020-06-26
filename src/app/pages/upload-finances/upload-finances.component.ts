@@ -26,7 +26,7 @@ export class UploadFinancesComponent implements OnInit {
   {
     try{
       let items = await this.itemsService.getItems();
-      this.finances = items.map((f)=>{return {item:f.item,price:f.price,editMode:false}});
+      this.finances = items.map((f)=>{return {item:f.item,price:f.price,editMode:false,id:f._id}});
       this.finances = this.finances.reverse();
     }
     catch(e)
@@ -38,12 +38,12 @@ export class UploadFinancesComponent implements OnInit {
   {
     try{
       await this.itemsService.addItem(this.theAddRecord.item,this.theAddRecord.price.toString());
-      this.finances.reverse;
       this.theAddRecord={item:"",price:"",editMode:false};
       await this.updateFinances();
       this.toast.success('تم الأضافة بنجاح',"نجاح");
     }catch(e)
     {
+      console.error(e);
       this.toast.danger('فشلت العلمية',"فشل");
     }
   }
@@ -51,9 +51,31 @@ export class UploadFinancesComponent implements OnInit {
   {
     record.editMode = true;
   }
-  updateRecord(record)
+  async updateRecord(record)
   {
+    try{
+      await this.itemsService.updateItem(record.id,record.item,this.theAddRecord.price.toString());
+      await this.updateFinances();
+      this.toast.success('تم التعديل بنجاح',"نجاح");
+    }catch(e)
+    {
+      console.error(e);
+
+      this.toast.danger('فشلت العلمية',"فشل");
+    }
     record.editMode = false;
+  }
+  async deleteRecord(record)
+  {
+    try{
+      await this.itemsService.deleteItem(record.id);
+      await this.updateFinances();
+      this.toast.success('تم التعديل بنجاح',"نجاح");
+    }catch(e)
+    {
+      console.error(e);
+      this.toast.danger('فشلت العلمية',"فشل");
+    }
   }
   isValid(record)
   {

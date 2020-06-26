@@ -5,95 +5,127 @@
         <div class="containing-box">
           <h1 class="text-center">الماليات</h1>
           <div class="wrapper overflow-auto">
-              <table class="table table-striped">
-                <thead class="sticky-table-header">
-                  <tr>
-                    <th scope="col" class="text-center">رقم السجل</th>
-                    <th scope="col">الشئ</th>
-                    <th scope="col" class="text-center">السعر</th>
-                    <th scope="col" class="text-center">أجرائات</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="align-middle text-center">0</td>
-                    <!-- should be cells!? -->
+            <table class="table table-striped">
+              <thead class="sticky-table-header">
+                <tr>
+                  <th scope="col" class="text-center">رقم السجل</th>
+                  <th scope="col">الشئ</th>
+                  <th scope="col" class="text-center">السعر</th>
+                  <th scope="col" class="text-center">أجرائات</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="align-middle text-center">0</td>
+                  <!-- should be cells!? -->
+                  <td class="align-middle">
+                    <input
+                      type="text"
+                      nbInput
+                      placeholder="أسم الشئ"
+                      [required]="true"
+                      [(ngModel)]="theAddRecord.item"
+                      #newItem="ngModel"
+                    />
+                  </td>
+                  <td class="align-middle text-center">
+                    <input
+                      type="number"
+                      placeholder="سعر"
+                      nbInput
+                      [required]="true"
+                      #newPrice="ngModel"
+                      [(ngModel)]="theAddRecord.price"
+                    />
+                  </td>
+                  <td class="align-middle text-center clickable">
+                    <button
+                      nbButton
+                      (click)="
+                        addRecord({
+                          item: newItem.value,
+                          price: newPrice.value,
+                          editMode: false
+                        })
+                      "
+                      [disabled]="newPrice.invalid || newItem.invalid"
+                    >
+                      أضف
+                    </button>
+                  </td>
+                </tr>
+                <tr *ngFor="let record of finances; let index = index">
+                  <td class="align-middle text-center">{{ index + 1 }}</td>
+                  <ng-container *ngIf="!record.editMode">
+                    <td class="align-middle">{{ record.item }}</td>
+                    <td class="align-middle text-center">
+                      {{ record.price }}
+                    </td>
+                    <td class="align-middle text-center">
+                      <nb-icon
+                        icon="edit-outline"
+                        [options]="{ animation: { type: 'zoom' } }"
+                        class="clickable"
+                        (click)="enterEditMode(record)"
+                        nbPopoverPlacement="top"
+                        nbPopoverTrigger="hover"
+                        nbPopover="تعديل"
+                      ></nb-icon>
+                      <nb-icon
+                        icon="trash-2-outline"
+                        [options]="{ animation: { type: 'zoom' } }"
+                        class="clickable"
+                        nbPopoverPlacement="top"
+                        nbPopoverTrigger="hover"
+                        nbPopover="الغاء (ينفذ فور الضغط)"
+                        (click)="deleteRecord(record)"
+                        ></nb-icon>
+                    </td>
+                  </ng-container>
+
+                  <ng-container *ngIf="record.editMode">
                     <td class="align-middle">
                       <input
                         type="text"
                         nbInput
                         placeholder="أسم الشئ"
-                        [required]="true"
-                        [(ngModel)]="theAddRecord.item"
-                        #newItem="ngModel"
+                        [(ngModel)]="record.item"
                       />
                     </td>
                     <td class="align-middle text-center">
                       <input
                         type="number"
-                        placeholder="سعر"
+                        placeholder="السعر"
                         nbInput
-                        [required]="true"
-                        #newPrice="ngModel"
-                        [(ngModel)]="theAddRecord.price"
+                        [(ngModel)]="record.price"
                       />
                     </td>
-                    <td class="align-middle text-center clickable">
-                      <button nbButton (click)="addRecord({item:newItem.value,price:newPrice.value,editMode:false})"
-                      [disabled]="newPrice.invalid || newItem.invalid">
-                        أضف
+                    <td class="align-middle text-center">
+                      <button
+                        nbButton
+                        (click)="updateRecord(record)"
+                        [disabled]="!isValid(record)"
+                      >
+                        تحديث
                       </button>
                     </td>
-                  </tr>
-                  <tr *ngFor="let record of finances; let index = index">
-                    <td class="align-middle text-center">{{ index+1 }}</td>
-                    <ng-container *ngIf="!record.editMode">
-                      <td class="align-middle">{{ record.item }}</td>
-                      <td class="align-middle text-center">
-                        {{ record.price }}
-                      </td>
-                      <td class="align-middle text-center">
-                        <button nbButton (click)="enterEditMode(record)" >
-                          تعديل
-                        </button>
-                      </td>
-                    </ng-container>
-
-                    <ng-container *ngIf="record.editMode">
-                      <td class="align-middle">
-                        <input
-                          type="text"
-                          nbInput
-                          placeholder="أسم الشئ"
-                          [(ngModel)]="record.item"
-                        />
-                      </td>
-                      <td class="align-middle text-center">
-                        <input
-                          type="number"
-                          placeholder="السعر"
-                          nbInput
-                          [(ngModel)]="record.price"
-                        />
-                      </td>
-                      <td class="align-middle text-center">
-                        <button nbButton (click)="updateRecord(record)" [disabled]="!isValid(record)">
-                          تحديث
-                        </button>
-                      </td>
-                    </ng-container>
-                  </tr>
-                </tbody>
-              </table>
+                  </ng-container>
+                </tr>
+              </tbody>
+            </table>
           </div>
 
           <div class="selection-input">
             <label for="" class="label">الوارد</label>
-            <input nbInput type="number" placeholder="رقم"
-            [(ngModel)]="income" />
+            <input
+              nbInput
+              type="number"
+              placeholder="رقم"
+              [(ngModel)]="income"
+            />
           </div>
           <button
-          (click)="updateIncome()"
+            (click)="updateIncome()"
             class="save-btn"
             nbButton
             fullWidth
