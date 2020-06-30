@@ -12,7 +12,7 @@ export class NoHomeGuard implements CanActivate {
   async canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot){
-      if(this.disk.currentUserType != "admin" && this.disk.job != "investor")
+      if(this.disk.currentUserType != "admin" && this.disk.currentUserType != "investor")
       {
         this.router.navigateByUrl('pages/addTime');
         return false;
