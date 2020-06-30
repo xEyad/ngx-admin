@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { NbDialogService, NbDialogRef } from '@nebular/theme';
 import { EmployeeHistoryComponent } from '../employee-history/employee-history.component';
 import { NumberSymbol } from '@angular/common';
+import { ComponentPortal } from '@angular/cdk/portal';
+import { Overlay } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'ngx-employees',
@@ -14,9 +16,13 @@ export class EmployeesComponent implements OnInit {
   employees:any[];
   selectedDuration:string = 'Daily';
   viewedDuration:string = 'day';
+  selectedEmployee:any;
+  showHistory: boolean;
+  employeePortal;
   constructor(
-    private dialogService: NbDialogService,
-    private usersService:UsersService
+    // private dialogService: NbDialogService,
+    private usersService:UsersService,
+    private overlay: Overlay
     ) { }
 
   async ngOnInit()
@@ -34,6 +40,8 @@ export class EmployeesComponent implements OnInit {
         activities:e.activities
       };
     });
+    this.employeePortal = new ComponentPortal(EmployeeHistoryComponent);
+    const overlayRef = this.overlay.create({  });
   }
   calculateDailyRate(data:{date,duration}[])
   {
@@ -77,11 +85,19 @@ export class EmployeesComponent implements OnInit {
         break;
     }
   }
+
   openHistory(emp) {
-    let empoloyeeHistory=emp.activities;
-    let ref = this.dialogService.open(EmployeeHistoryComponent,);
-    ref.componentRef.instance.empoloyeeHistory = empoloyeeHistory;
-    ref.componentRef.instance.employeeName = emp.username;
-    ref.componentRef.changeDetectorRef.detectChanges();
+    this.showHistory = true;
+    this.selectedEmployee = emp;
+    // let empoloyeeHistory=emp.activities;
+    // let ref = this.dialogService.open(EmployeeHistoryComponent,{
+    //   context:{
+    //   empoloyeeHistory:empoloyeeHistory,
+    //   employeeName:emp.usernamme
+    //   }
+    // });
+    // ref.componentRef.instance.empoloyeeHistory = empoloyeeHistory;
+    // ref.componentRef.instance.employeeName = emp.username;
+    // ref.componentRef.changeDetectorRef.detectChanges();
   }
 }

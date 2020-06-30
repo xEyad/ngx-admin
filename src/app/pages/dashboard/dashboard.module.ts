@@ -20,7 +20,6 @@ import { EmployeesComponent } from './employees/employees.component';
     ChartjsModule,
     CommonModule,
   ],
-  entryComponents:[EmployeeHistoryComponent],
   declarations: [
     DashboardComponent,
     SimpleCardComponent,

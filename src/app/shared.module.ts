@@ -22,6 +22,7 @@ import {
 } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import {OverlayModule} from '@angular/cdk/overlay';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     NbButtonModule,
     NbProgressBarModule,
     NbSelectModule,
-    NbDialogModule.forChild(),
+    // NbDialogModule.forChild(),
     NbListModule,
     NbAlertModule,
     NbCheckboxModule,
@@ -48,7 +49,8 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     ThemeModule,
     NgxChartsModule,
     NbUserModule,
-    NgxMaterialTimepickerModule.setLocale('ar-EG')
+    NgxMaterialTimepickerModule.setLocale('ar-EG'),
+    OverlayModule
   ],
   exports:[
     HttpClientModule,
@@ -62,7 +64,7 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     NbButtonModule,
     NbProgressBarModule,
     NbSelectModule,
-    NbDialogModule,
+    // NbDialogModule,
     NbListModule,
     NbAlertModule,
     NbCheckboxModule,
@@ -71,7 +73,8 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     ThemeModule,
     NgxChartsModule,
     NbUserModule,
-    NgxMaterialTimepickerModule
+    NgxMaterialTimepickerModule,
+    OverlayModule
   ]
 })
 export class SharedModule {

@@ -10,13 +10,11 @@ import { NbDialogRef } from '@nebular/theme';
 export class EmployeeHistoryComponent implements OnInit {
 
   constructor(
-    protected dialogRef: NbDialogRef<any>,
     private employeeService:EmployeeService
     ) {
 
     }
-  empoloyeeHistory=[];
-  employeeName:string="";
+  @Input() empoloyeeHistory=[];
   async ngOnInit()
   {
 
@@ -26,8 +24,5 @@ export class EmployeeHistoryComponent implements OnInit {
     let d = new Date(string);
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     return d.toLocaleDateString('ar-EG', options);
-  }
-  close() {
-    this.dialogRef.close();
   }
 }
