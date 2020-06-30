@@ -27,3 +27,7 @@ input,textarea{
 button{
   margin-top:2rem;
 }
+ngx-timepicker-field::ng-deep .ngx-timepicker
+{
+  border: 0 !important;
+}

@@ -17,15 +17,10 @@ export class AddTimeComponent implements OnInit {
     private toast:NbToastrService,
     private employeeService:EmployeeService
     ) { }
-  validateNumber()
+  setDuration(time)
   {
-    if(isNaN(this.duration))
-    {
-      this.duration = null;
-      return;
-    }
-    this.duration = Math.max(0,this.duration);
-    this.duration = Math.min(24,this.duration);
+    this.duration=time;
+    console.log(time);
 
   }
   async add()

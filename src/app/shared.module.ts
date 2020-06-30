@@ -1,3 +1,4 @@
+import { EmployeeHistoryComponent } from './pages/dashboard/employee-history/employee-history.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { ThemeModule } from './@theme/theme.module';
 import { NgModule } from '@angular/core';
@@ -17,13 +18,15 @@ import {
   NbAlertModule,
   NbMenuModule,
   NbPopoverModule,
-  NbUserModule
+  NbUserModule,
 } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 @NgModule({
   declarations: [
   ],
+  entryComponents:[EmployeeHistoryComponent],
   imports: [
     HttpClientModule,
     NbToastrModule,
@@ -45,6 +48,7 @@ import { FormsModule } from '@angular/forms';
     ThemeModule,
     NgxChartsModule,
     NbUserModule,
+    NgxMaterialTimepickerModule.setLocale('ar-EG')
   ],
   exports:[
     HttpClientModule,
@@ -67,6 +71,7 @@ import { FormsModule } from '@angular/forms';
     ThemeModule,
     NgxChartsModule,
     NbUserModule,
+    NgxMaterialTimepickerModule
   ]
 })
 export class SharedModule {
