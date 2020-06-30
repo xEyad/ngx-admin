@@ -3,7 +3,6 @@ import { UsersService } from './../../../services/users.service';
 import { Component, OnInit } from '@angular/core';
 import { EmployeeHistoryComponent } from '../employee-history/employee-history.component';
 import { ComponentPortal } from '@angular/cdk/portal';
-import { Overlay } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'ngx-employees',
@@ -19,7 +18,6 @@ export class EmployeesComponent implements OnInit {
   employeePortal;
   constructor(
     private usersService:UsersService,
-    private overlay: Overlay
     ) { }
 
   async ngOnInit()
@@ -38,7 +36,6 @@ export class EmployeesComponent implements OnInit {
       };
     });
     this.employeePortal = new ComponentPortal(EmployeeHistoryComponent);
-    const overlayRef = this.overlay.create({  });
   }
   calculateDailyRate(data:{date,duration}[])
   {
