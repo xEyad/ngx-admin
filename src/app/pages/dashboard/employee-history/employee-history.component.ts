@@ -1,6 +1,5 @@
 import { EmployeeService } from './../../../services/employee.service';
 import { Component, OnInit, Input } from '@angular/core';
-import { NbDialogRef } from '@nebular/theme';
 
 @Component({
   selector: 'ngx-employee-history',
