@@ -1,9 +1,7 @@
 import { Utility } from './../../../models/utility';
 import { UsersService } from './../../../services/users.service';
 import { Component, OnInit } from '@angular/core';
-import { NbDialogService, NbDialogRef } from '@nebular/theme';
 import { EmployeeHistoryComponent } from '../employee-history/employee-history.component';
-import { NumberSymbol } from '@angular/common';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { Overlay } from '@angular/cdk/overlay';
 
@@ -20,7 +18,6 @@ export class EmployeesComponent implements OnInit {
   showHistory: boolean;
   employeePortal;
   constructor(
-    // private dialogService: NbDialogService,
     private usersService:UsersService,
     private overlay: Overlay
     ) { }
@@ -89,15 +86,5 @@ export class EmployeesComponent implements OnInit {
   openHistory(emp) {
     this.showHistory = true;
     this.selectedEmployee = emp;
-    // let empoloyeeHistory=emp.activities;
-    // let ref = this.dialogService.open(EmployeeHistoryComponent,{
-    //   context:{
-    //   empoloyeeHistory:empoloyeeHistory,
-    //   employeeName:emp.usernamme
-    //   }
-    // });
-    // ref.componentRef.instance.empoloyeeHistory = empoloyeeHistory;
-    // ref.componentRef.instance.employeeName = emp.username;
-    // ref.componentRef.changeDetectorRef.detectChanges();
   }
 }
