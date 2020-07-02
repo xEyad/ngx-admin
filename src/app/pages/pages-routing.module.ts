@@ -1,3 +1,4 @@
+import { AddNewsComponent } from './add-news/add-news.component';
 import { NoHomeGuard } from './../gaurds/no-home.guard';
 import { UploadFinancesComponent } from './upload-finances/upload-finances.component';
 import { UploadStatsticsComponent } from './upload-statstics/upload-statstics.component';
@@ -43,6 +44,10 @@ const routes: Routes = [{
     {
       path:"uploadFinances",
       component:UploadFinancesComponent
+    },
+    {
+      path:"addNews",
+      component:AddNewsComponent
     },
     {
       path: '',

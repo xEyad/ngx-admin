@@ -44,4 +44,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'clock-outline',
     link: '/pages/addTime',
   },
+  {
+    title:"أضف خبر",
+    icon: 'radio-outline',
+    link: '/pages/addNews',
+  },
 ];
