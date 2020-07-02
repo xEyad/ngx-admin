@@ -111,7 +111,21 @@
                 "
               placeholder="الوظيفة" required [(ngModel)]="user.job" #job="ngModel" name="job">
             </div>
+            <div class="w-100">
+              <label class="label">صورة المستخدم</label>
+              <div class="form-group">
+                  <input type="file" name="image" nbInput (change)="fileProgress($event)" required ngModel #image="ngModel"/>
+              </div>
+              <div class="image-preview mb-3" *ngIf="previewUrl">
+                <img [src]="previewUrl" height="300" />
+              </div>
+
+              <div class="mb-3" *ngIf="uploadedFilePath">
+                  {{uploadedFilePath}}
+              </div>
+            </div>
             <button
+            class="mb-5"
               nbButton
               fullWidth
               status="primary"
