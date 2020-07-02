@@ -11,13 +11,33 @@ import { NbToastrService } from '@nebular/theme';
 export class RegisterComponent implements OnInit {
 
   user:{email,password,type,username,job} = {email:null,password:"123456",type:null,username:null,job:""};
+  fileData: File = null;
+  previewUrl:any = null;
+  uploadedFilePath: string = null;
+
   constructor(
-    private router:Router,
     private auth:AuthenticationService,
     private toast:NbToastrService
     ) { }
 
   ngOnInit(): void {
+  }
+  fileProgress(fileInput: any) {
+    this.fileData = <File>fileInput.target.files[0];
+    this.preview();
+}
+  preview() {
+    // Show preview
+    var mimeType = this.fileData.type;
+    if (mimeType.match(/image\/*/) == null) {
+      return;
+    }
+
+    var reader = new FileReader();
+    reader.readAsDataURL(this.fileData);
+    reader.onload = (_event) => {
+      this.previewUrl = reader.result;
+    }
   }
   async register()
   {

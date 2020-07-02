@@ -55,33 +55,43 @@ export class LineChartComponent implements OnInit {
     this.sessionDurations = Utility.getAllOfKey(this.siteData,'Session Duration')[Utility.getAllOfKey(this.siteData,'Session Duration').length-1];
     this.views = Utility.getAllOfKey(this.siteData,'Total Number Of Views')[Utility.getAllOfKey(this.siteData,'Total Number Of Views').length-1];
   }
+  abs(n)
+  {
+    return Math.abs(n);
+  }
   dailyData()
   {
     const options = { weekday: 'long'};
     let labels = [];
-    for (let index = this.dates.length-1; index > this.dates.length-7; index--) {
-      const date = this.dates[index];
-      labels.push(date.toLocaleDateString('ar-EG',options));
-    }
 
-    let visitors =Utility.getAllOfKey(this.siteData,'New Visistors')
-    for (let index = visitors.length-1; index > visitors.length-7; index--) {
-      const visitor = visitors[index];
-      visitors.push(visitor);
+    const days = this.dates.slice(this.dates.length-7);
+    for (const day of days) {
+      labels.push(day.toLocaleDateString('ar-EG',options));
     }
+    let newVisitors = Utility.getAllOfKey(this.siteData,'New Visistors');
+    let oldVisitors = Utility.getAllOfKey(this.siteData,'Old Visistors');
     this.data.labels = labels;
-    this.data.datasets[0].data = visitors;
+
+    this.data.datasets[0].data = newVisitors.slice(newVisitors.length-7);
+    this.data.datasets[1].data = oldVisitors.slice(oldVisitors.length-7);
+
     this.sessionsEval = Utility.calculateDailyRate(Utility.getAllOfKey(this.siteData,'Website Visistors Number'));
     this.sessionDurationsEval = Utility.calculateDailyRate(Utility.getAllOfKey(this.siteData,'Session Duration'));
     this.viewsEval = Utility.calculateDailyRate(Utility.getAllOfKey(this.siteData,'Total Number Of Views'));
   }
+
   monthlyData()
   {
     const options = { month: 'long'};
     let labels = [];
-    for (let index = this.dates.length-1; index > this.dates.length-12; index--) {
-      const date = this.dates[index];
-      labels.push(date.toLocaleDateString('ar-EG',options));
+
+    //how many 30s? (max of 12)
+    //total new visitors for every month
+    //total old visitors for every month
+    //it should be in the end 2 arrays with max of 12 entry
+    const months = this.dates.slice(this.dates.length-61);
+    for (const month of months) {
+      labels.push(month.toLocaleDateString('ar-EG',options));
     }
 
     let visitors = Utility.getAllOfKey(this.siteData,'New Visistors')

@@ -86,53 +86,57 @@ export class UsersChartComponent implements OnInit {
     let res = this.getPerDay(this.fbUsers) *100/arr[arr.length-2];
     return res.toFixed(1);
   }
+  abs(n)
+  {
+    return Math.abs(n);
+  }
   dailyData()
   {
     this.single = [
       {
         "name": "فيسبوك",
-        "value": this.getPerDay(this.fbUsers),
+        "value": this.fbUsers.reverse()[0],
         "evaluation":this.getPerDayEval(this.fbUsers)
       },
       {
         "name": "يوتيوب",
-        "value":  this.getPerDay(this.ytUsers),
+        "value":  this.ytUsers.reverse()[0],
         "evaluation":this.getPerDayEval(this.ytUsers)
 
       },
       {
         "name": "تويتر",
-        "value":  this.getPerDay(this.twUsers),
+        "value":  this.twUsers.reverse()[0],
         "evaluation":this.getPerDayEval(this.twUsers)
 
       },
       {
         "name": "أنستاجرام",
-        "value":  this.getPerDay(this.inUsers),
+        "value":  this.inUsers.reverse()[0],
         "evaluation":this.getPerDayEval(this.inUsers)
 
       },
       {
         "name": "Referable",
-        "value":  this.getPerDay(this.refUsers),
+        "value":  this.refUsers.reverse()[0],
         "evaluation":this.getPerDayEval(this.refUsers)
 
       },
       {
         "name": "مباشر",
-        "value":  this.getPerDay(this.liveUsers),
+        "value":  this.liveUsers.reverse()[0],
         "evaluation":this.getPerDayEval(this.liveUsers)
 
       },
       {
         "name":"طبيعي",
-        "value":  this.getPerDay(this.naturalUsers),
+        "value":  this.naturalUsers.reverse()[0],
         "evaluation":this.getPerDayEval(this.naturalUsers)
 
       },
       {
         "name": "أخر",
-        "value":  this.getPerDay(this.otherUsers),
+        "value":  this.otherUsers.reverse()[0],
         "evaluation":this.getPerDayEval(this.otherUsers)
 
       }
@@ -145,55 +149,55 @@ export class UsersChartComponent implements OnInit {
   }
   private getPerWeekEval(arr)
   {
-    return Utility.getDifferenceFromLastWeek(arr);
+    return Utility.getDifferenceFromLastWeek(arr).toFixed(1);
   }
   weeklyData()
   {
     this.single = [
       {
         "name": "فيسبوك",
-        "value": this.getPerWeek(this.fbUsers),
+        "value": this.fbUsers.reverse()[0],
         "evaluation":this.getPerWeekEval(this.fbUsers)
       },
       {
         "name": "يوتيوب",
-        "value":  this.getPerWeek(this.ytUsers),
+        "value":  this.ytUsers.reverse()[0],
         "evaluation":this.getPerWeekEval(this.ytUsers)
 
       },
       {
         "name": "تويتر",
-        "value":  this.getPerWeek(this.twUsers),
+        "value":  this.twUsers.reverse()[0],
         "evaluation":this.getPerWeekEval(this.twUsers)
 
       },
       {
         "name": "أنستاجرام",
-        "value":  this.getPerWeek(this.inUsers),
+        "value":  this.inUsers.reverse()[0],
         "evaluation":this.getPerWeekEval(this.inUsers)
 
       },
       {
         "name": "Referable",
-        "value":  this.getPerWeek(this.refUsers),
+        "value":  this.refUsers.reverse()[0],
         "evaluation":this.getPerWeekEval(this.refUsers)
 
       },
       {
         "name": "مباشر",
-        "value":  this.getPerWeek(this.liveUsers),
+        "value":  this.liveUsers.reverse()[0],
         "evaluation":this.getPerWeekEval(this.liveUsers)
 
       },
       {
         "name":"طبيعي",
-        "value":  this.getPerWeek(this.naturalUsers),
+        "value":  this.naturalUsers.reverse()[0],
         "evaluation":this.getPerWeekEval(this.naturalUsers)
 
       },
       {
         "name": "أخر",
-        "value":  this.getPerWeek(this.otherUsers),
+        "value":  this.otherUsers.reverse()[0],
         "evaluation":this.getPerWeekEval(this.otherUsers)
 
       }
@@ -208,55 +212,55 @@ export class UsersChartComponent implements OnInit {
   private getPerMonthEval(arr)
   {
     // this.getPerMonth(this.fbUsers) *100/arr[arr.lenght-2]
-    return Utility.getDifferenceFromLastMonth(arr);
+    return Utility.getDifferenceFromLastMonth(arr).toFixed(1);
   }
   monthlyData()
   {
     this.single = [
       {
         "name": "فيسبوك",
-        "value": this.getPerMonth(this.fbUsers),
+        "value": this.fbUsers.reverse()[0],
         "evaluation":this.getPerMonthEval(this.fbUsers)
       },
       {
         "name": "يوتيوب",
-        "value":  this.getPerMonth(this.ytUsers),
+        "value":  this.ytUsers.reverse()[0],
         "evaluation":this.getPerMonthEval(this.ytUsers)
 
       },
       {
         "name": "تويتر",
-        "value":  this.getPerMonth(this.twUsers),
+        "value":  this.twUsers.reverse()[0],
         "evaluation":this.getPerMonthEval(this.twUsers)
 
       },
       {
         "name": "أنستاجرام",
-        "value":  this.getPerMonth(this.inUsers),
+        "value":  this.inUsers.reverse()[0],
         "evaluation":this.getPerMonthEval(this.inUsers)
 
       },
       {
         "name": "Referable",
-        "value":  this.getPerMonth(this.refUsers),
+        "value":  this.refUsers.reverse()[0],
         "evaluation":this.getPerMonthEval(this.refUsers)
 
       },
       {
         "name": "مباشر",
-        "value":  this.getPerMonth(this.liveUsers),
+        "value":  this.liveUsers.reverse()[0],
         "evaluation":this.getPerMonthEval(this.liveUsers)
 
       },
       {
         "name":"طبيعي",
-        "value":  this.getPerMonth(this.naturalUsers),
+        "value":  this.naturalUsers.reverse()[0],
         "evaluation":this.getPerMonthEval(this.naturalUsers)
 
       },
       {
         "name": "أخر",
-        "value":  this.getPerMonth(this.otherUsers),
+        "value":  this.otherUsers.reverse()[0],
         "evaluation":this.getPerMonthEval(this.otherUsers)
 
       }

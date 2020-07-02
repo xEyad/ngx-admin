@@ -1,6 +1,7 @@
+import { Utility } from './../../../models/utility';
 import { EmployeeService } from './../../../services/employee.service';
 import { Component, OnInit, Input } from '@angular/core';
-import { NbDialogRef } from '@nebular/theme';
+const e2a = s => s.replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
 
 @Component({
   selector: 'ngx-employee-history',
@@ -10,24 +11,23 @@ import { NbDialogRef } from '@nebular/theme';
 export class EmployeeHistoryComponent implements OnInit {
 
   constructor(
-    protected dialogRef: NbDialogRef<any>,
     private employeeService:EmployeeService
     ) {
 
     }
-  empoloyeeHistory=[];
-  employeeName:string="";
+  @Input() empoloyeeHistory=[];
   async ngOnInit()
   {
-
+    this.empoloyeeHistory = this.empoloyeeHistory.reverse();
+  }
+  parseTime(time)
+  {
+    return Utility.minutesToHHMM(time);
   }
   parseDate(string)
   {
     let d = new Date(string);
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     return d.toLocaleDateString('ar-EG', options);
-  }
-  close() {
-    this.dialogRef.close();
   }
 }

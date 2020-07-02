@@ -1,6 +1,21 @@
-
+const e2a = s => s.replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
 export class Utility
 {
+  static minutesToHHMM(mins)
+  {
+    try{
+      let date = new Date(0);
+      date.setMinutes(mins); // specify value for minutes here
+      let timeString = date.toISOString().substr(11, 5);
+      timeString = e2a(timeString);
+      // timeString = timeString.split(':').reverse().join(':');
+      return timeString;
+    }
+    catch(e)
+    {
+      return 'error'
+    }
+  }
   static getTotalOfKey(stats,keyName):number
   {
     let total=0;
@@ -64,24 +79,10 @@ export class Utility
   {
     if(data.length < 14)
       return 0;
-    let end = data.length-1;
-    let last = [];
-    let beforeLast = [];
-    for (let i = end; i >= end-7 ; i--)
-    {
-      const stat = data[i];
-      last.push(stat);
-    }
+    let last = data.slice(data.length-7);
+    let beforeLast = data.slice(data.length-14,data.length-7);
 
-    end = end-7;
-    for (let i = end-7; i >= end-7 ; i--)
-    {
-      const stat = data[i];
-      beforeLast.push(stat);
-    }
-
-
-    let difference =  Utility.average(beforeLast)-Utility.average(last);
+    let difference =  Utility.average(last) - Utility.average(beforeLast);
 
     return (difference*100)/Utility.average(last);
   }
@@ -89,24 +90,12 @@ export class Utility
   {
     if(data.length < 60)
       return 0;
-    let end = data.length-1;
-    let last = [];
-    let beforeLast = [];
-    for (let i = end; i >= end-30 ; i--)
-    {
-      const stat = data[i];
-      last.push(stat);
-    }
+      if(data.length < 14)
+      return 0;
+    let last = data.slice(data.length-30);
+    let beforeLast = data.slice(data.length-60,data.length-30);
 
-    end = end-30;
-    for (let i = end-30; i >= end-30 ; i--)
-    {
-      const stat = data[i];
-      beforeLast.push(stat);
-    }
-
-
-    let difference =  Utility.average(beforeLast)-Utility.average(last);
+    let difference =  Utility.average(last) - Utility.average(beforeLast);
 
     return (difference*100)/Utility.average(last);
   }

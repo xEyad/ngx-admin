@@ -4,18 +4,17 @@
       <nb-card-body>
         <div class="containing-box">
           <div class="heading">
-            <h1>{{ disk.userName }}</h1>
-            <p class="sub-title">{{ disk.job }}</p>
+            <h1>أضف خبر</h1>
+            <p class="sub-title">{{ curDate }}</p>
           </div>
-          <input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".xlsx" nbInput >
+          <p-editor [(ngModel)]="text" [style]="{'height':'320px'}" class="mb-5"></p-editor>
           <button
               nbButton
-              fullWidth
               status="primary"
               size="large"
               [disabled]="false"
               [class.btn-pulse]="false"
-              (click)="upload()"
+              (click)="addNews()"
               [disabled]="file==undefined"
             >
               رفع

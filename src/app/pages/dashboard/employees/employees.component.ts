@@ -1,9 +1,8 @@
 import { Utility } from './../../../models/utility';
 import { UsersService } from './../../../services/users.service';
 import { Component, OnInit } from '@angular/core';
-import { NbDialogService, NbDialogRef } from '@nebular/theme';
 import { EmployeeHistoryComponent } from '../employee-history/employee-history.component';
-import { NumberSymbol } from '@angular/common';
+import { ComponentPortal } from '@angular/cdk/portal';
 
 @Component({
   selector: 'ngx-employees',
@@ -14,26 +13,31 @@ export class EmployeesComponent implements OnInit {
   employees:any[];
   selectedDuration:string = 'Daily';
   viewedDuration:string = 'day';
+  selectedEmployee:any;
+  showHistory: boolean;
+  employeePortal;
   constructor(
-    private dialogService: NbDialogService,
-    private usersService:UsersService
+    private usersService:UsersService,
     ) { }
 
   async ngOnInit()
   {
     this.employees = await this.usersService.getUsers();
+    console.log('employees',this.employees);
+
     this.employees = this.employees.filter((e)=>e.type=="dataEntry" || e.type=="employee");
     this.employees = this.employees.map((e)=>{
       return {
         //array of {date,durations}
-        dailyRate:this.calculateDailyRate(<any>e.activities),
-        weeklyRate:this.calculateWeeklyRate(<any>e.activities),
-        monthlyRate:this.calculatMonthklyRate(<any>e.activities),
+        dailyRate:Utility.minutesToHHMM(this.calculateDailyRate(<any>e.activities)),
+        weeklyRate:Utility.minutesToHHMM(this.calculateWeeklyRate(<any>e.activities)),
+        monthlyRate:Utility.minutesToHHMM(this.calculatMonthklyRate(<any>e.activities)),
         username:e.username,
         title:e.job,
         activities:e.activities
       };
     });
+    this.employeePortal = new ComponentPortal(EmployeeHistoryComponent);
   }
   calculateDailyRate(data:{date,duration}[])
   {
@@ -59,7 +63,6 @@ export class EmployeesComponent implements OnInit {
     return Math.floor(monthlyAvg);
   }
 
-
   changeDuration(selection:string)
   {
     this.selectedDuration = selection;
@@ -77,11 +80,9 @@ export class EmployeesComponent implements OnInit {
         break;
     }
   }
+
   openHistory(emp) {
-    let empoloyeeHistory=emp.activities;
-    let ref = this.dialogService.open(EmployeeHistoryComponent,);
-    ref.componentRef.instance.empoloyeeHistory = empoloyeeHistory;
-    ref.componentRef.instance.employeeName = emp.username;
-    ref.componentRef.changeDetectorRef.detectChanges();
+    this.showHistory = true;
+    this.selectedEmployee = emp;
   }
 }

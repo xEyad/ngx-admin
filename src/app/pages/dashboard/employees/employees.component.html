@@ -1,4 +1,11 @@
+
 <nb-card class="shadow" size="medium">
+  <nb-card-header class="desktop"  *ngIf="showHistory">
+    <div class="d-flex justify-content-between">
+      <nb-user [name]="selectedEmployee.username" [title]="selectedEmployee.job"></nb-user>
+      <nb-icon icon="close-square-outline" class="clickable" (click)="showHistory=false"></nb-icon>
+    </div>
+  </nb-card-header>
   <nb-card-header class="tablet">
     <div class="d-flex justify-content-between">
       <span>الموظفين</span>
@@ -10,10 +17,12 @@
     </div>
   </nb-card-header>
   <nb-card-body>
-    <div  class="desktop">
+  <ngx-employee-history *ngIf="showHistory" [empoloyeeHistory]="selectedEmployee.activities" ></ngx-employee-history>
+
+    <div  class="desktop" *ngIf="!showHistory">
       <ng-container *ngTemplateOutlet="table"></ng-container>
     </div>
-    <div class="tablet">
+    <div class="tablet" *ngIf="!showHistory">
       <ng-container *ngTemplateOutlet="cards" ></ng-container>
     </div>
   </nb-card-body>
@@ -55,3 +64,6 @@
     </tbody>
   </table>
 </ng-template>
+
+
+
