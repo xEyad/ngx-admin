@@ -1,6 +1,22 @@
-
+const e2a = s => s.replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
 export class Utility
 {
+  static minutesToHHMM(mins)
+  {
+    try{
+      let date = new Date(0);
+      date.setMinutes(mins); // specify value for minutes here
+      let timeString = date.toISOString().substr(11, 5);
+      console.log(timeString)
+      timeString = e2a(timeString);
+      // timeString = timeString.split(':').reverse().join(':');
+      return timeString;
+    }
+    catch(e)
+    {
+      return 'error'
+    }
+  }
   static getTotalOfKey(stats,keyName):number
   {
     let total=0;

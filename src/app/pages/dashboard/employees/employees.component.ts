@@ -23,13 +23,15 @@ export class EmployeesComponent implements OnInit {
   async ngOnInit()
   {
     this.employees = await this.usersService.getUsers();
+    console.log('employees',this.employees);
+
     this.employees = this.employees.filter((e)=>e.type=="dataEntry" || e.type=="employee");
     this.employees = this.employees.map((e)=>{
       return {
         //array of {date,durations}
-        dailyRate:this.calculateDailyRate(<any>e.activities),
-        weeklyRate:this.calculateWeeklyRate(<any>e.activities),
-        monthlyRate:this.calculatMonthklyRate(<any>e.activities),
+        dailyRate:Utility.minutesToHHMM(this.calculateDailyRate(<any>e.activities)),
+        weeklyRate:Utility.minutesToHHMM(this.calculateWeeklyRate(<any>e.activities)),
+        monthlyRate:Utility.minutesToHHMM(this.calculatMonthklyRate(<any>e.activities)),
         username:e.username,
         title:e.job,
         activities:e.activities
@@ -60,7 +62,6 @@ export class EmployeesComponent implements OnInit {
     let monthlyAvg = (this.calculateDailyRate(data)*30) / months;
     return Math.floor(monthlyAvg);
   }
-
 
   changeDuration(selection:string)
   {

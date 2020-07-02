@@ -1,3 +1,4 @@
+import { Utility } from './../../../models/utility';
 import { EmployeeService } from './../../../services/employee.service';
 import { Component, OnInit, Input } from '@angular/core';
 const e2a = s => s.replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
@@ -21,20 +22,7 @@ export class EmployeeHistoryComponent implements OnInit {
   }
   parseTime(time)
   {
-    try{
-
-
-    let date = new Date(0);
-    date.setMinutes(time); // specify value for SECONDS here
-    let timeString = date.toISOString().substr(11, 5);
-    timeString = e2a(timeString);
-    timeString = timeString.split(':').reverse().join(':');
-    return timeString;
-    }
-    catch(e)
-    {
-      return 'error'
-    }
+    return Utility.minutesToHHMM(time);
   }
   parseDate(string)
   {
