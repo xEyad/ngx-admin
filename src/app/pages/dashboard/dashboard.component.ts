@@ -123,7 +123,7 @@ export class DashboardComponent implements OnInit{
         icon:"fas fa-thumbs-up"
       },
       {
-        name:'مشاهدات',
+        name:'مشاهدة',
         value:Utility.getAllOfKey(this.stats,'Youtube Views')[Utility.getAllOfKey(this.stats,'Youtube Views').length-1],
         icon:"fas fa-eye"
       },

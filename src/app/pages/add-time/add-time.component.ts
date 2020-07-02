@@ -2,7 +2,7 @@ import { NbToastrService } from '@nebular/theme';
 import { EmployeeService } from './../../services/employee.service';
 import { DiskService } from './../../services/disk.service';
 import { Component, OnInit } from '@angular/core';
-
+const arabicToEnglish = s => s.replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d))
 @Component({
   selector: 'ngx-add-time',
   templateUrl: './add-time.component.html',
@@ -19,9 +19,11 @@ export class AddTimeComponent implements OnInit {
     ) { }
   setDuration(time)
   {
-    this.duration=time;
-    console.log(time);
-
+    time = arabicToEnglish(time);
+    let d = time.split(':');
+    let mins = Number(d[0])*60 + Number(d[1]);
+    this.duration=mins;
+    console.log(`time: ${time}. duration:${mins}`);
   }
   async add()
   {

@@ -2,7 +2,7 @@
 <nb-card class="shadow" size="medium">
   <nb-card-header class="desktop"  *ngIf="showHistory">
     <div class="d-flex justify-content-between">
-      <span>{{selectedEmployee.username}}</span>
+      <nb-user [name]="selectedEmployee.username" [title]="selectedEmployee.job"></nb-user>
       <nb-icon icon="close-square-outline" class="clickable" (click)="showHistory=false"></nb-icon>
     </div>
   </nb-card-header>
@@ -52,7 +52,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let emp of employees" (click)="openHistory(emp)" class="clickable" data-toggle="modal" data-target="#exampleModalLong">
+      <tr *ngFor="let emp of employees" (click)="openHistory(emp)" class="clickable">
         <td class="align-middle">
       <nb-user [name]="emp.username" [title]="emp.job"></nb-user>
         </td>
