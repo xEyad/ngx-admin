@@ -34,7 +34,11 @@
       <span>{{stat.name}}</span>
     </div>
     <div class="value col-4">{{stat.value}}</div>
-    <div class="evaluation col-4">{{stat.evaluation}}% </div>
+    <div class="evaluation col-4">
+      <nb-icon icon="arrow-upward-outline" *ngIf="stat.evaluation >= 0" status="success"></nb-icon>
+      <nb-icon icon="arrow-downward-outline" *ngIf="stat.evaluation < 0" status="danger"></nb-icon>
+      <span>{{abs(stat.evaluation)}}% </span>
+      </div>
   </div>
   <div class="divider"></div>
 </nb-card-footer>

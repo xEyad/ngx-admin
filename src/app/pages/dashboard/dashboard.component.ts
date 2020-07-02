@@ -14,9 +14,9 @@ export class DashboardComponent implements OnInit{
   fbLikes=0;
   twitterRetweets=0;
   youtubeFollowers=0;
-  twitterDifference=0;
-  youtubeDifference=0;
-  fbDifference=0;
+  twitterDifference='0';
+  youtubeDifference='0';
+  fbDifference='0';
   facebokInfo:{name,value,icon}[];
   twitterInfo:{name,value,icon}[];
   youtubeInfo:{name,value,icon}[];
@@ -36,9 +36,9 @@ export class DashboardComponent implements OnInit{
     this.twitterRetweets = Utility.getAllOfKey(this.stats,'Twitter Retweets')[Utility.getAllOfKey(this.stats,'Twitter Retweets').length-1];
     this.fbLikes = Utility.getAllOfKey(this.stats,'Facebook Likes')[Utility.getAllOfKey(this.stats,'Facebook Likes').length-1];
 
-    this.twitterDifference = Utility.getDifferenceFromLastWeek(Utility.getAllOfKey(this.stats,'Twitter Retweets'));
-    this.youtubeDifference = Utility.getDifferenceFromLastWeek(Utility.getAllOfKey(this.stats,'Youtube Followers'));
-    this.fbDifference = Utility.getDifferenceFromLastWeek(Utility.getAllOfKey(this.stats,'Facebook Likes'));
+    this.twitterDifference = Utility.getDifferenceFromLastWeek(Utility.getAllOfKey(this.stats,'Twitter Retweets')).toFixed(1);
+    this.youtubeDifference = Utility.getDifferenceFromLastWeek(Utility.getAllOfKey(this.stats,'Youtube Followers')).toFixed(1);
+    this.fbDifference = Utility.getDifferenceFromLastWeek(Utility.getAllOfKey(this.stats,'Facebook Likes')).toFixed(1);
 
   }
   fillInfo()
@@ -150,7 +150,7 @@ export class DashboardComponent implements OnInit{
 }
 
 
-const statstics = Array(26).fill(
+const mockStatstics = Array(26).fill(
   {
     "statistics": [
       {

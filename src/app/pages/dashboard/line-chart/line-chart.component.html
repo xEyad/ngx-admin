@@ -24,7 +24,7 @@
         <div class="stat">
           <div class="value">{{views}}</div>
           <div class="label">
-            <i [ngClass]="{'fas fa-arrow-up': viewsEval>0,'fas fa-arrow-down': viewsEval<=0}"></i> {{viewsEval}}%
+            <i [ngClass]="{'fas fa-arrow-up': viewsEval>0,'fas fa-arrow-down': viewsEval<=0}"></i> {{abs(viewsEval)}}%
             أجمالي المشاهدات
           </div>
         </div>
@@ -33,7 +33,7 @@
         <div class="stat">
           <div class="value">{{sessionDurations}}</div>
           <div class="label">
-            <i [ngClass]="{'fas fa-arrow-up': viewsEval>0,'fas fa-arrow-down': sessionDurationsEval<=0}"></i>  {{sessionDurationsEval}}%
+            <i [ngClass]="{'fas fa-arrow-up': viewsEval>0,'fas fa-arrow-down': sessionDurationsEval<=0}"></i>  {{abs(sessionDurationsEval)}}%
             مدة الزيارة
           </div>
         </div>
@@ -42,7 +42,7 @@
         <div class="stat">
           <div class="value">{{sessions}}</div>
           <div class="label">
-            <i [ngClass]="{'fas fa-arrow-up': viewsEval>0,'fas fa-arrow-down': sessionsEval<=0}"></i> {{sessionsEval}}%
+            <i [ngClass]="{'fas fa-arrow-up': viewsEval>0,'fas fa-arrow-down': sessionsEval<=0}"></i> {{abs(sessionsEval)}}%
             أجمالي الزيارات
           </div>
         </div>

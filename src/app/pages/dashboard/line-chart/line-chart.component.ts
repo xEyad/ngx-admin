@@ -55,6 +55,10 @@ export class LineChartComponent implements OnInit {
     this.sessionDurations = Utility.getAllOfKey(this.siteData,'Session Duration')[Utility.getAllOfKey(this.siteData,'Session Duration').length-1];
     this.views = Utility.getAllOfKey(this.siteData,'Total Number Of Views')[Utility.getAllOfKey(this.siteData,'Total Number Of Views').length-1];
   }
+  abs(n)
+  {
+    return Math.abs(n);
+  }
   dailyData()
   {
     const options = { weekday: 'long'};
