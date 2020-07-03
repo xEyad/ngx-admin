@@ -10,61 +10,86 @@ import { ComponentPortal } from '@angular/cdk/portal';
   styleUrls: ['./employees.component.scss']
 })
 export class EmployeesComponent implements OnInit {
-  employees:any[];
-  selectedDuration:string = 'Daily';
-  viewedDuration:string = 'day';
-  selectedEmployee:any;
+  employees: any[];
+  selectedDuration: string = 'Daily';
+  viewedDuration: string = 'day';
+  selectedEmployee: any;
   showHistory: boolean;
   employeePortal;
   constructor(
-    private usersService:UsersService,
-    ) { }
+    private usersService: UsersService,
+  ) { }
 
-  async ngOnInit()
-  {
+  async ngOnInit() {
     this.employees = await this.usersService.getUsers();
-    console.log('employees',this.employees);
+    console.log('employees', this.employees);
 
-    this.employees = this.employees.filter((e)=>e.type=="dataEntry" || e.type=="employee");
-    this.employees = this.employees.map((e)=>{
+    this.employees = this.employees.filter((e) => e.type == "dataEntry" || e.type == "employee");
+    this.employees = this.employees.map((e) => {
       return {
         //array of {date,durations}
-        dailyRate:Utility.minutesToHHMM(this.calculateDailyRate(<any>e.activities)),
-        weeklyRate:Utility.minutesToHHMM(this.calculateWeeklyRate(<any>e.activities)),
-        monthlyRate:Utility.minutesToHHMM(this.calculatMonthklyRate(<any>e.activities)),
-        username:e.username,
-        title:e.job,
-        activities:e.activities
+        dailyRate: Utility.minutesToHHMM(this.totalHoursInRecentDay(<any>e.activities)),
+        weeklyRate: Utility.minutesToHHMM(this.totalHoursInRecentWeek(<any>e.activities)),
+        monthlyRate: Utility.minutesToHHMM(this.totalHoursInRecentMonth(<any>e.activities)),
+        username: e.username,
+        title: e.job,
+        activities: e.activities
       };
     });
     this.employeePortal = new ComponentPortal(EmployeeHistoryComponent);
   }
-  calculateDailyRate(data:{date,duration}[])
-  {
-    let avg = Utility.average(data.map((e)=>parseInt(e.duration)))
-    return Math.floor(avg);
-  }
-  calculateWeeklyRate(data:{date,duration}[])
-  {
-    let nums = data.map((e)=>e.duration);
-    let weeks = Math.floor(nums.length/7);
-    if(weeks==0)
+  totalHoursInRecentDay(data: { date, duration }[]) {
+    try {
+      data = data.reverse();
+      let date = data[0].date;
+      data = data.filter((el) => new Date(el.date).getDay() == new Date(date).getDay());
+      let mins = 0;
+      for (const emp of data) {
+        mins += parseInt(emp.duration);
+      }
+      return mins;
+    } catch (e) {
+      console.error(e)
       return 0;
-    let weeklyAvg = (this.calculateDailyRate(data)*7) / weeks;
-    return Math.floor(weeklyAvg);
+    }
+
   }
-  calculatMonthklyRate(data:{date,duration}[])
-  {
-    let nums = data.map((e)=>e.duration);
-    let months = Math.floor(nums.length/30);
-    if(months==0)
+  totalHoursInRecentWeek(data: { date, duration }[]) {
+    try {
+      data = data.reverse().slice(0, 7);
+
+      let mins = 0;
+      for (const emp of data) {
+        mins += parseInt(emp.duration);
+      }
+      return mins;
+
+    } catch (e) {
+      console.error(e)
       return 0;
-    let monthlyAvg = (this.calculateDailyRate(data)*30) / months;
-    return Math.floor(monthlyAvg);
+    }
+  }
+  totalHoursInRecentMonth(data: { date, duration }[]) {
+    try {
+      data = data.reverse();
+      let date = data[0].date;
+      data = data.filter(
+        (el) =>
+          (new Date(el.date).getMonth() == new Date(date).getMonth()) &&
+          (new Date(el.date).getFullYear() == new Date(date).getFullYear())
+      );
+      let mins = 0;
+      for (const emp of data) {
+        mins += parseInt(emp.duration);
+      }
+      return mins;
+    } catch (e) {
+      console.error(e)
+      return 0;
+    }
   }
 
-  changeDuration(selection:string)
-  {
+  changeDuration(selection: string) {
     this.selectedDuration = selection;
     switch (selection.toLowerCase()) {
       case 'daily':
