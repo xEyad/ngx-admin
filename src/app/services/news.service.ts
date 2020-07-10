@@ -12,8 +12,9 @@ export class NewsService {
     private http: HttpClient
     ) { }
 
-  async getNews(): Promise<any> {
-    return this.http.get(`${this.disk.baseUrl}/texts`, this.header).toPromise();
+  async getNews(recentFirst:boolean = true): Promise<any> {
+    let res = await this.http.get<[]>(`${this.disk.baseUrl}/texts`, this.header).toPromise();
+    return res.reverse();
   }
   async addNews(string:string): Promise<any> {
     return this.http.post(`${this.disk.baseUrl}/texts`,{text:string}, this.header,).toPromise();

@@ -1,8 +1,8 @@
 <nb-card class="shadow" size="large">
   <nb-card-header>
-    <div class="d-flex justify-content-between">
-      <div class="date" *ngIf="news">
-        {{ parseDate(news[news.length - 1].date) }}
+    <div class="d-flex justify-content-between " *ngIf="news">
+      <div class="date" *ngFor="let item of news | paginate: config">
+        {{ parseDate(item.date) }}
       </div>
       <pagination-controls
         [previousLabel]="''"
