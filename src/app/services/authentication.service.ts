@@ -12,14 +12,15 @@ export class AuthenticationService {
     private disk:DiskService
     ) { }
 
-  async createUser(email:string,role:string,password:string,username:string,job="") : Promise<any>
+  async createUser(email:string,role:string,password:string,username:string,image:String,job="") : Promise<any>
   {
     let payload = {
       "email": email,
       "password": password,
       "type": role,
       "job": job,
-      "username":username
+      "username":username,
+      "image": image
     }
     return this.http.post(`${this.disk.baseUrl}/users`,payload).toPromise();
   }
