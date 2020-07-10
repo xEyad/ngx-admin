@@ -4,7 +4,7 @@
     class="col-xxl-8 col-xl-8 col-lg-12 col-md-12 col-sm-12"
     *ngIf="userRole == 'admin'"
   >
-    <ngx-expenses></ngx-expenses>
+    <ngx-expenses (click)="goToExpenses()" class="clickable"></ngx-expenses>
   </div>
   <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12">
     <ngx-simple-card [data]="stats"></ngx-simple-card>
