@@ -5,4 +5,7 @@ p-editor::ng-deep .ql-editor{
   display: flex;
   align-items: center;
   flex-direction: column;
+  p-editor{
+    width: 100%;
+  }
 }
