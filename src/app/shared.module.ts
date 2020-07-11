@@ -22,7 +22,7 @@ import {
 import { FormsModule } from '@angular/forms';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import {EditorModule} from 'primeng/editor';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
   ],
@@ -49,6 +49,7 @@ import {EditorModule} from 'primeng/editor';
     NbUserModule,
     NgxMaterialTimepickerModule.setLocale('ar-EG'),
     EditorModule,
+    NgxPaginationModule
   ],
   exports:[
     HttpClientModule,
@@ -72,6 +73,7 @@ import {EditorModule} from 'primeng/editor';
     NbUserModule,
     NgxMaterialTimepickerModule,
     EditorModule,
+    NgxPaginationModule
   ]
 })
 export class SharedModule {

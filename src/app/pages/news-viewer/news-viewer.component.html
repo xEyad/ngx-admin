@@ -1,0 +1,29 @@
+<nb-card class="shadow" size="large">
+  <nb-card-header>
+    <div class="d-flex justify-content-between " *ngIf="news">
+      <div class="date" *ngFor="let item of news | paginate: config">
+        {{ parseDate(item.date) }}
+      </div>
+      <pagination-controls
+        [previousLabel]="''"
+        [nextLabel]="''"
+        [directionLinks]="true"
+        [maxSize]="4"
+        [autoHide]="true"
+        [responsive]="true"
+        (pageChange)="pageChanged($event)"
+      ></pagination-controls>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="container-fluid" *ngIf="news">
+      <div class="row">
+        <div class="col-12">
+          <pre *ngFor="let item of news | paginate: config">
+            {{ item.text }}
+          </pre>
+        </div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

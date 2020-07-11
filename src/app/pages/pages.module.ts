@@ -12,6 +12,7 @@ import { UploadStatsticsComponent } from './upload-statstics/upload-statstics.co
 import { UploadFinancesComponent } from './upload-finances/upload-finances.component';
 import { AddTimeComponent } from './add-time/add-time.component';
 import { AddNewsComponent } from './add-news/add-news.component';
+import { NewsViewerComponent } from './news-viewer/news-viewer.component';
 
 @NgModule({
   imports: [
@@ -30,7 +31,7 @@ import { AddNewsComponent } from './add-news/add-news.component';
     RegisterComponent,
     UpdateUserPasswordComponent,
     ResetPasswordComponent,
-    AddNewsComponent
+    AddNewsComponent,
   ],
 })
 export class PagesModule {

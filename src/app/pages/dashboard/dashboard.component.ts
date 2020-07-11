@@ -3,6 +3,7 @@ import { Utility } from './../../models/utility';
 
 import { DiskService } from './../../services/disk.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ngx-dashboard',
@@ -22,10 +23,14 @@ export class DashboardComponent implements OnInit{
   youtubeInfo:{name,value,icon}[];
   constructor(
     private disk:DiskService,
-    private statsService:StatsticsService
+    private statsService:StatsticsService,
+    private router:Router
     )
   {
     this.userRole = disk.currentUserType.toLocaleLowerCase();
+  }
+  goToExpenses(){
+    this.router.navigateByUrl('/pages/uploadFinances');
   }
   async ngOnInit()
   {

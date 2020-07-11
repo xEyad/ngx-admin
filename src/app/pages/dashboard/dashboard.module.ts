@@ -1,3 +1,4 @@
+import { NewsViewerComponent } from './../news-viewer/news-viewer.component';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from './../../shared.module';
 import { EmployeeHistoryComponent } from './employee-history/employee-history.component';
@@ -29,7 +30,8 @@ import { EmployeesComponent } from './employees/employees.component';
     ExpensesComponent,
     EmployeesComponent,
     ClickStopPropagation,
-    EmployeeHistoryComponent
+    EmployeeHistoryComponent,
+    NewsViewerComponent
   ],
 })
 export class DashboardModule { }

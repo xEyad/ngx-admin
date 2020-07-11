@@ -24,10 +24,10 @@ export class PagesComponent {
         this.RemoveGroupsFromMenu(["الرئيسية","أضف ماليات",'أصنع حساب','تعيين كلمة مرور']);
         break;
       case "investor":
-        this.RemoveGroupsFromMenu(["أضف ماليات",'أصنع حساب','تعيين كلمة مرور',"أضف أحصائيات","أضف وقت"]);
+        this.RemoveGroupsFromMenu(["أضف ماليات",'أصنع حساب','تعيين كلمة مرور',"أضف أحصائيات","أضف وقت","أضف خبر"]);
         break;
       case "employee":
-        this.RemoveGroupsFromMenu(["أضف ماليات",'أصنع حساب','تعيين كلمة مرور',"أضف أحصائيات", "الرئيسية"]);
+        this.RemoveGroupsFromMenu(["أضف ماليات",'أصنع حساب','تعيين كلمة مرور',"أضف أحصائيات", "الرئيسية","أضف خبر"]);
         break;
       default:
         break;
