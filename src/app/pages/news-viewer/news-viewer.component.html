@@ -19,9 +19,8 @@
     <div class="container-fluid" *ngIf="news">
       <div class="row">
         <div class="col-12">
-          <pre *ngFor="let item of news | paginate: config">
-            {{ item.text }}
-          </pre>
+          <p *ngFor="let item of news | paginate: config" [innerHtml]="item.text">
+          </p>
         </div>
       </div>
     </div>
